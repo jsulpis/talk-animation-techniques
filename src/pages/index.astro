@@ -1,22 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Title from "../slides/Title.astro";
-import WhyAstro from "../slides/WhyAstro.astro";
 ---
 
-<Layout title="My Awesome Talk Title">
-  <main class="reveal">
-    <div class="slides">
-      <Title />
-      <WhyAstro />
-      <!-- Put your slides here -->
-    </div>
-  </main>
+<Layout
+	title="Du CSS aux shaders WebGL : panorama des techniques d'animation en 2023"
+>
+	<main class="reveal">
+		<div class="slides">
+			<Title />
+		</div>
+	</main>
 </Layout>
-
-<style lang="scss">
-  // Sass is installed by default, you can change if you prefer Stylus or Less
-  main {
-    background: linear-gradient(#133055, #0c1a2a);
-  }
-</style>

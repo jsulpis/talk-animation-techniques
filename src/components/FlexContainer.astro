@@ -1,0 +1,23 @@
+---
+interface Props {
+	direction?: "row" | "column";
+}
+const { direction = "row" } = Astro.props;
+---
+
+<div class:list={["container", direction]}>
+	<slot />
+</div>
+
+<style lang="scss">
+	.container {
+		display: flex;
+		justify-content: center;
+		gap: 40px;
+		align-items: center;
+
+		&.column {
+			flex-direction: column;
+		}
+	}
+</style>

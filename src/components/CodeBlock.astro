@@ -1,0 +1,56 @@
+---
+interface Props {
+	lang: string;
+	lines?: string;
+}
+
+const { lang, lines } = Astro.props;
+---
+
+<div class="code-container">
+	<span class="code-lang">{lang}</span>
+	<pre><code class={lang} data-line-numbers={lines}><slot /></code></pre>
+</div>
+
+<style is:global lang="scss">
+	.code-container {
+		flex: 0;
+		text-align: left;
+		color: lightyellow;
+	}
+
+	.code-lang {
+		display: inline-block;
+		font-size: 1.2em;
+		margin-left: 0.5em;
+		margin-bottom: 0.25em;
+		opacity: 0.7;
+		color: var(--font-color-strong);
+	}
+
+	.reveal .code-wrapper {
+		display: flex;
+		background-color: #272822;
+		border-radius: 6px;
+		max-height: 82vh;
+		overflow: auto;
+		line-height: 1.2;
+		box-shadow: var(--shadow-lg);
+		position: relative;
+
+		&::-webkit-scrollbar {
+			width: 8px;
+			background-color: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: #555;
+			border-radius: 4px;
+		}
+
+		& > code {
+			width: fit-content;
+			padding: 2rem;
+		}
+	}
+</style>

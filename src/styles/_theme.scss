@@ -1,0 +1,45 @@
+@use "./abstract" as *;
+
+:root {
+	@each $color, $shades in $palette {
+		@each $shade, $value in $shades {
+			--color-#{$color}-#{$shade}: #{$value};
+		}
+	}
+	@each $spacing, $value in $spacings {
+		--spacing-0#{$spacing}: #{$value};
+	}
+
+	color-scheme: light dark;
+	--font-color-default: #{color(gray, 700)};
+	--font-color-strong: #{color(gray, 900)};
+	--font-color-light: #{color(gray, 400)};
+	--background-page: #{color(gray, 50)};
+	--border-light: 1px solid var(--font-color-light);
+	--border-strong: 2px solid var(--font-color-strong);
+	--border-radius-sm: #{spacing(1)};
+	--border-radius-md: #{spacing(2)};
+	--border-radius-lg: #{spacing(3)};
+	--shadow-color-hsl: 222 47% 11%;
+	--shadow-opacity: 0.15;
+	--shadow-color: hsl(var(--shadow-color-hsl) / var(--shadow-opacity));
+	--shadow-sm: 0px 4px 6px var(--shadow-color);
+	--shadow-md: 0px 8px 12px var(--shadow-color), 0px 1px 3px var(--shadow-color);
+	--shadow-lg: 0px 16px 24px var(--shadow-color),
+		0px 2px 6px var(--shadow-color);
+	// https://material.io/archive/guidelines/motion/duration-easing.html
+	--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+	--ease-out: cubic-bezier(0, 0, 0.2, 1);
+	--ease-in: cubic-bezier(0.4, 0, 1, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--font-color-default: #{color(gray, 200)};
+		--font-color-strong: #{color(gray, 50)};
+		--font-color-light: #{color(gray, 500)};
+		--background-page: #{color(gray, 900)};
+		--shadow-color-hsl: 0 0% 0%;
+		--shadow-opacity: 0.8;
+	}
+}

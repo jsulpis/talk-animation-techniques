@@ -1,0 +1,141 @@
+/*=================*/
+/*     Values      */
+/*=================*/
+
+// adapted from from https://tailwindcss.com/docs/customizing-colors#default-color-palette
+$palette: (
+	gray: (
+		50: hsl(210, 40%, 98%),
+		100: hsl(210, 40%, 96%),
+		200: hsl(214, 32%, 91%),
+		300: hsl(213, 27%, 84%),
+		400: hsl(215, 20%, 65%),
+		500: hsl(215, 16%, 47%),
+		600: hsl(215, 19%, 35%),
+		700: hsl(215, 25%, 27%),
+		800: hsl(217, 33%, 17%),
+		900: hsl(222, 47%, 11%),
+		950: hsl(229, 84%, 5%),
+	),
+	primary: (
+		50: hsl(204, 100%, 97%),
+		100: hsl(204, 100%, 94%),
+		200: hsl(201, 100%, 86%),
+		300: hsl(199, 100%, 74%),
+		400: hsl(198, 100%, 60%),
+		500: hsl(199, 100%, 48%),
+		600: hsl(200, 100%, 39%),
+		700: hsl(201, 100%, 32%),
+		800: hsl(201, 100%, 27%),
+		900: hsl(202, 100%, 24%),
+		950: hsl(204, 100%, 16%),
+	),
+	danger: (
+		50: hsl(0, 100%, 97%),
+		100: hsl(0, 100%, 94%),
+		200: hsl(0, 100%, 89%),
+		300: hsl(0, 100%, 82%),
+		400: hsl(0, 100%, 71%),
+		500: hsl(0, 90%, 60%),
+		600: hsl(0, 90%, 51%),
+		700: hsl(0, 100%, 42%),
+		800: hsl(0, 100%, 35%),
+		900: hsl(0, 100%, 31%),
+		950: hsl(0, 100%, 15%),
+	),
+	success: (
+		50: hsl(138, 100%, 97%),
+		100: hsl(141, 100%, 93%),
+		200: hsl(141, 100%, 85%),
+		300: hsl(142, 100%, 73%),
+		400: hsl(142, 90%, 58%),
+		500: hsl(142, 90%, 45%),
+		600: hsl(142, 100%, 36%),
+		700: hsl(142, 100%, 29%),
+		800: hsl(143, 100%, 24%),
+		900: hsl(144, 100%, 20%),
+		950: hsl(145, 100%, 10%),
+	),
+	gold: (
+		50: hsl(55, 100%, 95%),
+		100: hsl(55, 100%, 88%),
+		200: hsl(53, 100%, 77%),
+		300: hsl(50, 100%, 64%),
+		400: hsl(48, 100%, 53%),
+		500: hsl(45, 100%, 47%),
+		600: hsl(41, 100%, 40%),
+		700: hsl(35, 100%, 33%),
+		800: hsl(32, 100%, 29%),
+		900: hsl(28, 100%, 26%),
+		950: hsl(26, 100%, 14%),
+	),
+);
+
+$spacings: (
+	1: "4px",
+	2: "8px",
+	3: "12px",
+	4: "16px",
+	5: "20px",
+	6: "24px",
+	7: "28px",
+	8: "32px",
+	9: "40px",
+);
+
+/*====================*/
+/*      Functions     */
+/*====================*/
+
+@function color($color, $variant: 500) {
+	@return var(--color-#{$color}-#{$variant});
+}
+@function spacing($number) {
+	@return var(--spacing-0#{$number});
+}
+@function gradient($color, $from: 600, $to: 400) {
+	@return linear-gradient(
+		to top,
+		var(--color-#{$color}-#{$from}),
+		var(--color-#{$color}-#{$to})
+	);
+}
+@function highlight($opacity: 40%, $width: 0.1em) {
+	@return inset 0 $width/3 $width hsl(0deg 0% 100%),
+		inset 0 (-$width/3) $width rgb(0 0 0 / #{$opacity}), var(--shadow-md);
+}
+
+/*=================*/
+/*      Mixins     */
+/*=================*/
+
+@mixin gradient-idle($color) {
+	background: linear-gradient(
+		to top,
+		var(--color-#{$color}-700),
+		var(--color-#{$color}-600),
+		var(--color-#{$color}-400) 110%
+	);
+	background-size: 200% 200%;
+	transition: background-position 200ms;
+}
+@mixin gradient-hover($color) {
+	background: linear-gradient(
+		to top,
+		var(--color-#{$color}-700),
+		var(--color-#{$color}-600),
+		var(--color-#{$color}-400) 110%
+	);
+	background-size: 200% 200%;
+	background-position: 0% 40%;
+}
+@mixin gradient-active($color) {
+	background: linear-gradient(
+		to top,
+		var(--color-#{$color}-700),
+		var(--color-#{$color}-600),
+		var(--color-#{$color}-400) 110%
+	);
+	background-size: 200% 200%;
+	background-position: 0% 100%;
+}
