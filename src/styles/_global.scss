@@ -10,14 +10,17 @@ body {
 }
 
 html {
-	font-size: 62.5%;
+	font-size: 180%;
+
+	@media screen and (min-width: 1600px) {
+		font-size: 230%;
+	}
 }
 
 body.reveal-viewport {
 	display: grid;
 	place-items: center;
 	font-family: "Rubik", sans-serif;
-	font-size: 250%;
 	background-color: var(--background-page);
 	color: var(--font-color-default);
 	line-height: 1.5;

@@ -1,0 +1,23 @@
+---
+import Slide from "../../../components/Slide.astro";
+import SimpleHover from "./SimpleHover.astro";
+import TranslateBad from "./TranslateBad.astro";
+import TranslateGood from "./TranslateGood.astro";
+
+const title = "Transition CSS";
+---
+
+<Slide>
+	<h1>{title}</h1>
+</Slide>
+
+<Slide>
+	<h1>{title}</h1>
+	<p>
+		Usage: passage d’un état A à un état B différents selon le plus court chemin
+	</p>
+</Slide>
+
+<SimpleHover title={title} />
+<TranslateBad title={title} />
+<TranslateGood title={title} />

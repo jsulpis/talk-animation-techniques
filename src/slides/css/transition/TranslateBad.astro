@@ -1,0 +1,111 @@
+---
+import CodeBlock from "../../../components/CodeBlock.astro";
+import SlideDemo from "../../../components/SlideDemo.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "La translation";
+---
+
+<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<p>
+		<label>
+			<input type="checkbox" />
+			<span class="card primary">Clique !</span>
+		</label>
+	</p>
+</SlideDemo>
+
+<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<p>
+		<label>
+			<input type="checkbox" />
+			<span class="card primary">Clique !</span>
+		</label>
+	</p>
+	<CodeBlock lang="css"
+		>{
+			`.demo {
+  transition: margin 800ms ease-in-out;
+
+  &:checked {
+    margin-left: 300px;
+  }
+}`
+		}</CodeBlock
+	>
+</SlideDemo>
+
+<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="container">
+		<p><span class="card gray"></span></p>
+		<p>
+			<label>
+				<input type="checkbox" />
+				<span class="card primary">Clique !</span>
+			</label>
+		</p>
+		<p><span class="card gray"></span></p>
+		<p><span class="card secondary"></span></p>
+		<p><span class="card gray"></span></p>
+		<p><span class="card gray"></span></p>
+		<p><span class="card gray"></span></p>
+		<p><span class="card gray"></span></p>
+	</div>
+</SlideDemo>
+
+<style lang="scss">
+	.card {
+		border: 0;
+		outline: none;
+		display: inline-grid;
+		vertical-align: middle;
+		place-items: center;
+		color: white;
+		border-radius: 0.25em;
+		width: 8rem;
+		aspect-ratio: 16/9;
+		box-shadow: var(--shadow-md);
+
+		&.primary {
+			@include gradient-idle(primary);
+			cursor: pointer;
+			pointer-events: all;
+			transition: margin 800ms var(--ease-in-out), background-position 200ms;
+		}
+
+		&.gray {
+			background: gradient(gray, 400, 300);
+		}
+		&.secondary {
+			@include gradient-idle(gold);
+		}
+	}
+
+	label {
+		display: flex;
+		pointer-events: none;
+
+		input {
+			position: absolute;
+			opacity: 0;
+		}
+
+		input:checked + .primary {
+			margin-left: 15rem;
+
+			.container & {
+				margin-left: calc(8rem + 1em);
+			}
+		}
+	}
+
+	.container {
+		display: flex;
+		align-content: flex-start;
+		margin-top: 30vh;
+		min-height: 70vh;
+		gap: 1em;
+		flex-wrap: wrap;
+		max-width: calc(4 * (8rem) + 3 * 1em);
+	}
+</style>

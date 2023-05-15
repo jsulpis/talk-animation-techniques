@@ -1,16 +1,53 @@
 ---
 interface Props {
-  /**
-   * Use the auto-animate feature for this slide or not
-   *
-   * default: true
-   */
-  animate?: boolean;
+	/**
+	 * Use the auto-animate feature for this slide or not
+	 *
+	 * default: true
+	 */
+	animate?: boolean;
+	sectionTitle?: string;
+	subSectionTitle?: string;
 }
 
-const { animate = true } = Astro.props;
+const { animate = true, sectionTitle, subSectionTitle } = Astro.props;
 ---
 
 <section data-auto-animate={animate}>
-  <slot />
+	<div class="titles">
+		<h1>{sectionTitle}</h1>
+		<h2>{subSectionTitle}</h2>
+	</div>
+	<slot />
 </section>
+
+<style lang="scss">
+	section {
+		position: relative;
+		height: 100%;
+		display: flex !important;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.titles {
+		position: absolute;
+		text-align: left;
+		top: 1.5rem;
+		left: 2rem;
+	}
+
+	h1 {
+		margin: 0;
+		color: var(--font-color-strong);
+		font-weight: normal;
+		font-size: 1.25rem;
+	}
+
+	h2 {
+		margin: 0;
+		font-size: 1.5rem;
+		line-height: 1.2;
+	}
+</style>

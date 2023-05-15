@@ -1,9 +1,11 @@
 ---
 import FlexContainer from "./FlexContainer.astro";
 import Slide from "./Slide.astro";
+
+const { sectionTitle, subSectionTitle } = Astro.props;
 ---
 
-<Slide>
+<Slide sectionTitle={sectionTitle} , subSectionTitle={subSectionTitle}>
 	<FlexContainer direction="column">
 		<slot />
 	</FlexContainer>
