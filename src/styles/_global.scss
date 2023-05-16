@@ -70,8 +70,6 @@ section {
 
 	&.primary {
 		@include gradient-idle(primary);
-		cursor: pointer;
-		pointer-events: all;
 		transition: transform 800ms var(--ease-in-out);
 	}
 	&.gray {
@@ -80,6 +78,15 @@ section {
 	&.secondary {
 		@include gradient-idle(gold);
 	}
+	&:not(.inert) {
+		cursor: pointer;
+		pointer-events: all;
+	}
+}
+
+.fragment.custom:not(.visible) {
+	opacity: 1 !important;
+	visibility: visible !important;
 }
 
 label {

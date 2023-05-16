@@ -4,6 +4,7 @@ import RotationBezierCurves from "./RotationBezierCurves.astro";
 import SimpleHover from "./SimpleHover.astro";
 import TranslateBad from "./TranslateBad.astro";
 import TranslateGood from "./TranslateGood.astro";
+import TranslationCurves from "./TranslationCurves.astro";
 
 const title = "Transition CSS";
 ---
@@ -23,10 +24,6 @@ const title = "Transition CSS";
 </Slide>
 
 <style>
-	.fragment.bar {
-		opacity: 1 !important;
-		visibility: visible !important;
-	}
 	.fragment.bar.visible {
 		text-decoration: line-through;
 	}
@@ -36,3 +33,4 @@ const title = "Transition CSS";
 <TranslateBad title={title} />
 <TranslateGood title={title} />
 <RotationBezierCurves title={title} />
+<TranslationCurves title={title} />
