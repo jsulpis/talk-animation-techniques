@@ -1,5 +1,6 @@
 ---
 import Slide from "../../../components/Slide.astro";
+import RotationBezierCurves from "./RotationBezierCurves.astro";
 import SimpleHover from "./SimpleHover.astro";
 import TranslateBad from "./TranslateBad.astro";
 import TranslateGood from "./TranslateGood.astro";
@@ -14,10 +15,24 @@ const title = "Transition CSS";
 <Slide>
 	<h1>{title}</h1>
 	<p>
-		Usage: passage d’un état A à un état B différents selon le plus court chemin
+		Usage: passage d’un état A à un état B <span class="fragment custom bar"
+			>différents</span
+		>
+		<span class="fragment custom bar">selon le plus court chemin</span>
 	</p>
 </Slide>
+
+<style>
+	.fragment.bar {
+		opacity: 1 !important;
+		visibility: visible !important;
+	}
+	.fragment.bar.visible {
+		text-decoration: line-through;
+	}
+</style>
 
 <SimpleHover title={title} />
 <TranslateBad title={title} />
 <TranslateGood title={title} />
+<RotationBezierCurves title={title} />

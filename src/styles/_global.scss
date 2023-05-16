@@ -1,3 +1,5 @@
+@use "./abstract" as *;
+
 html,
 body {
 	height: 100%;
@@ -13,7 +15,7 @@ html {
 	font-size: 180%;
 
 	@media screen and (min-width: 1600px) {
-		font-size: 230%;
+		font-size: 250%;
 	}
 }
 
@@ -52,4 +54,41 @@ h3 {
 
 section {
 	width: min(80vmin, 800px);
+}
+
+.card {
+	border: 0;
+	outline: none;
+	display: inline-grid;
+	vertical-align: middle;
+	place-items: center;
+	color: white;
+	border-radius: 0.25em;
+	width: 8rem;
+	aspect-ratio: 16/9;
+	box-shadow: var(--shadow-md);
+
+	&.primary {
+		@include gradient-idle(primary);
+		cursor: pointer;
+		pointer-events: all;
+		transition: transform 800ms var(--ease-in-out);
+	}
+	&.gray {
+		background: gradient(gray, 400, 300);
+	}
+	&.secondary {
+		@include gradient-idle(gold);
+	}
+}
+
+label {
+	display: flex;
+	pointer-events: none;
+	position: relative;
+
+	input {
+		position: absolute;
+		opacity: 0;
+	}
 }

@@ -40,55 +40,22 @@ const subSectionTitle = "La translation";
 </SlideDemo>
 
 <style lang="scss">
-	.card {
-		border: 0;
-		outline: none;
-		display: inline-grid;
-		vertical-align: middle;
-		place-items: center;
-		color: white;
-		border-radius: 0.25em;
-		width: 8rem;
-		aspect-ratio: 16/9;
-		box-shadow: var(--shadow-md);
-
-		&.primary {
-			background: gradient(success, 700, 500);
-			cursor: pointer;
-			pointer-events: all;
-			transition: transform 800ms var(--ease-in-out);
-		}
-
-		&.gray {
-			background: gradient(gray, 400, 300);
-		}
-		&.secondary {
-			@include gradient-idle(gold);
-		}
+	.card.primary {
+		background: gradient(success, 700, 500);
+		transition: transform 800ms var(--ease-in-out);
 	}
 
-	label {
-		display: flex;
+	label input:checked + .primary {
+		transform: translateX(80%);
+	}
+
+	.border {
 		pointer-events: none;
-		position: relative;
-
-		input {
-			position: absolute;
-			opacity: 0;
-		}
-
-		input:checked + .primary {
-			transform: translateX(80%);
-		}
-
-		.border {
-			pointer-events: none;
-			position: absolute;
-			inset: 0;
-			border: 0.15rem dashed black;
-			border-radius: 0.25em;
-			z-index: -1;
-		}
+		position: absolute;
+		inset: 0;
+		border: 0.15rem dashed black;
+		border-radius: 0.25em;
+		z-index: -1;
 	}
 
 	.container {
