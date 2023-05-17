@@ -21,7 +21,7 @@
 	--border-radius-md: #{spacing(2)};
 	--border-radius-lg: #{spacing(3)};
 	--shadow-color-hsl: 222 47% 11%;
-	--shadow-opacity: 0.15;
+	--shadow-opacity: 0.2;
 	--shadow-color: hsl(var(--shadow-color-hsl) / var(--shadow-opacity));
 	--shadow-sm: 0px 4px 6px var(--shadow-color);
 	--shadow-md: 0px 8px 12px var(--shadow-color), 0px 1px 3px var(--shadow-color);

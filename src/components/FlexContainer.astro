@@ -1,11 +1,12 @@
 ---
 interface Props {
 	direction?: "row" | "column";
+	gap?: string;
 }
-const { direction = "row" } = Astro.props;
+const { direction = "row", gap } = Astro.props;
 ---
 
-<div class:list={["container", direction]}>
+<div class:list={["container", direction]} style={gap ? { gap } : null}>
 	<slot />
 </div>
 
