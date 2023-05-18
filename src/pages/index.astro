@@ -1,7 +1,9 @@
 ---
+import BlockMainThreadButtonCorner from "../components/BlockMainThreadButtonCorner.svelte";
 import Layout from "../layouts/Layout.astro";
 import Title from "../slides/Title.astro";
 import CSSTransition from "../slides/css/transition/CSSTransition.astro";
+import TechnicalIntro from "../slides/intro/TechnicalIntro.astro";
 ---
 
 <Layout
@@ -9,7 +11,9 @@ import CSSTransition from "../slides/css/transition/CSSTransition.astro";
 >
 	<main class="reveal">
 		<div class="slides">
+			<BlockMainThreadButtonCorner client:visible client:only />
 			<Title />
+			<TechnicalIntro />
 			<CSSTransition />
 		</div>
 	</main>
