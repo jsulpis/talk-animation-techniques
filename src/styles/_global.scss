@@ -40,7 +40,6 @@ strong {
 
 h1 {
 	font-size: 3rem;
-	margin-block: 2em 0.5em;
 }
 
 h2 {
@@ -87,6 +86,14 @@ section {
 .fragment.custom:not(.visible) {
 	opacity: 1 !important;
 	visibility: visible !important;
+}
+
+section:not(.present) {
+	*,
+	*::after,
+	*::before {
+		animation: none !important;
+	}
 }
 
 label {

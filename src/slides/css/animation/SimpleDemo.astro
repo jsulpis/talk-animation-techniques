@@ -1,0 +1,66 @@
+---
+import CodeBlock from "../../../components/CodeBlock.astro";
+import Slide from "../../../components/Slide.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "Utilisation";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<p>
+		<span class="card primary inert"></span>
+	</p>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<CodeBlock lang="css" lines="|1-8|1,2-4,8|1,5-7,8|10-12|"
+		>{
+			`@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.card {
+  animation: slide 2s ease-in-out infinite alternate;
+}`
+		}</CodeBlock
+	>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+	<CodeBlock lang="css" lines=""
+		>{
+			`@keyframes slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.card {
+  animation: slide 2s ease-in-out infinite alternate;
+}`
+		}</CodeBlock
+	>
+</Slide>
+
+<style lang="scss">
+	.card {
+		animation: slide 2s ease-in-out infinite alternate;
+	}
+
+	@keyframes slide {
+		from {
+			transform: translateX(-100%);
+		}
+		to {
+			transform: translateX(100%);
+		}
+	}
+</style>
