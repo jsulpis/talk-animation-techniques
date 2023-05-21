@@ -1,0 +1,47 @@
+---
+import CodeBlock from "../../../components/CodeBlock.astro";
+import Slide from "../../../components/Slide.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "Utilisation";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<CodeBlock lang="javascript">
+		{
+			`window.requestAnimationFrame(() => {
+  /* faire des trucs avant le rendu de la PROCHAINE frame */
+});`
+		}
+	</CodeBlock>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+	<CodeBlock lang="javascript">
+		{
+			`function animate(() => {
+  /* faire des trucs avant le rendu de CHAQUE frame */
+  requestAnimationFrame(animate);
+})
+
+animate();`
+		}
+	</CodeBlock>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+	<CodeBlock lang="javascript" lines="|1-6|8-10">
+		{
+			`function loop(callback) {
+  (function animate() {
+    callback();
+    requestAnimationFrame(animate);
+  })();
+}
+
+loop(() => {
+  // c'est plus clair !
+})`
+		}
+	</CodeBlock>
+</Slide>

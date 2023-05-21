@@ -1,0 +1,26 @@
+---
+import CodeBlock from "../../../components/CodeBlock.astro";
+import Slide from "../../../components/Slide.astro";
+import FpsMeter from "./FpsMeter.svelte";
+
+const { title } = Astro.props;
+const subSectionTitle = "Exemples";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+	<CodeBlock lang="javascript" lines="|1,7,4|1,7,2|1,7,3,6">
+		{
+			`loop(() => {
+  performance.mark("next");
+  const measure = performance.measure("duration", "current", "next");
+  performance.mark("current");
+
+  const frameDuration = measure.duration;
+});`
+		}
+	</CodeBlock>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<FpsMeter client:visible />
+</Slide>

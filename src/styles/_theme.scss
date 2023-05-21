@@ -33,13 +33,13 @@
 	--ease-in: cubic-bezier(0.4, 0, 1, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--font-color-default: #{color(gray, 200)};
-		--font-color-strong: #{color(gray, 50)};
-		--font-color-light: #{color(gray, 500)};
-		--background-page: #{color(gray, 900)};
-		--shadow-color-hsl: 0 0% 0%;
-		--shadow-opacity: 0.4;
-	}
-}
+// @media (prefers-color-scheme: dark) {
+// 	:root {
+// 		--font-color-default: #{color(gray, 200)};
+// 		--font-color-strong: #{color(gray, 50)};
+// 		--font-color-light: #{color(gray, 500)};
+// 		--background-page: #{color(gray, 900)};
+// 		--shadow-color-hsl: 0 0% 0%;
+// 		--shadow-opacity: 0.4;
+// 	}
+// }
