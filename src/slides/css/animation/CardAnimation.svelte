@@ -1,8 +1,8 @@
 <div class="page-wrapper">
 	<div class="board">
 		<button class="playing-card" onclick="this.classList.toggle('flipped')">
-			<span class="wrapper"
-				><span class="content">
+			<span class="wrapper">
+				<span class="content">
 					<span class="face back" />
 					<span class="face front" />
 				</span>
@@ -51,7 +51,6 @@
 		padding: 0;
 		background-color: transparent;
 		border-radius: 8px;
-		transition: all 200ms;
 		pointer-events: none;
 	}
 
@@ -62,7 +61,6 @@
 		display: block;
 		position: relative;
 		height: 100%;
-		transition: all var(--duration) ease-out;
 		transform-origin: 200% 50%;
 	}
 
@@ -71,12 +69,9 @@
 		animation-delay: calc(-1 * var(--progress) * var(--duration));
 		display: block;
 		height: 100%;
-		transition: all var(--duration);
 	}
 
 	.face {
-		transition: transform calc(var(--duration) * 3 / 4);
-		transition-delay: calc(var(--duration) / 6);
 		position: absolute;
 		inset: 0;
 		backface-visibility: hidden;

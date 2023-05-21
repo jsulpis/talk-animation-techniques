@@ -8,8 +8,9 @@ const { lang, lines } = Astro.props;
 ---
 
 <div class="code-container">
-	<span class="code-lang">{lang}</span>
-	<pre><code class={lang} data-line-numbers={lines}><slot /></code></pre>
+	<span class="code-lang" data-id={`code-lang-${lang}`}>{lang}</span>
+	<pre
+		data-id={`code-pre-${lang}`}><code data-id={`code-code-${lang}`} class={`language-${lang}`} data-line-numbers={lines}><slot /></code></pre>
 </div>
 
 <style is:global lang="scss">
@@ -49,6 +50,7 @@ const { lang, lines } = Astro.props;
 
 		& > code {
 			width: fit-content;
+			overflow: hidden;
 			padding: 2em;
 		}
 	}

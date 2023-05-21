@@ -13,8 +13,8 @@ const subSectionTitle = "Utilisation";
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-	<CodeBlock lang="css" lines="|1-8|1,2-4,8|1,5-7,8|10-12|"
-		>{
+	<CodeBlock lang="css" lines="|1-8|1,2-4,8|1,5-7,8|10-12|">
+		{
 			`@keyframes slide {
   0% {
     transform: translateX(-100%);
@@ -27,13 +27,13 @@ const subSectionTitle = "Utilisation";
 .card {
   animation: slide 2s ease-in-out infinite alternate;
 }`
-		}</CodeBlock
-	>
+		}
+	</CodeBlock>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
-	<CodeBlock lang="css" lines=""
-		>{
+	<CodeBlock lang="css" lines="">
+		{
 			`@keyframes slide {
   from {
     transform: translateX(-100%);
@@ -46,8 +46,8 @@ const subSectionTitle = "Utilisation";
 .card {
   animation: slide 2s ease-in-out infinite alternate;
 }`
-		}</CodeBlock
-	>
+		}
+	</CodeBlock>
 </Slide>
 
 <style lang="scss">

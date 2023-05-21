@@ -13,6 +13,7 @@ body {
 
 html {
 	font-size: 180%;
+	accent-color: color(primary, 600);
 
 	@media screen and (min-width: 1600px) {
 		font-size: 250%;
