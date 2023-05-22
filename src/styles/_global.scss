@@ -107,3 +107,9 @@ label {
 		opacity: 0;
 	}
 }
+
+pre.mermaid svg {
+	display: inline-block;
+	height: 80vh;
+	max-width: none !important;
+}

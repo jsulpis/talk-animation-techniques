@@ -12,7 +12,9 @@
 	"dependencies": {
 		"@astrojs/svelte": "2.1.1",
 		"astro": "2.4.5",
+		"mermaid": "10.1.0",
 		"reveal.js": "4.4.0",
+		"reveal.js-mermaid-plugin": "1.1.0",
 		"svelte": "3.54.0"
 	},
 	"devDependencies": {
