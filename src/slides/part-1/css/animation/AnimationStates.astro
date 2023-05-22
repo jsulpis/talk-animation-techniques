@@ -1,0 +1,42 @@
+---
+import CodeBlock from "../../../../components/CodeBlock.astro";
+import Slide from "../../../../components/Slide.astro";
+import CardAnimationScroll from "./CardAnimationScroll.svelte";
+import CardAnimationSlider from "./CardAnimationSlider.svelte";
+
+const { title } = Astro.props;
+const subSectionTitle = "Contrôler l'exécution";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<CodeBlock lang="css"
+		>{
+			`animation-play-state: running | paused;
+animation-direction: normal | reverse | alternate | alternate-reverse;
+animation-delay: ...s;
+`
+		}</CodeBlock
+	>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<CardAnimationSlider client:visible />
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<CodeBlock lang="css"
+		>{
+			`.card {
+  animation-name: flipCard;
+  animation-duration: var(--duration);
+  animation-play-state: paused;
+  animation-fill-mode: forwards;
+  animation-delay: calc(-1 * var(--progress) * var(--duration));
+}`
+		}</CodeBlock
+	>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<CardAnimationScroll client:visible />
+</Slide>

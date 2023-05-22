@@ -1,0 +1,49 @@
+---
+import Slide from "../../../../components/Slide.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "À retenir";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<figure>
+		<blockquote>
+			<p>Si tu peux le modifier en JavaScript, tu peux l'animer.</p>
+		</blockquote>
+		<figcaption>moi</figcaption>
+	</figure>
+</Slide>
+
+<style lang="scss">
+	figure {
+		font-size: 1.3em;
+	}
+
+	blockquote p {
+		&::before {
+			content: "\201c";
+		}
+		&::after {
+			content: "\201d";
+		}
+
+		&::before,
+		&::after {
+			display: inline-block;
+			font-family: Inter;
+			transform: scale(3);
+			height: 1em;
+			margin-inline: 1em;
+			opacity: 0.3;
+		}
+	}
+
+	figcaption {
+		text-align: right;
+		font-size: 0.9em;
+		margin-right: 3em;
+		font-style: italic;
+		color: var(--font-color-default);
+		font-weight: bold;
+	}
+</style>

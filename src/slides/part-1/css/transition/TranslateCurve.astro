@@ -1,0 +1,43 @@
+---
+import SlideDemo from "../../../../components/SlideDemo.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "";
+---
+
+<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="container">
+		<p>
+			<label>
+				<input type="checkbox" />
+				<span class="card primary">Clique !</span>
+			</label>
+		</p>
+	</div>
+</SlideDemo>
+
+<style lang="scss">
+	input:checked + .card {
+		transform: translate(150%, -150%);
+	}
+
+	.container {
+		box-sizing: content-box;
+		border: 0.25em solid var(--font-color-light);
+		width: calc(2.5 * 8rem);
+		aspect-ratio: 16/9;
+		padding: 1rem;
+		border-radius: 0.5em;
+		display: flex;
+		align-items: flex-end;
+
+		&:focus-within {
+			background: linear-gradient(
+				330deg,
+				transparent 49%,
+				color(gray, 300) 50%,
+				transparent 51%
+			);
+		}
+	}
+</style>

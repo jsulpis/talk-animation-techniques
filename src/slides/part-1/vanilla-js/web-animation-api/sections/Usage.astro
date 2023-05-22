@@ -1,0 +1,103 @@
+---
+import Slide from "../../../../../components/Slide.astro";
+import SimpleTranslation from "./SimpleTranslation.svelte";
+import waapiSupport from "../../../../../assets/waapi-support.png";
+import CodeBlock from "../../../../../components/CodeBlock.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "Utilisation";
+---
+
+<Slide sectionTitle={title}>
+	<img
+		src="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Web_Animations_API_Concepts/waapi_diagram_white.png"
+		alt="WAAPI: superset of CSS transitions and animations"
+	/>
+</Slide>
+
+<Slide sectionTitle={title} animate={false}>
+	<img src={waapiSupport} alt="WAAPI support" />
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<SimpleTranslation client:visible />
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="container">
+		<CodeBlock lang="css">
+			{
+				`@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.card {
+  animation-name: slide;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="container">
+		<CodeBlock lang="css">
+			{
+				`@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.card {
+  animation-name: slide;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}`
+			}
+		</CodeBlock>
+		<CodeBlock lang="javascript" lines="|4-7|8-13|">
+			{
+				`const card = document.querySelector('.card');
+
+card.animate(
+  [
+    { transform: "translateX(-100%)" },
+    { transform: "translateX(100%)" }
+  ],
+    {
+      duration: 2000,
+      easing: "ease-in-out",
+      iterations: Infinity,
+      direction: "alternate",
+    }
+);`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<style>
+	img {
+		height: 70vh;
+	}
+	.container {
+		display: flex;
+		gap: 1em;
+		font-size: 0.8em;
+	}
+</style>

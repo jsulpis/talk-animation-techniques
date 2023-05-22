@@ -1,12 +1,12 @@
 ---
 import BlockMainThreadButtonCorner from "../components/BlockMainThreadButtonCorner.svelte";
 import Layout from "../layouts/Layout.astro";
-import Title from "../slides/Title.astro";
-import CSSAnimation from "../slides/css/animation/CSSAnimation.astro";
-import CSSTransition from "../slides/css/transition/CSSTransition.astro";
+import Title from "../slides/intro/Title.astro";
+import CSSAnimation from "../slides/part-1/css/animation/CSSAnimation.astro";
+import CSSTransition from "../slides/part-1/css/transition/CSSTransition.astro";
 import TechnicalIntro from "../slides/intro/TechnicalIntro.astro";
-import RequestAnimationFrame from "../slides/vanilla-js/requestanimationframe/RequestAnimationFrame.astro";
-import WebAnimationAPI from "../slides/vanilla-js/web-animation-api/WebAnimationAPI.astro";
+import RequestAnimationFrame from "../slides/part-1/vanilla-js/requestanimationframe/RequestAnimationFrame.astro";
+import WebAnimationAPI from "../slides/part-1/vanilla-js/web-animation-api/WebAnimationAPI.astro";
 ---
 
 <Layout
@@ -18,11 +18,13 @@ import WebAnimationAPI from "../slides/vanilla-js/web-animation-api/WebAnimation
 			<Title />
 			<TechnicalIntro />
 
-			<!-- Part 1 -->
+			<!-- Part 1: native APIs -->
 			<CSSTransition />
 			<CSSAnimation />
 			<RequestAnimationFrame />
 			<WebAnimationAPI />
+
+			<!-- Part 2: libraries -->
 		</div>
 	</main>
 </Layout>

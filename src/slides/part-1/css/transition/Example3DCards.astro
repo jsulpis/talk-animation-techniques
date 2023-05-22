@@ -1,0 +1,156 @@
+---
+import Slide from "../../../../components/Slide.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<!-- the article is used to break the perspective context from reveal -->
+	<article>
+		<div class="page-wrapper">
+			<div class="board">
+				<button class="playing-card" onclick="this.classList.toggle('flipped')">
+					<span class="wrapper"
+						><span class="content">
+							<span class="face back"></span>
+							<span class="face front"></span>
+						</span>
+					</span>
+				</button>
+				<button class="playing-card" onclick="this.classList.toggle('flipped')">
+					<span class="wrapper"
+						><span class="content">
+							<span class="face back"></span>
+							<span class="face front"></span>
+						</span>
+					</span>
+				</button>
+				<button class="playing-card" onclick="this.classList.toggle('flipped')">
+					<span class="wrapper"
+						><span class="content">
+							<span class="face back"></span>
+							<span class="face front"></span>
+						</span>
+					</span>
+				</button>
+			</div>
+		</div>
+	</article>
+</Slide>
+
+<style lang="scss">
+	// https://codepen.io/jsulpis/pen/VwBNoEb
+	$card-space: 3px;
+
+	.page-wrapper {
+		perspective: 1000px;
+	}
+
+	.board {
+		--card-width: min(200px, 12vw);
+		display: flex;
+		align-items: center;
+		width: calc(4 * var(--card-width));
+		box-sizing: content-box;
+		aspect-ratio: 16/9;
+		transform: rotateX(60deg);
+		border: 4px solid black;
+		border-radius: 16px;
+		padding: 1rem 3rem;
+		background: color(primary, 700);
+	}
+
+	div,
+	.playing-card,
+	.wrapper,
+	.content {
+		transform-style: preserve-3d;
+	}
+
+	.playing-card {
+		--duration: 1200ms;
+		position: absolute;
+		width: var(--card-width);
+		aspect-ratio: 20/29;
+		outline: none;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		background-color: transparent;
+		border-radius: 8px;
+		transition: all 200ms;
+		pointer-events: none;
+
+		@each $i in (1, 2, 3) {
+			&:nth-child(#{$i}) {
+				transform: translateZ($i * $card-space);
+			}
+		}
+	}
+
+	.wrapper {
+		pointer-events: initial;
+		display: block;
+		position: relative;
+		height: 100%;
+		transition: all var(--duration) ease-out;
+		transform-origin: 200% 50%;
+	}
+
+	.content {
+		display: block;
+		height: 100%;
+		transition: all var(--duration);
+	}
+
+	.face {
+		transition: transform calc(var(--duration) * 3 / 4);
+		transition-delay: calc(var(--duration) / 6);
+		position: absolute;
+		inset: 0;
+		backface-visibility: hidden;
+		border-radius: 8px;
+		background-size: cover;
+		background-position: center;
+		background-color: white;
+	}
+
+	.front {
+		transform: rotateZ(0.5turn) rotateY(-0.5turn);
+		border-width: 2px 0px;
+		border-color: black;
+		border-style: solid;
+
+		.playing-card:nth-of-type(1) & {
+			background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/English_pattern_ace_of_spades.svg/1024px-English_pattern_ace_of_spades.svg.png");
+		}
+		.playing-card:nth-of-type(2) & {
+			background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/English_pattern_2_of_spades.svg/1024px-English_pattern_2_of_spades.svg.png");
+		}
+		.playing-card:nth-of-type(3) & {
+			background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/English_pattern_3_of_spades.svg/1024px-English_pattern_3_of_spades.svg.png");
+		}
+	}
+
+	.back {
+		background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkKnlurWcUYrlDbGvf8IUz6rLX7oX1hHt7FW_6e4vNOwFfPhmPURXxGK45qVAqW7dtxsY&usqp=CAU");
+		border: 2px solid black;
+	}
+
+	.playing-card.flipped {
+		@each $i in (1, 2, 3) {
+			&:nth-child(#{$i}) {
+				transform: translateZ((4 - $i) * $card-space);
+			}
+		}
+
+		.wrapper {
+			transform: rotateY(0.5turn);
+		}
+
+		.content {
+			transform: rotateX(-0.5turn) rotateY(1.5turn);
+		}
+	}
+</style>

@@ -1,0 +1,46 @@
+---
+import Slide from "../../../../components/Slide.astro";
+import Example3DCards from "./Example3DCards.astro";
+import ExampleButton from "./ExampleButton.astro";
+import ExampleMovieCard from "./ExampleMovieCard.astro";
+import RotationBezierCurves from "./RotationBezierCurves.astro";
+import SimpleHover from "./SimpleHover.astro";
+import TranslateBad from "./TranslateBad.astro";
+import TranslateGood from "./TranslateGood.astro";
+import TranslationCurves from "./TranslationCurves.astro";
+
+const title = "Transition CSS";
+---
+
+<Slide>
+	<h1>{title + " "}</h1>
+</Slide>
+
+<Slide>
+	<h1>{title + " "}</h1>
+	<p>
+		Usage: passage d’un état A à un état B <span class="fragment custom bar"
+			>différents</span
+		>
+		<span class="fragment custom bar">selon le plus court chemin</span>
+	</p>
+</Slide>
+
+<style>
+	.fragment.bar.visible {
+		text-decoration: line-through;
+	}
+</style>
+
+<SimpleHover title={title} />
+<TranslateBad title={title} />
+<TranslateGood title={title} />
+<RotationBezierCurves title={title} />
+<TranslationCurves title={title} />
+<ExampleButton title={title} />
+<ExampleMovieCard title={title} />
+<Example3DCards title={title} />
+
+<Slide>
+	<h1>{title} - recap</h1>
+</Slide>

@@ -1,0 +1,107 @@
+---
+import Slide from "../../../../components/Slide.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "Fade in";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="fake-dropdown">
+		<button type="button">
+			Carte <svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 20 20"
+				fill="currentColor"
+				><path
+					fill-rule="evenodd"
+					d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+					clip-rule="evenodd"></path>
+			</svg>
+		</button>
+		<div class="options">
+			<span class="option">🍻  Bières</span>
+			<span class="option">🍹  Cocktails</span>
+			<span class="option">🥤  Sans alcool</span>
+		</div>
+	</div>
+</Slide>
+
+<style lang="scss">
+	.fake-dropdown {
+		position: relative;
+		display: flex;
+		font-size: 120%;
+	}
+	button {
+		outline: none;
+		border: 0.06em solid var(--font-color-light);
+		color: var(--font-color-default);
+		background: var(--background-page);
+		padding: 0.6em 1em;
+		border-radius: 0.25em;
+		font-size: inherit;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.9em;
+		cursor: pointer;
+		transition: background 100ms;
+
+		svg {
+			height: 1.2em;
+			transition: transform 300ms;
+		}
+
+		&:hover {
+			background: color(gray, 200);
+		}
+
+		&:focus {
+			svg {
+				transform: rotate(0.5turn);
+			}
+
+			+ .options {
+				display: flex;
+				flex-direction: column;
+				padding: 0.25em;
+				animation: slideDown 300ms var(--ease-out);
+			}
+		}
+	}
+
+	.options {
+		display: none;
+		position: absolute;
+		top: calc(100% + 0.25em);
+		border: 0.06em solid color(gray, 300);
+
+		border-radius: 0.25em;
+		min-width: 100%;
+		box-shadow: var(--shadow-lg);
+	}
+
+	.option {
+		cursor: pointer;
+		padding: 0.4em 1.2em 0.4em 0.8em;
+		white-space: nowrap;
+		border-radius: 0.1em;
+		font-size: 0.9em;
+		text-align: left;
+		transition: background 100ms;
+
+		svg {
+			height: 1em;
+		}
+
+		&:hover {
+			background: color(gray, 200);
+		}
+	}
+
+	@keyframes slideDown {
+		from {
+			opacity: 0;
+			transform: translateY(-10%);
+		}
+	}
+</style>

@@ -1,0 +1,130 @@
+---
+import Slide from "../../../../../components/Slide.astro";
+import CardAnimation from "./CardAnimation.svelte";
+
+const { title } = Astro.props;
+const subSectionTitle = "Contrôler l'exécution";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<article>
+		<div class="code-container">
+			<span data-id="waapi-lang" class="code-lang">javascript</span>
+			<pre
+				data-id="waapi-pre"><code data-id="waapi-code" class="language-javascript" data-line-numbers>{
+				`const animation = card.animate(keyframes, options);
+				`}</code></pre>
+		</div>
+	</article>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<article>
+		<div class="code-container">
+			<span data-id="waapi-lang" class="code-lang">javascript</span>
+			<pre
+				data-id="waapi-pre"><code data-id="waapi-code" class="language-javascript" data-line-numbers>{
+				`const animation = card.animate(keyframes, options);
+
+animation.pause();
+`}</code></pre>
+		</div>
+	</article>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<article>
+		<div class="code-container">
+			<span data-id="waapi-lang" class="code-lang">javascript</span>
+			<pre
+				data-id="waapi-pre"><code data-id="waapi-code" class="language-javascript" data-line-numbers>{
+				`const animation = card.animate(keyframes, options);
+
+animation.pause();
+...
+animation.play();
+`}</code></pre>
+		</div>
+	</article>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<article>
+		<div class="code-container">
+			<span data-id="waapi-lang" class="code-lang">javascript</span>
+			<pre
+				data-id="waapi-pre"><code data-id="waapi-code" class="language-javascript" data-line-numbers>{
+				`const animation = card.animate(keyframes, options);
+
+animation.pause();
+...
+animation.play();
+animation.cancel();
+animation.reverse();
+`}</code></pre>
+		</div>
+	</article>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<article>
+		<div class="code-container">
+			<span data-id="waapi-lang" class="code-lang">javascript</span>
+			<pre
+				data-id="waapi-pre"><code data-id="waapi-code" class="language-javascript" data-line-numbers>{
+				`const animation = card.animate(keyframes, options);
+
+animation.pause();
+...
+animation.play();
+animation.cancel();
+animation.reverse();
+
+const seek = (timestamp) => animation.currentTime = timestamp;
+`}</code></pre>
+		</div>
+	</article>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<article>
+		<div class="code-container">
+			<span data-id="waapi-finish-lang" class="code-lang">javascript</span>
+			<pre
+				data-id="waapi-finish-pre"><code data-id="waapi-finish-code" class="language-javascript" data-line-numbers>{
+				`disappearAnimation.onfinish = () => removeElement();
+				`}</code></pre>
+		</div>
+	</article>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<article>
+		<div class="code-container">
+			<span data-id="waapi-finish-lang" class="code-lang">javascript</span>
+			<pre
+				data-id="waapi-finish-pre"><code data-id="waapi-finish-code" class="language-javascript" data-line-numbers>{
+				`disappearAnimation.onfinish = () => removeElement();
+
+animation1.finished.then(() => animation2.play());
+				`}</code></pre>
+		</div>
+	</article>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div>
+		<CardAnimation client:visible />
+	</div>
+</Slide>
+
+<style>
+	.code-container code {
+		min-width: 80ch;
+		transform: none !important;
+		height: auto !important;
+	}
+	article {
+		height: 40vh;
+	}
+</style>

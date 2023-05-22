@@ -1,0 +1,157 @@
+---
+import CodeBlock from "../../../../components/CodeBlock.astro";
+import SlideDemo from "../../../../components/SlideDemo.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "";
+---
+
+<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<p class="linear">
+		<label>
+			<input type="checkbox" />
+			<span class="card primary">Clique !</span>
+		</label>
+	</p>
+	<CodeBlock lang="css"
+		>{
+			`.demo {
+  transition: transform 1.4s cubic-bezier(0.75, -0.8, 0.2, 1.8);
+
+  &:checked {
+    transform: translateX(150%);
+  }
+}`
+		}</CodeBlock
+	>
+</SlideDemo>
+
+<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="container">
+		<p>
+			<label>
+				<input type="checkbox" />
+				<span class="card primary">Clique !</span>
+			</label>
+		</p>
+	</div>
+</SlideDemo>
+
+<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="container curve">
+		<p>
+			<label>
+				<input type="checkbox" />
+				<span class="fragment custom hack"></span>
+				<span class="card-wrapper">
+					<span class="card secondary">Clique !</span>
+				</span>
+			</label>
+		</p>
+	</div>
+</SlideDemo>
+
+<style lang="scss">
+	.linear {
+		margin-left: -10rem;
+		.card.primary {
+			transition-duration: 1400ms;
+			transition-timing-function: cubic-bezier(0.75, -0.8, 0.2, 1.8) !important;
+		}
+
+		input:checked + .card {
+			transform: translateX(150%);
+		}
+	}
+
+	.container {
+		box-sizing: content-box;
+		border: 0.25em solid color(primary, 600);
+		width: calc(2.5 * 8rem);
+		aspect-ratio: 16/9;
+		padding: 1rem;
+		border-radius: 0.5em;
+		display: flex;
+		align-items: flex-end;
+
+		.card.primary {
+			transition-timing-function: var(--ease-in-out);
+		}
+
+		input:checked + .card {
+			transform: translate(150%, -150%);
+		}
+
+		.card-wrapper {
+			--timing-function-x: transform 600ms cubic-bezier(0.4, 0, 0.4, 1);
+			--timing-function-y: transform 650ms cubic-bezier(0.6, 0, 0.4, 1) 50ms;
+			transform: translateX(var(--translateX));
+			transition: var(--timing-function-y);
+
+			.card {
+				transform: translateY(var(--translateY));
+				transition: var(--timing-function-x);
+			}
+		}
+
+		input:checked ~ .card-wrapper {
+			--translateX: 150%;
+			--translateY: -150%;
+			transition: var(--timing-function-x);
+
+			.card {
+				transition: var(--timing-function-y);
+			}
+		}
+
+		// display the trajectory
+		&::before {
+			content: "";
+			position: absolute;
+			width: inherit;
+			aspect-ratio: inherit;
+			transition: background 400ms;
+			pointer-events: none;
+		}
+
+		&:focus-within::before {
+			animation: fadeInOut 1200ms 100ms both;
+			background: linear-gradient(
+				330deg,
+				transparent 49.5%,
+				color(gray, 400) 50%,
+				transparent 50.5%
+			);
+		}
+	}
+
+	.container.curve {
+		&:focus-within::before {
+			background: radial-gradient(
+				circle at 5% -90%,
+				transparent 70.5%,
+				color(gray, 400) 71%,
+				transparent 71.5%
+			);
+		}
+	}
+
+	.fragment.hack.visible + span {
+		outline: 0.15em solid var(--font-color-strong);
+	}
+
+	@keyframes fadeInOut {
+		0% {
+			opacity: 0;
+		}
+		30% {
+			opacity: 1;
+		}
+		60% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+</style>

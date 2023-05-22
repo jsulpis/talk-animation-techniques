@@ -1,0 +1,41 @@
+---
+import CodeBlock from "../../../../components/CodeBlock.astro";
+import FlexContainer from "../../../../components/FlexContainer.astro";
+import Slide from "../../../../components/Slide.astro";
+import AttributeAnimation from "./AttributeAnimation.svelte";
+import TextAnimation from "./TextAnimation.svelte";
+
+const { title } = Astro.props;
+const subSectionTitle = "Exemples";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<FlexContainer direction="column" gap="2rem">
+		<CodeBlock lang="javascript" lines="">
+			{
+				`loop(() => {
+  // interpoler "progress"
+  ...
+  element.textContent = progress;
+});`
+			}
+		</CodeBlock>
+
+		<TextAnimation client:visible />
+	</FlexContainer>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+	<FlexContainer direction="column" gap="2rem">
+		<CodeBlock lang="javascript" lines="|2-3">
+			{
+				`loop(() => {
+  // interpoler "progress"
+  ...
+  element.setAttribute('value', progress);
+});`
+			}
+		</CodeBlock>
+		<AttributeAnimation client:visible />
+	</FlexContainer>
+</Slide>
