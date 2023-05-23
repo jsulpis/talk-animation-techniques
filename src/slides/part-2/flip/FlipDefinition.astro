@@ -1,0 +1,134 @@
+---
+import CodeBlock from "../../../components/CodeBlock.astro";
+import Slide from "../../../components/Slide.astro";
+import FlipDemo from "./FlipDemo.svelte";
+import flip1 from "./images/flip-1.png";
+import flip2 from "./images/flip-2.png";
+import flip3 from "./images/flip-3.png";
+
+const { title } = Astro.props;
+const subSectionTitle = "Explication";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h1>
+		<span data-id="F">F</span><span data-id="L">L</span><span data-id="I"
+			>I</span
+		><span data-id="P">P</span>
+	</h1>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h1>
+		<span data-id="F">F</span><span>irst</span><span data-id="L">L</span><span
+			>ast</span
+		><span data-id="I">I</span><span>nvert</span><span data-id="P">P</span><span
+			>lay</span
+		>
+	</h1>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="container">
+		<h2><strong>F</strong>irst</h2>
+		<img src={flip1} alt="" />
+	</div>
+
+	<CodeBlock lang="javascript" lines="|1|3">
+		{
+			`const element = document.querySelector(".my-element");
+
+const first = element.getBoundingClientRect();`
+		}
+	</CodeBlock>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+	<div class="container">
+		<h2><strong>L</strong>ast</h2>
+		<img src={flip2} alt="" />
+	</div>
+
+	<CodeBlock lang="javascript" lines="|1|3">
+		{
+			`arrangeItems();
+
+const last = element.getBoundingClientRect();`
+		}
+	</CodeBlock>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+	<div class="container">
+		<h2><strong>I</strong>nvert</h2>
+		<img src={flip3} alt="" />
+	</div>
+
+	<CodeBlock lang="javascript" lines="|1,2|4">
+		{
+			`const deltaX = first.left - last.left;
+const deltaY = first.top - last.top;
+
+element.style.transform = \`translate(\${deltaX}px, \${deltaY}px)\`;`
+		}
+	</CodeBlock>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+	<div class="container">
+		<h2><strong>P</strong>lay</h2>
+		<video
+			src="/slides-template/flip-4.mov"
+			onclick="this.currentTime = 0;this.play()"></video>
+	</div>
+
+	<CodeBlock lang="javascript">
+		{
+			`item.animate(
+  [
+    { transform: \`translate(\${deltaX}px, \${deltaY}px)\` },
+    { transform: "none" },
+  ],
+  { duration: 300, easing: "ease-in-out" }
+);`
+		}
+	</CodeBlock>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle="Explication">
+	<FlipDemo duration={600} client:visible />
+</Slide>
+
+<style lang="scss">
+	span {
+		display: inline-block;
+
+		&:not([data-id]) {
+			font-weight: normal;
+			font-size: 0.7em;
+			margin-right: 1ch;
+		}
+	}
+
+	h2 {
+		font-weight: normal;
+		text-align: left;
+		line-height: 1;
+		margin: 0;
+
+		strong {
+			font-size: 1.2em;
+		}
+	}
+
+	img,
+	video {
+		height: 50vh;
+	}
+
+	.container {
+		display: flex;
+		align-items: center;
+		gap: 3rem;
+	}
+</style>

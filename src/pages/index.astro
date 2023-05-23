@@ -7,6 +7,10 @@ import CSSTransition from "../slides/part-1/css/transition/CSSTransition.astro";
 import TechnicalIntro from "../slides/intro/TechnicalIntro.astro";
 import RequestAnimationFrame from "../slides/part-1/vanilla-js/requestanimationframe/RequestAnimationFrame.astro";
 import WebAnimationAPI from "../slides/part-1/vanilla-js/web-animation-api/WebAnimationAPI.astro";
+import Part1Title from "../slides/part-1/Part1Title.astro";
+import Part2Title from "../slides/part-2/Part2Title.astro";
+import Flip from "../slides/part-2/flip/Flip.astro";
+import JSFrameworks from "../slides/part-2/js-frameworks/JSFrameworks.astro";
 ---
 
 <Layout
@@ -19,12 +23,16 @@ import WebAnimationAPI from "../slides/part-1/vanilla-js/web-animation-api/WebAn
 			<TechnicalIntro />
 
 			<!-- Part 1: native APIs -->
+			<Part1Title />
 			<CSSTransition />
 			<CSSAnimation />
-			<RequestAnimationFrame />
 			<WebAnimationAPI />
+			<RequestAnimationFrame />
 
 			<!-- Part 2: libraries -->
+			<Part2Title />
+			<Flip />
+			<JSFrameworks />
 		</div>
 	</main>
 </Layout>
