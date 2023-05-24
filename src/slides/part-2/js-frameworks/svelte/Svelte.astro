@@ -1,0 +1,90 @@
+---
+import CodeBlock from "../../../../components/CodeBlock.astro";
+import Slide from "../../../../components/Slide.astro";
+import SvelteTitle from "./SvelteTitle.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "Les APIs intégrées";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<SvelteTitle />
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<SvelteTitle />
+	<br />
+	<article>
+		<div class="code-container">
+			<span data-id="svelte-lang" class="code-lang">javascript</span>
+			<pre
+				data-id="svelte-pre"><code data-id="svelte-code" class="language-javascript" data-line-numbers>{
+					`import { tweened, spring } from 'svelte/motion';`}</code></pre>
+		</div>
+	</article>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<SvelteTitle />
+	<br />
+	<article>
+		<div class="code-container">
+			<span data-id="svelte-lang" class="code-lang">javascript</span>
+			<pre
+				data-id="svelte-pre"><code data-id="svelte-code" class="language-javascript" data-line-numbers>{
+					`import { tweened, spring } from 'svelte/motion';
+
+import { fade, fly, draw, crossfade, ... } from 'svelte/transition';
+`}</code></pre>
+		</div>
+	</article>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<SvelteTitle />
+	<br />
+	<article>
+		<div class="code-container">
+			<span data-id="svelte-lang" class="code-lang">javascript</span>
+			<pre
+				data-id="svelte-pre"><code data-id="svelte-code" class="language-javascript" data-line-numbers>{
+					`import { tweened, spring } from 'svelte/motion';
+
+import { fade, fly, draw, crossfade, ... } from 'svelte/transition';
+
+import { flip } from 'svelte/animate';
+`}</code></pre>
+		</div>
+	</article>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<SvelteTitle />
+	<br />
+	<article>
+		<div class="code-container">
+			<span data-id="svelte-lang" class="code-lang">javascript</span>
+			<pre
+				data-id="svelte-pre"><code data-id="svelte-code" class="language-javascript" data-line-numbers>{
+					`import { tweened, spring } from 'svelte/motion';
+
+import { fade, fly, draw, crossfade, ... } from 'svelte/transition';
+
+import { flip } from 'svelte/animate';
+
+import { elasticIn, cubicOut, sineInOut, ... } from 'svelte/easing';
+`}</code></pre>
+		</div>
+	</article>
+</Slide>
+
+<style>
+	.code-container code {
+		min-width: 80ch;
+		transform: none !important;
+		height: auto !important;
+	}
+	article {
+		height: 40vh;
+	}
+</style>

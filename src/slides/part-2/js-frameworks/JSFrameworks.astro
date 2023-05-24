@@ -1,0 +1,18 @@
+---
+import Slide from "../../../components/Slide.astro";
+import Angular from "./angular/Angular.astro";
+import React from "./react/React.astro";
+import Svelte from "./svelte/Svelte.astro";
+import Vue from "./vue/Vue.astro";
+
+const title = "Frameworks JavaScript";
+---
+
+<Slide>
+	<h1>{title + " "}</h1>
+</Slide>
+
+<Vue title={title} />
+<React title={title} />
+<Svelte title={title} />
+<Angular title={title} />

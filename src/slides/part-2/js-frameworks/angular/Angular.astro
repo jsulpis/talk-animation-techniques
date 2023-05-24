@@ -1,0 +1,46 @@
+---
+import CodeBlock from "../../../../components/CodeBlock.astro";
+import Slide from "../../../../components/Slide.astro";
+import AngularTitle from "./AngularTitle.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "Les APIs intégrées";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<AngularTitle />
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<AngularTitle />
+	<article>
+		<div class="code-container">
+			<span data-id="svelte-lang" class="code-lang">javascript</span>
+			<pre
+				data-id="svelte-pre"><code data-id="svelte-code" class="language-javascript" data-line-numbers>{
+					`import { trigger, state, style } from '@angular/animations';
+
+@Component({
+  animations: [
+    trigger('openClose', [
+      state('open', style({
+        opacity: 1,
+        backgroundColor: 'yellow'
+  })),
+  ...
+})
+export class OpenCloseComponent { ... }`}</code></pre>
+		</div>
+	</article>
+</Slide>
+
+<style>
+	.code-container code {
+		min-width: 80ch;
+		transform: none !important;
+		height: auto !important;
+	}
+	article {
+		height: 45vh;
+	}
+</style>

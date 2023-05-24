@@ -1,0 +1,49 @@
+---
+import Slide from "../../../../components/Slide.astro";
+import FakeDropdownMenu from "./FakeDropdownMenu.astro";
+import VueTitle from "./VueTitle.astro";
+import VueTransition from "./VueTransition.vue";
+import VueTransitionGroup from "./VueTransitionGroup.vue";
+
+const { title } = Astro.props;
+const subSectionTitle = "Les APIs intégrées";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<VueTitle />
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<VueTitle />
+	<br />
+	<code data-id="transition">{`<Transition />`}</code>
+	<code>{`<TransitionGroup />`}</code>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<VueTitle />
+	<code data-id="transition">{`<Transition />`}</code>
+	<div class="dropdown-container"><FakeDropdownMenu /></div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<VueTitle />
+	<code data-id="transition">{`<Transition />`}</code>
+	<VueTransition client:visible />
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<VueTitle />
+	<code data-id="transitiongroup">{`<TransitionGroup />`}</code>
+	<VueTransitionGroup client:visible />
+</Slide>
+
+<style lang="scss">
+	code {
+		font-size: 2em;
+	}
+
+	.dropdown-container {
+		padding-block: 10vh 15vh;
+	}
+</style>

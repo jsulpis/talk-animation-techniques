@@ -1,0 +1,27 @@
+---
+import Slide from "../../../../components/Slide.astro";
+import ReactTitle from "./ReactTitle.astro";
+import gifDesert from "../../../../assets/gif-desert.gif";
+
+const { title } = Astro.props;
+const subSectionTitle = "Les APIs intégrées";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<ReactTitle />
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<ReactTitle />
+	<img src={gifDesert} alt="gif desert" />
+</Slide>
+
+<style>
+	img {
+		height: 40vh;
+		width: auto;
+		margin-top: 4vh;
+		margin-bottom: -10vh;
+		border-radius: 0.3em;
+	}
+</style>
