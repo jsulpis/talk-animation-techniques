@@ -1,0 +1,16 @@
+---
+import Slide from "../../../components/Slide.astro";
+import Framer from "./framer/Framer.astro";
+import ReactSpring from "./react-spring/ReactSpring.astro";
+import VueUseMotion from "./vue-use/VueUseMotion.astro";
+
+const title = "Librairies JavaScript";
+---
+
+<Slide>
+	<h1>{title + " "}</h1>
+</Slide>
+
+<Framer title={title} />
+<ReactSpring title={title} />
+<VueUseMotion title={title} />

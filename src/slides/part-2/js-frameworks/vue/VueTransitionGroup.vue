@@ -106,7 +106,7 @@ button {
 .fade-move,
 .fade-enter-active,
 .fade-leave-active {
-	transition: all 0.8s cubic-bezier(0.55, 0, 0.1, 1);
+	transition: all 0.8s var(--ease-in-out);
 }
 
 /* 2. declare enter from and leave to state */

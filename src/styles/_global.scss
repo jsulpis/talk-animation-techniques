@@ -113,3 +113,32 @@ pre.mermaid svg {
 	height: 80vh;
 	max-width: none !important;
 }
+
+section > div.content {
+	height: 40vh;
+	padding-top: 2.5rem;
+
+	> table {
+		border-collapse: separate;
+		border-spacing: 0px 20px;
+
+		thead th {
+			padding: 0.5em 1em;
+			font-size: 0.8em;
+			border-top: 0.1em solid color(gray, 300);
+			border-bottom: 0.1em solid color(gray, 300);
+		}
+
+		tbody td {
+			padding-inline: 0.1em;
+			line-height: 2em;
+			margin-inline: 0.1em;
+			background: white;
+			background-clip: content-box;
+		}
+
+		+ p {
+			margin-top: 2rem;
+		}
+	}
+}

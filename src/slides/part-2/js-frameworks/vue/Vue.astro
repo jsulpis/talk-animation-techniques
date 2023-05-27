@@ -1,4 +1,5 @@
 ---
+import CodeBlock from "../../../../components/CodeBlock.astro";
 import Slide from "../../../../components/Slide.astro";
 import FakeDropdownMenu from "./FakeDropdownMenu.astro";
 import VueTitle from "./VueTitle.astro";
@@ -23,19 +24,68 @@ const subSectionTitle = "Les APIs intégrées";
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<VueTitle />
 	<code data-id="transition">{`<Transition />`}</code>
-	<div class="dropdown-container"><FakeDropdownMenu /></div>
+	<div class="content">
+		<CodeBlock lang="HTML">
+			{
+				`<Transition>
+  <p v-if="show">Bonjour</p>
+</Transition>`
+			}
+		</CodeBlock>
+	</div>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<VueTitle />
 	<code data-id="transition">{`<Transition />`}</code>
-	<VueTransition client:visible />
+	<div class="content"><FakeDropdownMenu /></div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<VueTitle />
+	<code data-id="transition">{`<Transition />`}</code>
+	<div class="content">
+		<CodeBlock lang="HTML">
+			{
+				`<Transition mode="out-in">
+  <SkeletonLoading v-if="state === 'loading'" />
+  <Content v-else />
+</Transition>`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<VueTitle />
+	<code data-id="transition">{`<Transition />`}</code>
+	<div class="content">
+		<VueTransition client:visible />
+	</div>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<VueTitle />
 	<code data-id="transitiongroup">{`<TransitionGroup />`}</code>
-	<VueTransitionGroup client:visible />
+	<div class="content">
+		<CodeBlock lang="HTML">
+			{
+				`<TransitionGroup name="list" tag="ul">
+  <li v-for="item in items" :key="item">
+    {{ item }}
+  </li>
+</TransitionGroup>`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<VueTitle />
+	<code data-id="transitiongroup">{`<TransitionGroup />`}</code>
+	<div class="content p-0">
+		<VueTransitionGroup client:visible />
+	</div>
 </Slide>
 
 <style lang="scss">
@@ -43,7 +93,7 @@ const subSectionTitle = "Les APIs intégrées";
 		font-size: 2em;
 	}
 
-	.dropdown-container {
-		padding-block: 10vh 15vh;
+	.content.p-0 {
+		padding: 0;
 	}
 </style>

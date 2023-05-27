@@ -1,0 +1,70 @@
+---
+import CodeBlock from "../../../../components/CodeBlock.astro";
+import Slide from "../../../../components/Slide.astro";
+import VueUseMotionTitle from "./VueUseMotionTitle.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "Vue";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<VueUseMotionTitle />
+	<p>La boîte à outils pour Vue</p>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<VueUseMotionTitle />
+	<div class="content">
+		<CodeBlock lang="HTML">
+			{
+				`<template>
+  <div
+    v-motion
+    :initial="{ opacity: 0 }"
+    :visible="{ opacity: 1 }"
+    :hovered="{ scale: 1.2 }"
+    :leave="{ opacity: 0 }"
+  />
+</template>
+`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<VueUseMotionTitle />
+	<div class="content">
+		<table>
+			<thead>
+				<tr>
+					<th>Transitions</th>
+					<th>FLIP</th>
+					<th>Tween</th>
+					<th>Spring</th>
+					<th>Web Animation API</th>
+					<th>requestAnimationFrame</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="fragment">
+			Taille <em>(min + gzip)</em> : <strong>~20kB</strong>
+		</p>
+	</div>
+</Slide>
+
+<style>
+	.content {
+		padding-top: 0.5em !important;
+	}
+</style>

@@ -1,0 +1,79 @@
+---
+import CodeBlock from "../../../../components/CodeBlock.astro";
+import Slide from "../../../../components/Slide.astro";
+import FramerTitle from "./FramerTitle.astro";
+import { List } from "./List";
+
+const { title } = Astro.props;
+const subSectionTitle = "React";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<FramerTitle />
+	<p>La solution la plus complète pour React</p>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<FramerTitle />
+	<div class="content">
+		<CodeBlock lang="JSX" lines="|2,10|3-9|">
+			{
+				`export const MyComponent = ({ isVisible }) => (
+  <AnimatePresence>
+    {isVisible && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      />
+    )}
+  </AnimatePresence>
+)`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<FramerTitle />
+	<div class="content">
+		<table>
+			<thead>
+				<tr>
+					<th>Transitions</th>
+					<th>FLIP</th>
+					<th>Tween</th>
+					<th>Spring</th>
+					<th>Web Animation API</th>
+					<th>requestAnimationFrame</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+					<td>✅</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="fragment">
+			Taille <em>(min + gzip)</em> : <strong>40.8kB</strong>
+		</p>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<FramerTitle />
+	<div class="content">
+		<List client:visible />
+	</div>
+</Slide>
+
+<style>
+	.content {
+		padding-top: 0.5em !important;
+	}
+</style>

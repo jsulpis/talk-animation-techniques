@@ -22,7 +22,7 @@ const activeComponent = ref("A");
 .radios {
 	display: flex;
 	gap: 3em;
-	margin-block: 3rem 1rem;
+	margin-bottom: 1rem;
 
 	label {
 		pointer-events: all;
@@ -43,7 +43,7 @@ const activeComponent = ref("A");
 
 .fade-leave-active,
 .fade-enter-active {
-	transition: opacity 0.6s var(--ease-out);
+	transition: opacity 0.5s var(--ease-out);
 }
 
 .fade-enter-from,

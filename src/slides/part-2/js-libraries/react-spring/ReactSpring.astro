@@ -1,0 +1,68 @@
+---
+import CodeBlock from "../../../../components/CodeBlock.astro";
+import Slide from "../../../../components/Slide.astro";
+import ReactSpringTitle from "./ReactSpringTitle.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "React";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<ReactSpringTitle />
+	<p>Alternative à Framer Motion</p>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<ReactSpringTitle />
+	<div class="content">
+		<CodeBlock lang="JSX">
+			{
+				`function MyComponent() {
+  const props = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+  })
+
+  return <animated.div style={props}>Hello World</animated.div>
+}`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<ReactSpringTitle />
+	<div class="content">
+		<table>
+			<thead>
+				<tr>
+					<th>Transitions</th>
+					<th>FLIP</th>
+					<th>Tween</th>
+					<th>Spring</th>
+					<th>Web Animation API</th>
+					<th>requestAnimationFrame</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>✅</td>
+					<td>✅</td>
+					<td>❌</td>
+					<td>✅</td>
+					<td>❌</td>
+					<td>✅</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="fragment">
+			Taille <em>(min + gzip)</em> : <strong>19.4kB</strong>
+		</p>
+	</div>
+</Slide>
+
+<style>
+	.content {
+		padding-top: 0.5em !important;
+	}
+</style>
