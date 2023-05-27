@@ -1,0 +1,53 @@
+---
+import Slide from "../../../../components/Slide.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "VanillaJS";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="content p-0">
+		<table>
+			<thead>
+				<tr>
+					<th>Librarie</th>
+					<th>Fonction "animate"</th>
+					<th>Timeline</th>
+					<th>Stagger</th>
+					<th>Scroll</th>
+					<th>Spring</th>
+					<th>WAAPI</th>
+					<th>SVG</th>
+					<th>Poids</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">GSAP</th>
+					<td>✅</td><td>✅</td><td>✅</td><td>✅</td>
+					<td>❌</td><td>❌</td><td>✅</td><td><small>23.5kB</small></td>
+				</tr>
+				<tr>
+					<th scope="row">Anime.js</th>
+					<td>✅</td><td>✅</td><td>✅</td><td>✅</td>
+					<td>✅</td><td>❌</td><td>✅</td><td><small>7kB</small></td>
+				</tr>
+				<tr>
+					<th scope="row">Motion One</th>
+					<td>✅</td><td>✅</td><td>😐</td><td>✅</td>
+					<td>✅</td><td>✅</td><td>😐</td><td><small>3.8kB</small></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</Slide>
+
+<style lang="scss">
+	thead th {
+		width: 8ch;
+
+		&:first-of-type {
+			width: 12ch;
+		}
+	}
+</style>

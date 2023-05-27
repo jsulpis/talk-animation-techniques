@@ -14,6 +14,7 @@ body {
 html {
 	font-size: 180%;
 	accent-color: color(primary, 600);
+	color-scheme: light;
 
 	@media screen and (min-width: 1600px) {
 		font-size: 250%;
@@ -117,6 +118,10 @@ pre.mermaid svg {
 section > div.content {
 	height: 40vh;
 	padding-top: 2.5rem;
+
+	&.p-0 {
+		padding: 0;
+	}
 
 	> table {
 		border-collapse: separate;

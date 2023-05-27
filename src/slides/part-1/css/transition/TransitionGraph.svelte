@@ -1,18 +1,45 @@
 <div class="mermaid">
 	<pre>
-flowchart LR
-  subgraph TOP
-    direction TB
-    subgraph B1
-        direction RL
-        i1 -->f1
+flowchart
+    subgraph native["APIs natives"]
+        direction LR
+        trans(Transition CSS) --> anim(Animation CSS)
+        anim --> waapi(Web Animation API)
+        waapi --> raf(requestAnimationFrame)
     end
-    subgraph B2
-        direction BT
-        i2 -->f2
+    subgraph frameworks["Frameworks JS"]
+        direction TB
+        subgraph Vue
+            vueTransition[&ltTransition />]
+            vueTransitionGroup[&ltTransitionGroup />]
+        end
+        subgraph Svelte
+            transition[svelte/transition]
+            motion[svelte/motion]
+            animate[svelte/animate]
+        end
+        subgraph React
+            shrug("¯\_ (ツ)_/¯")
+        end
+        subgraph Angular
+            angularanimation("@angular/animations")
+        end
     end
-  end
-  A --> TOP --> B
-  B1 --> B2
+    subgraph libs1["Librairies Vanilla JS"]
+        direction TB
+        motionone(Motion One)
+        animejs(Anime.js)
+        gsap(GSAP)
+        lottie(Lottie)
+    end
+    subgraph libs2["Librairies JS"]
+        direction TB
+        framer(Framer Motion)
+        vuemotion("@vueuse/motion")
+    end
+    native --> frameworks
+    native --> libs1
+    frameworks --> libs1
+    frameworks --> libs2
 	</pre>
 </div>

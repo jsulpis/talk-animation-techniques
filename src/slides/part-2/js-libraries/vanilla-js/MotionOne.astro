@@ -1,0 +1,40 @@
+---
+import CodeBlock from "../../../../components/CodeBlock.astro";
+import Slide from "../../../../components/Slide.astro";
+import MotionOneDemo from "./MotionOneDemo.svelte";
+import MotionOneSVG from "./MotionOneSVG.svelte";
+import MotionOneTitle from "./MotionOneTitle.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "Vanilla JS";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<MotionOneTitle />
+	<p>Scroll / Visibilité</p>
+	<div class="content">
+		<CodeBlock lang="javascript">
+			{
+				`scroll(
+  animate(".progress-bar", { scaleX: [0, 1] })
+);`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<MotionOneTitle />
+	<p>Scroll / Visibilité</p>
+	<div class="content p-0">
+		<MotionOneDemo client:visible />
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<MotionOneTitle />
+	<p>SVG (path, morphing, drawing...)</p>
+	<div class="content p-0">
+		<MotionOneSVG client:visible />
+	</div>
+</Slide>

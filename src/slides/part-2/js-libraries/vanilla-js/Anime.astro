@@ -1,0 +1,44 @@
+---
+import CodeBlock from "../../../../components/CodeBlock.astro";
+import Slide from "../../../../components/Slide.astro";
+import AnimeDemo from "./AnimeDemo.svelte";
+import AnimeDemoGrid from "./AnimeDemoGrid.svelte";
+import AnimeDemoList from "./AnimeDemoList.svelte";
+import AnimeTitle from "./AnimeTitle.astro";
+import GsapDemo from "./GsapDemo.svelte";
+
+const { title } = Astro.props;
+const subSectionTitle = "Vanilla JS";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<AnimeTitle />
+	<p>Échelonnement ("stagger")</p>
+	<div class="content">
+		<CodeBlock lang="javascript">
+			{
+				`anime({
+  targets: '.box',
+  translateX: 200,
+  delay: anime.stagger(100)
+});`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<AnimeTitle />
+	<p>Échelonnement ("stagger")</p>
+	<div class="content p-0">
+		<AnimeDemoList client:visible />
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<AnimeTitle />
+	<p>Échelonnement ("stagger")</p>
+	<div class="content p-0">
+		<AnimeDemoGrid client:visible />
+	</div>
+</Slide>

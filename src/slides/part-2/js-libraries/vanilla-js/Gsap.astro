@@ -1,0 +1,33 @@
+---
+import CodeBlock from "../../../../components/CodeBlock.astro";
+import Slide from "../../../../components/Slide.astro";
+import GsapDemo from "./GsapDemo.svelte";
+import GsapTitle from "./GsapTitle.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "Vanilla JS";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<GsapTitle />
+	<p>Animation "simple"</p>
+	<div class="content">
+		<CodeBlock lang="javascript">
+			{
+				`gsap.to(".box", {
+  rotation: 45,
+  x: 100,
+  duration: 1,
+});`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<GsapTitle />
+	<p>Animation "simple"</p>
+	<div class="content p-0">
+		<GsapDemo client:visible />
+	</div>
+</Slide>

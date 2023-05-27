@@ -10,7 +10,6 @@
 		--spacing-0#{$spacing}: #{$value};
 	}
 
-	color-scheme: light dark;
 	--font-color-default: #{color(gray, 700)};
 	--font-color-strong: #{color(gray, 900)};
 	--font-color-light: #{color(gray, 400)};
