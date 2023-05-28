@@ -8,6 +8,7 @@
 	*/
 
 	const threeDTimeline = gsap.timeline({}); //onUpdate allows the slider to stay in sync as animation plays
+	// threeDTimeline.timeScale(1.5);
 
 	onMount(() => {
 		var trans3DDemo = document.querySelector("#trans3DDemo"),

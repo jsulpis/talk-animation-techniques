@@ -6,8 +6,11 @@
 
 	let container;
 
+	const timeline = gsap.timeline({}); //onUpdate allows the slider to stay in sync as animation plays
+	timeline.timeScale(0.5);
+
 	onMount(() => {
-		gsap.to("#AllBodyGroup", {
+		timeline.to("#AllBodyGroup", {
 			keyframes: [
 				{
 					y: 100,
@@ -47,7 +50,7 @@
 			repeat: -1,
 		});
 
-		gsap.to("#Hat", {
+		timeline.to("#Hat", {
 			keyframes: [
 				{
 					scaleY: 1.2,
@@ -89,7 +92,7 @@
 			repeat: -1,
 		});
 
-		gsap.to("#LeftEye", {
+		timeline.to("#LeftEye", {
 			keyframes: [
 				{
 					y: -15,
@@ -116,7 +119,7 @@
 			repeat: -1,
 		});
 
-		gsap.to("#RightEye", {
+		timeline.to("#RightEye", {
 			keyframes: [
 				{
 					y: -8,
@@ -143,7 +146,7 @@
 			repeat: -1,
 		});
 
-		gsap.to("#SmallEyeShineRight", {
+		timeline.to("#SmallEyeShineRight", {
 			keyframes: [
 				{
 					duration: 0.1,
@@ -159,7 +162,7 @@
 			repeat: -1,
 		});
 
-		gsap.to("#SmallEyeShineLeft", {
+		timeline.to("#SmallEyeShineLeft", {
 			keyframes: [
 				{
 					duration: 0.1,
@@ -175,7 +178,7 @@
 			repeat: -1,
 		});
 
-		gsap.to("#BigEyeShineLeft", {
+		timeline.to("#BigEyeShineLeft", {
 			keyframes: [
 				{
 					duration: 0.1,
@@ -191,7 +194,7 @@
 			repeat: -1,
 		});
 
-		gsap.to("#BigEyeShineRight", {
+		timeline.to("#BigEyeShineRight", {
 			keyframes: [
 				{
 					duration: 0.15,
@@ -207,7 +210,7 @@
 			repeat: -1,
 		});
 
-		gsap.from("#shadow", {
+		timeline.from("#shadow", {
 			transformOrigin: "center center",
 			scaleX: 2,
 			scaleX: 2,
@@ -215,15 +218,13 @@
 			repeat: -1,
 			yoyo: true,
 		});
-
-		gsap.globalTimeline.timeScale(0.5);
 	});
 
 	loop(() => {
-		if (!container.closest("section:not(.stack).present")) {
-			gsap.globalTimeline.pause();
+		if (container.closest("section:not(.stack).present")) {
+			timeline.play();
 		} else {
-			gsap.globalTimeline.play();
+			timeline.pause();
 		}
 		return true;
 	});
