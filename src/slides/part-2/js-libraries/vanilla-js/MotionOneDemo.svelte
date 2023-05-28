@@ -70,7 +70,8 @@
 		left: 0;
 		right: 0;
 		height: 10px;
-		background: color(gold);
+		background: color(gold, 400);
+		box-shadow: 0px -3px 5px -4px black;
 		transform: scaleX(0);
 		transform-origin: 0%;
 	}

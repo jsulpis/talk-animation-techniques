@@ -1,89 +1,20 @@
 ---
-import FlexContainer from "../../../../components/FlexContainer.astro";
-import Slide from "../../../../components/Slide.astro";
-import AnimeTitle from "./AnimeTitle.astro";
 import Gsap from "./Gsap.astro";
-import GsapTitle from "./GsapTitle.astro";
 import MotionOne from "./MotionOne.astro";
-import MotionOneTitle from "./MotionOneTitle.astro";
-import npmTrends from "../../../../assets/npm-trends.png";
 import Anime from "./Anime.astro";
 import VanillaJSRecap from "./VanillaJSRecap.astro";
+import VanillaJSIntro from "./VanillaJSIntro.astro";
+import Lottie from "./Lottie.astro";
 
 const { title } = Astro.props;
 ---
 
-<Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
-	<h2>Vanilla JS</h2>
-</Slide>
-
-<Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
-	<FlexContainer direction={"column"} gap="2rem">
-		<div class="lib">
-			<GsapTitle />
-			<p>La librairie de référence</p>
-			<p><strong class="fragment">(23.5kB)</strong></p>
-		</div>
-	</FlexContainer>
-</Slide>
-
-<Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
-	<FlexContainer direction={"column"} gap="2rem">
-		<div class="lib">
-			<GsapTitle />
-			<p>La librairie de référence</p>
-			<p><strong>(23.5kB)</strong></p>
-		</div>
-
-		<div class="lib">
-			<AnimeTitle />
-			<p>Alternative à gsap, légère et polyvalente</p>
-			<p><strong class="fragment">(7kB)</strong></p>
-		</div>
-	</FlexContainer>
-</Slide>
-
-<Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
-	<FlexContainer direction={"column"} gap="2rem">
-		<div class="lib">
-			<GsapTitle />
-			<p>La librairie de référence</p>
-			<p><strong>(23.5kB)</strong></p>
-		</div>
-
-		<div class="lib">
-			<AnimeTitle />
-			<p>Alternative à gsap, légère et polyvalente</p>
-			<p><strong>(7kB)</strong></p>
-		</div>
-
-		<div class="lib">
-			<MotionOneTitle />
-			<p>Web Animation API améliorée</p>
-			<p><strong class="fragment">(3.8kB)</strong></p>
-		</div>
-	</FlexContainer>
-</Slide>
-
-<Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
-	<img src={npmTrends} alt="npm trends for the 3 libraries" />
-</Slide>
+<VanillaJSIntro title={title} />
 
 <Gsap title={title} />
 <Anime title={title} />
 <MotionOne title={title} />
+
 <VanillaJSRecap title={title} />
 
-<style>
-	.lib {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	img {
-		height: 70vh;
-		margin-bottom: -8%;
-		border-radius: 0.5rem;
-	}
-</style>
+<Lottie title={title} />

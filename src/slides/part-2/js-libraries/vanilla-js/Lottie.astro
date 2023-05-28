@@ -1,0 +1,66 @@
+---
+import CodeBlock from "../../../../components/CodeBlock.astro";
+import Slide from "../../../../components/Slide.astro";
+import GsapSvgDemo from "./GsapSvgDemo.svelte";
+import GsapTitle from "./GsapTitle.astro";
+import LottieDemoCity from "./LottieDemoCity.svelte";
+import LottieDemoRobot from "./LottieDemoRobot.svelte";
+import LottieTitle from "./LottieTitle.astro";
+
+const { title } = Astro.props;
+---
+
+<Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
+	<h3>Retour sur les animations SVG...</h3>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
+	<GsapTitle />
+	<div class="content p-0">
+		<GsapSvgDemo client:visible />
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
+	<LottieTitle />
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
+	<LottieTitle />
+	<div class="content p-0 demo">
+		<LottieDemoRobot client:visible client:only />
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
+	<LottieTitle />
+	<div class="content p-0">
+		<CodeBlock lang="HTML">
+			{
+				`<dotlottie-player
+  autoplay
+  controls
+  loop
+  src="/robot.lottie"
+  style="width: 300px"
+/>`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
+	<LottieTitle />
+	<div class="content p-0 demo">
+		<LottieDemoCity client:visible client:only />
+	</div>
+</Slide>
+
+<style>
+	.content.demo {
+		height: 70vh !important;
+		margin-block: -15vh;
+		display: flex;
+		align-items: center;
+	}
+</style>
