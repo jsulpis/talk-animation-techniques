@@ -10,25 +10,27 @@ import SimpleDemo from "./SimpleDemo.astro";
 const title = "Animation CSS";
 ---
 
-<Slide>
-	<h1>{title + " "}</h1>
-</Slide>
+<section>
+	<Slide>
+		<h1>{title + " "}</h1>
+	</Slide>
 
-<Slide>
-	<h1>{title + " "}</h1>
-	<p>
-		Usage: animation composée d’au moins deux états, qui <em>peut</em> être déclenchée
-		immédiatement et qui <em>peut</em> ne jamais se terminer
-	</p>
-</Slide>
+	<Slide>
+		<h1>{title + " "}</h1>
+		<p>
+			Usage: animation composée d’au moins deux états, qui <em>peut</em> être déclenchée
+			immédiatement et qui <em>peut</em> ne jamais se terminer
+		</p>
+	</Slide>
 
-<SimpleDemo title={title} />
-<FadeIn title={title} />
-<FakeDropdownMenu title={title} />
-<Loaders title={title} />
-<SVGAnimation title={title} />
-<AnimationStates {title} />
+	<SimpleDemo title={title} />
+	<FadeIn title={title} />
+	<FakeDropdownMenu title={title} />
+	<Loaders title={title} />
+	<SVGAnimation title={title} />
+	<AnimationStates {title} />
 
-<Slide>
-	<h1>{title} - recap</h1>
-</Slide>
+	<Slide>
+		<h1>{title} - recap</h1>
+	</Slide>
+</section>

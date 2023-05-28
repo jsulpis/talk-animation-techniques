@@ -8,11 +8,13 @@ import VueUseMotion from "./vue-use/VueUseMotion.astro";
 const title = "Librairies JavaScript";
 ---
 
-<Slide>
-	<h1>{title + " "}</h1>
-</Slide>
+<section>
+	<Slide>
+		<h1>{title + " "}</h1>
+	</Slide>
 
-<Framer title={title} />
-<ReactSpring title={title} />
-<VueUseMotion title={title} />
-<VanillaJS title={title} />
+	<Framer title={title} />
+	<ReactSpring title={title} />
+	<VueUseMotion title={title} />
+	<VanillaJS title={title} />
+</section>

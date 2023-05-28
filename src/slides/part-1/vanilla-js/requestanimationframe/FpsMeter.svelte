@@ -14,7 +14,7 @@
 	performance.mark("previous-frame");
 
 	loop(() => {
-		if (!container.closest("section.present")) {
+		if (!container.closest("section:not(.stack).present")) {
 			// skip animation
 			return true;
 		}

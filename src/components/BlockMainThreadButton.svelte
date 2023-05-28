@@ -20,7 +20,8 @@
 	function isSpinnerVisible() {
 		return (
 			spinner &&
-			(spinner.closest("section.present") || spinner.closest(".button-corner"))
+			(spinner.closest("section:not(.stack).present") ||
+				spinner.closest(".button-corner"))
 		);
 	}
 

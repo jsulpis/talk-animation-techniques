@@ -18,7 +18,7 @@
 	});
 
 	loop(() => {
-		if (!card?.closest("section.present")) {
+		if (!card?.closest("section:not(.stack).present")) {
 			animation?.pause();
 		} else {
 			animation?.play();

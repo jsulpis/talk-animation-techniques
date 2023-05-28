@@ -220,7 +220,7 @@
 	});
 
 	loop(() => {
-		if (!container.closest("section.present")) {
+		if (!container.closest("section:not(.stack).present")) {
 			gsap.globalTimeline.pause();
 		} else {
 			gsap.globalTimeline.play();
