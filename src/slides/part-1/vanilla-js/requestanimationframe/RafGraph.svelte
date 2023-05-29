@@ -14,13 +14,15 @@
 		flowchart
     subgraph native["APIs natives "]
         direction LR
-        trans(Transition CSS)
+        trans(Transition CSS) --> anim(Animation CSS)
+        anim --> waapi(Web Animation API)
+        waapi --> raf(requestAnimationFrame)
     end`}
 	</pre>
 </div>
 
 <style>
 	.mermaid {
-		transform: scale(0.5);
+		transform: scale(0.9);
 	}
 </style>

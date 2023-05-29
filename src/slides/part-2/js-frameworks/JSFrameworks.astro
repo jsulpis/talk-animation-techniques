@@ -1,5 +1,6 @@
 ---
 import Slide from "../../../components/Slide.astro";
+import FrameworksGraph from "./FrameworksGraph.svelte";
 import Angular from "./angular/Angular.astro";
 import React from "./react/React.astro";
 import Svelte from "./svelte/Svelte.astro";
@@ -17,4 +18,8 @@ const title = "Frameworks JavaScript";
 	<React title={title} />
 	<Svelte title={title} />
 	<Angular title={title} />
+
+	<Slide>
+		<FrameworksGraph />
+	</Slide>
 </section>

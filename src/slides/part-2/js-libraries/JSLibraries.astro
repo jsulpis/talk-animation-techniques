@@ -1,5 +1,6 @@
 ---
 import Slide from "../../../components/Slide.astro";
+import LibrairiesGraph from "./LibrairiesGraph.svelte";
 import Framer from "./framer/Framer.astro";
 import ReactSpring from "./react-spring/ReactSpring.astro";
 import VanillaJS from "./vanilla-js/VanillaJS.astro";
@@ -20,5 +21,9 @@ const title = "Librairies JavaScript";
 
 	<Slide>
 		<h1>{title} - recap</h1>
+	</Slide>
+
+	<Slide>
+		<LibrairiesGraph />
 	</Slide>
 </section>

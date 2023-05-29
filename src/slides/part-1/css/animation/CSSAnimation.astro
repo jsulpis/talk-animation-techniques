@@ -1,5 +1,6 @@
 ---
 import Slide from "../../../../components/Slide.astro";
+import AnimationGraph from "./AnimationGraph.svelte";
 import AnimationStates from "./AnimationStates.astro";
 import FadeIn from "./FadeIn.astro";
 import FakeDropdownMenu from "./FakeDropdownMenu.astro";
@@ -32,5 +33,9 @@ const title = "Animation CSS";
 
 	<Slide>
 		<h1>{title} - recap</h1>
+	</Slide>
+
+	<Slide>
+		<AnimationGraph />
 	</Slide>
 </section>

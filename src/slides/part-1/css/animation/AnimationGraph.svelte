@@ -14,13 +14,13 @@
 		flowchart
     subgraph native["APIs natives "]
         direction LR
-        trans(Transition CSS)
+        trans(Transition CSS) --> anim(Animation CSS)
     end`}
 	</pre>
 </div>
 
 <style>
 	.mermaid {
-		transform: scale(0.5);
+		transform: scale(0.7);
 	}
 </style>

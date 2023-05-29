@@ -3,6 +3,7 @@ import Slide from "../../../../components/Slide.astro";
 import Citation from "./Citation.astro";
 import FpsMeter from "./FpsMeter.astro";
 import RafDemos from "./RafDemos.astro";
+import RafGraph from "./RafGraph.svelte";
 import RafUsage from "./RafUsage.astro";
 import SpringAnimations from "./SpringAnimations.astro";
 
@@ -32,5 +33,9 @@ const title = "requestAnimationFrame()";
 
 	<Slide>
 		<h1>{title} - recap</h1>
+	</Slide>
+
+	<Slide>
+		<RafGraph />
 	</Slide>
 </section>

@@ -1,4 +1,6 @@
 ---
+import Slide from "../../../../components/Slide.astro";
+import WAAPIGraph from "./WAAPIGraph.svelte";
 import WAAPIIntro from "./WAAPIIntro.astro";
 import WAAPIOutro from "./WAAPIOutro.astro";
 import ControlingExecution from "./sections/ControlingExecution.astro";
@@ -14,4 +16,7 @@ const title = "Web Animation API";
 	<ControlingExecution title={title} />
 
 	<WAAPIOutro title={title} />
+	<Slide>
+		<WAAPIGraph />
+	</Slide>
 </section>

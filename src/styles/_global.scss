@@ -109,10 +109,15 @@ label {
 	}
 }
 
-pre.mermaid svg {
+.mermaid svg {
 	display: inline-block;
 	height: 80vh;
 	max-width: none !important;
+
+	.cluster-label .nodeLabel {
+		font-weight: bold !important;
+		font-size: 0.9em !important;
+	}
 }
 
 section > div.content {

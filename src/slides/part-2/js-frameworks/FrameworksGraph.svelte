@@ -1,0 +1,48 @@
+<div class="mermaid">
+	<pre>{`%%{
+		init: {
+			'theme': 'base',
+			'themeVariables': {
+				'primaryBorderColor': 'black',
+				'secondaryBorderColor': 'black',
+				'tertiaryBorderColor': 'gray',
+				'fontSize': '18px'
+			}
+		}
+	}%%
+
+		flowchart
+    subgraph native["APIs natives "]
+        direction LR
+        trans(Transition CSS) --> anim(Animation CSS)
+        anim --> waapi(Web Animation API)
+        waapi --> raf(requestAnimationFrame)
+    end
+
+		subgraph frameworks["Frameworks JS"]
+        direction TB
+        subgraph Vue
+            vueTransition[&ltTransition />, &ltTransitionGroup />]
+        end
+        subgraph Svelte
+            transition[transition, motion, animate]
+        end
+        subgraph React
+            shrug("¯\\_ (ツ)_/¯")
+        end
+        subgraph Angular
+            angularanimation("@angular/animations")
+				end
+
+    end
+
+    native --> frameworks
+		`}
+	</pre>
+</div>
+
+<style>
+	.mermaid {
+		transform: scale(0.95);
+	}
+</style>
