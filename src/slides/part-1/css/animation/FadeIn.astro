@@ -17,8 +17,8 @@ const subSectionTitle = "Fade in";
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-	<CodeBlock lang="css" lines="|1-6|8-11|"
-		>{
+	<CodeBlock lang="css" lines="|1-6|8-11">
+		{
 			`@keyframes fadeIn {
   from {
     opacity: 0;
@@ -30,8 +30,8 @@ const subSectionTitle = "Fade in";
   animation: fadeIn 800ms ease-out backwards;
   animation-delay: calc(500ms + var(--index) * 100ms);
 }`
-		}</CodeBlock
-	>
+		}
+	</CodeBlock>
 </Slide>
 
 <style lang="scss">

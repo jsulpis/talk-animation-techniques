@@ -64,7 +64,7 @@
 </script>
 
 <article bind:this={container}>
-	<button on:click={shuffle}>shuffle</button>
+	<button on:click={shuffle}>Mélanger</button>
 	<div class="gallery">
 		{#each colors as color}
 			<div class="item" id={color} />
@@ -74,10 +74,9 @@
 
 <style lang="scss">
 	article {
-		width: 90%;
 		margin-top: 5%;
-		max-width: 900px;
-		padding: 2rem 3rem 3rem;
+		max-width: 70vw;
+		padding: 2rem 2rem 3rem;
 		border-radius: 0.5rem;
 		box-sizing: border-box;
 		background: white;
@@ -122,7 +121,7 @@
 		border: 0;
 		border-radius: 0.25rem;
 		font-size: 1rem;
-		text-transform: uppercase;
+		// text-transform: uppercase;
 		padding: 0.75rem 1.25rem;
 		cursor: pointer;
 		transition: background-color 100ms;

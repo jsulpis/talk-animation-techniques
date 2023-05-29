@@ -50,7 +50,6 @@ function remove(item) {
 
 <style lang="scss" scoped>
 article {
-	width: 90%;
 	margin-top: 2%;
 	max-width: 70vw;
 	padding: 2rem 3rem 3rem;

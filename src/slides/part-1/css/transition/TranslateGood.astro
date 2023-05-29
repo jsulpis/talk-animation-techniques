@@ -26,8 +26,8 @@ const subSectionTitle = "La translation";
 </SlideDemo>
 
 <SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
-	<CodeBlock lang="css"
-		>{
+	<CodeBlock lang="css">
+		{
 			`.demo {
   transition: transform 800ms ease-in-out;
 
@@ -35,8 +35,9 @@ const subSectionTitle = "La translation";
     transform: translateX(80%);
   }
 }`
-		}</CodeBlock
-	>
+		}
+	</CodeBlock>
+	<span class="fragment emoji">👍</span>
 </SlideDemo>
 
 <style lang="scss">
@@ -66,5 +67,9 @@ const subSectionTitle = "La translation";
 		gap: 1em;
 		flex-wrap: wrap;
 		max-width: calc(4 * (8rem) + 3 * 1em);
+	}
+	.emoji {
+		font-size: 2em;
+		margin-block: 0.5em -2em;
 	}
 </style>

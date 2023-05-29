@@ -10,12 +10,18 @@ const subSectionTitle = "Shaders GLSL";
 ---
 
 <Slide sectionTitle={title}>
-	<h2>Shaders GLSL&nbsp;</h2>
+	<div class="teaser"><p>Pour aller plus loin...</p></div>
+</Slide>
+
+<Slide sectionTitle={title}>
+	<div class="teaser">
+		<p>Pour aller plus loin...</p>
+		<small>(Il y a pas plus loin...)</small>
+	</div>
 </Slide>
 
 <Slide sectionTitle={title}>
 	<h2>Shaders GLSL&nbsp;</h2>
-	<p class="emoji">😱</p>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
@@ -152,9 +158,18 @@ void main() {
 	</div>
 </Slide>
 
-<style>
+<style lang="scss">
 	h2 {
 		margin: 0;
+	}
+	.teaser {
+		p {
+			font-size: 1.7em;
+			margin: 0;
+		}
+		small {
+			font-size: 1em;
+		}
 	}
 	p {
 		margin-bottom: 0.5em;

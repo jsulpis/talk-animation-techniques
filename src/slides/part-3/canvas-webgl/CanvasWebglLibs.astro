@@ -1,0 +1,88 @@
+---
+import Slide from "../../../components/Slide.astro";
+const { title } = Astro.props;
+const subSectionTitle = "Autres librairies";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="fragment container">
+		<h3>React-three-fiber</h3>
+		<p>Renderer React pour three.js</p>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="container">
+		<h3>React-three-fiber</h3>
+		<p>Renderer React pour three.js</p>
+
+		<h3>Trois.js</h3>
+		<p>Librairie de composants three.js pour Vue</p>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="container">
+		<h3>React-three-fiber</h3>
+		<p>Renderer React pour three.js</p>
+
+		<h3>Trois.js</h3>
+		<p>Librairie de composants three.js pour Vue</p>
+
+		<h3>Threlte</h3>
+		<p>Librairie de composants three.js pour Svelte</p>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<p class="big">Il n'y a pas que three.js ...</p>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="container">
+		<h3>Shree.js</h3>
+		<p>Version (très) allégée de three.js</p>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="container">
+		<h3>Shree.js</h3>
+		<p>Version (très) allégée de three.js</p>
+
+		<h3>Pixi.js</h3>
+		<p>Moteur de rendu WebGL 2D</p>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="container">
+		<h3>Shree.js</h3>
+		<p>Version (très) allégée de three.js</p>
+
+		<h3>Pixi.js</h3>
+		<p>Moteur de rendu WebGL 2D</p>
+
+		<h3>Rive</h3>
+		<p>Runtime pour des animations interactives, supporte Canvas 2D et WebGL</p>
+	</div>
+</Slide>
+
+<style lang="scss">
+	.container {
+		text-align: left;
+		width: 40ch;
+		margin-top: 2em;
+	}
+	h3 {
+		font-size: 1.5em;
+		margin-block: 0;
+	}
+	p {
+		margin-bottom: 1em;
+
+		&.big {
+			font-size: 1.5em;
+		}
+	}
+</style>

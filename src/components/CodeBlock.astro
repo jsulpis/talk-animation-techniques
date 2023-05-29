@@ -38,29 +38,13 @@ const { lang, lines } = Astro.props;
 		box-shadow: var(--shadow-lg);
 		position: relative;
 
-		&::-webkit-scrollbar {
-			width: 8px;
-			background-color: transparent;
-		}
-
-		&::-webkit-scrollbar-thumb {
-			background: #555;
-			border-radius: 4px;
-		}
-
 		& > code {
 			width: fit-content;
 			overflow: hidden;
 			padding: 2em;
 
 			&::-webkit-scrollbar {
-				width: 8px;
-				background-color: transparent;
-			}
-
-			&::-webkit-scrollbar-thumb {
-				background: #555;
-				border-radius: 4px;
+				display: none; // don't do that in production
 			}
 		}
 	}

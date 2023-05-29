@@ -22,17 +22,20 @@ const subSectionTitle = "La translation";
 			<span class="card primary">Clique !</span>
 		</label>
 	</p>
-	<CodeBlock lang="css"
-		>{
-			`.demo {
+	<div class="cross-container">
+		<span class="fragment cross"></span>
+		<CodeBlock lang="css">
+			{
+				`.demo {
   transition: margin 800ms ease-in-out;
 
   &:checked {
     margin-left: 300px;
   }
 }`
-		}</CodeBlock
-	>
+			}
+		</CodeBlock>
+	</div>
 </SlideDemo>
 
 <SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
@@ -60,6 +63,8 @@ const subSectionTitle = "La translation";
 	}
 
 	label {
+		position: relative;
+
 		input:checked + .primary {
 			margin-left: 15rem;
 
@@ -67,6 +72,31 @@ const subSectionTitle = "La translation";
 				margin-left: calc(8rem + 1em);
 			}
 		}
+	}
+
+	.cross-container {
+		position: relative;
+	}
+
+	.cross {
+		position: absolute;
+		inset: 0;
+		top: 15%;
+		z-index: 1;
+		background: linear-gradient(
+				25deg,
+				transparent 49%,
+				red 49%,
+				red 51%,
+				transparent 51%
+			),
+			linear-gradient(
+				-25deg,
+				transparent 49%,
+				red 49%,
+				red 51%,
+				transparent 51%
+			);
 	}
 
 	.container {
