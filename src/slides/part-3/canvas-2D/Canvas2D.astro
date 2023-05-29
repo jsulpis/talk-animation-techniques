@@ -1,0 +1,111 @@
+---
+import CodeBlock from "../../../components/CodeBlock.astro";
+import FlexContainer from "../../../components/FlexContainer.astro";
+import Slide from "../../../components/Slide.astro";
+import SlideDemo from "../../../components/SlideDemo.astro";
+import Citation from "../../part-1/vanilla-js/requestanimationframe/Citation.astro";
+import Canvas2DDemo1 from "./Canvas2DDemo1.svelte";
+import Canvas2DDemo2 from "./Canvas2DDemo2.svelte";
+import Canvas2DDemo3 from "./Canvas2DDemo3.svelte";
+import Canvas2DDemo4 from "./Canvas2DDemo4.svelte";
+import Canvas2DExamples from "./Canvas2DExamples.astro";
+import Canvas2DLibs from "./Canvas2DLibs.astro";
+
+const title = "Canvas 2D";
+---
+
+<section>
+	<Slide>
+		<h1>{title + " "}</h1>
+	</Slide>
+
+	<Slide>
+		<h1>{title + " "}</h1>
+		<p>
+			Usage: animation complexe et/ou interactive d'un grand nombre de formes
+			géométriques lorsque les SVGs ne suffisent plus
+		</p>
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={"Utilisation"}>
+		<br />
+		<FlexContainer gap="3rem">
+			<FlexContainer direction={"column"} gap="0.5rem">
+				<CodeBlock lang="HTML">
+					{`<canvas width="400" height="400" />`}
+				</CodeBlock>
+				<CodeBlock lang="javascript" lines="|1,2|4,5">
+					{
+						`const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
+
+ctx.fillStyle = "hsl(200deg, 100%, 50%)";
+ctx.fillRect(100, 100, 200, 200);`
+					}
+				</CodeBlock>
+			</FlexContainer>
+			<Canvas2DDemo1 client:visible />
+		</FlexContainer>
+	</Slide>
+
+	<SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
+		<img
+			src="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes/canvas_default_grid.png"
+			alt=""
+		/>
+	</SlideDemo>
+
+	<SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
+		<Canvas2DDemo2 client:visible />
+	</SlideDemo>
+
+	<SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
+		<Canvas2DDemo3 client:visible />
+	</SlideDemo>
+
+	<SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
+		<Citation author="encore moi" />
+	</SlideDemo>
+
+	<Slide sectionTitle={title} subSectionTitle={"Utilisation"}>
+		<CodeBlock lang="javascript" lines="1,11|2|4,5|7-9">
+			{
+				`loop(() => {
+  const time = Date.now();
+  ...
+  // monstre
+  ctx.translate(Math.cos(time) * 30, 0);
+  ...
+  // bouche
+  const angle = (Math.cos(time) + 1) / 3;
+  ctx.arc(37, 37, 13, angle, -1 * angle, false);
+  ...
+})`
+			}
+		</CodeBlock>
+	</Slide>
+
+	<SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
+		<Canvas2DDemo3 client:visible animate={true} />
+	</SlideDemo>
+
+	<Slide>
+		<Canvas2DExamples />
+	</Slide>
+
+	<Canvas2DLibs title={title} />
+
+	<SlideDemo sectionTitle={title} subSectionTitle={"Performance"}>
+		<Canvas2DDemo4 client:visible />
+	</SlideDemo>
+
+	<Slide>
+		<h1>{title} - recap</h1>
+	</Slide>
+</section>
+
+<style>
+	img {
+		height: 60vh;
+	}
+</style>

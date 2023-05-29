@@ -1,6 +1,10 @@
 <script>
 	import { loop } from "svelte/internal";
 
+	// avoid warning for unknown prop
+	let className;
+	export { className as class };
+
 	function blockMainThread() {
 		document.body.style.boxShadow = "inset 0 0 10vmin red";
 

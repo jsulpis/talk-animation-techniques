@@ -4,6 +4,10 @@
 	import { gsap } from "gsap";
 	import { loop } from "svelte/internal";
 
+	// avoid warning for unknown prop
+	let className;
+	export { className as class };
+
 	let container;
 
 	const timeline = gsap.timeline({}); //onUpdate allows the slider to stay in sync as animation plays
@@ -208,15 +212,6 @@
 				},
 			],
 			repeat: -1,
-		});
-
-		timeline.from("#shadow", {
-			transformOrigin: "center center",
-			scaleX: 2,
-			scaleX: 2,
-			opacity: 0,
-			repeat: -1,
-			yoyo: true,
 		});
 	});
 

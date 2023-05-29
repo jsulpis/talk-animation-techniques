@@ -1,0 +1,92 @@
+---
+import img1 from "./images/demos/image1.jpg";
+import img2 from "./images/demos/image2.jpg";
+import img3 from "./images/demos/image3.jpg";
+import img4 from "./images/demos/image4.jpg";
+import img5 from "./images/demos/image5.jpg";
+import img6 from "./images/demos/image6.jpg";
+import img7 from "./images/demos/image7.jpg";
+import img8 from "./images/demos/image8.jpg";
+import img9 from "./images/demos/image9.jpg";
+---
+
+<div class="grid">
+	<div>
+		<img src={img1} alt="" />
+		<a href="https://codepen.io/alexzaworski/pen/mEZvrG">
+			Alex Zaworski - Color Changin'
+		</a>
+	</div>
+	<div>
+		<img src={img2} alt="" />
+		<a href="https://observablehq.com/@d3/hierarchical-edge-bundling/2">
+			D3 - Hierarchical Edge Bundling
+		</a>
+	</div>
+	<div>
+		<img src={img3} alt="" />
+		<a href="https://codepen.io/linrock/pen/nMadjQ">
+			Linmiao Xu - Falling Confetti
+		</a>
+	</div>
+	<div>
+		<img src={img4} alt="" />
+		<a href="https://codepen.io/tsuhre/pen/BYbjyg"> Ben Matthews - Ribbons 2</a>
+	</div>
+	<div>
+		<img src={img5} alt="" />
+		<a href="https://youtu.be/gnfgwkVg7vc?t=338"> SoftGames - Garden Tales</a>
+	</div>
+	<div>
+		<img src={img6} alt="" />
+		<a href="https://observablehq.com/@d3/choropleth"> D3 - Choropleth</a>
+	</div>
+	<div>
+		<img src={img7} alt="" />
+		<a href="https://www.chartjs.org/">chart.js</a>
+	</div>
+	<div>
+		<img src={img8} alt="" />
+		<a href="https://codepen.io/mediapipe/pen/RwGWYJw">MediaPipe - Hands</a>
+	</div>
+	<div>
+		<img src={img9} alt="" />
+		<a href="https://brm.io/matter-js/demo/#avalanche"> matter-js</a>
+	</div>
+</div>
+
+<style lang="scss">
+	.grid {
+		width: 100vw;
+		height: 100vh;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+
+		img {
+			width: 100%;
+			height: 100%;
+			display: block;
+			object-fit: cover;
+		}
+
+		> div {
+			position: relative;
+		}
+
+		a {
+			position: absolute;
+			font-weight: bold;
+			font-size: 0.5em;
+			bottom: 0.5em;
+			left: 0.5em;
+			color: black;
+			color: white;
+			text-shadow: 0 0 2px black;
+
+			&.light {
+				color: white;
+			}
+		}
+	}
+</style>

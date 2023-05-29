@@ -1,18 +1,13 @@
 ---
-import Slide from "../../../../components/Slide.astro";
-
-const { title } = Astro.props;
-const subSectionTitle = "À retenir";
+const { author = "moi" } = Astro.props;
 ---
 
-<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-	<figure>
-		<blockquote>
-			<p>Si tu peux le modifier en JavaScript, tu peux l'animer.</p>
-		</blockquote>
-		<figcaption>moi</figcaption>
-	</figure>
-</Slide>
+<figure>
+	<blockquote>
+		<p>Si tu peux le modifier en JavaScript, tu peux l'animer.</p>
+	</blockquote>
+	<figcaption>{author}</figcaption>
+</figure>
 
 <style lang="scss">
 	figure {

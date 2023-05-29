@@ -3,6 +3,10 @@
 	import "@dotlottie/player-component";
 	import { loop } from "svelte/internal";
 
+	// avoid warning for unknown prop
+	let className;
+	export { className as class };
+
 	let player;
 
 	loop(() => {

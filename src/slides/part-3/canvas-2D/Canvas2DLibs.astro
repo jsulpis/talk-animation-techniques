@@ -1,0 +1,90 @@
+---
+import npmTrends from "../../../../assets/npm-trends.png";
+import FlexContainer from "../../../components/FlexContainer.astro";
+import Slide from "../../../components/Slide.astro";
+import fabric from "./images/libs/fabric.jpg";
+import matter from "./images/libs/matter.jpg";
+
+const { title } = Astro.props;
+const subSectionTitle = "Librairies";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h2>Fabric.js</h2>
+	<p>Librairie généraliste pour le canvas 2D</p>
+	<div class="content p-0">
+		<img src={fabric} alt="" />
+		<p class="fragment">
+			Taille <em>(min + gzip)</em> : <strong>85.53kB</strong>
+		</p>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h2>Matter.js</h2>
+	<p>Moteur physique 2D</p>
+	<div class="content p-0">
+		<img src={matter} alt="" />
+		<p class="fragment">
+			Taille <em>(min + gzip)</em> : <strong>24.52kB</strong>
+		</p>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h2>Phaser</h2>
+	<p>Framework de jeu vidéo</p>
+	<div class="content p-0">
+		<img
+			src="https://camo.githubusercontent.com/d93fd1e251bd6fe05f3af169d0d141ef5aa052c1497f8e066df49baefaf3454d/68747470733a2f2f696d672e796f75747562652e636f6d2f76692f676e6667776b56673776632f6d617872657364656661756c742e6a7067"
+			alt=""
+		/>
+		<p class="fragment">
+			Taille <em>(min + gzip)</em> : <strong>299.42kB</strong>
+		</p>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h2>Rive</h2>
+	<p>Éditeur et runtime pour des animations interactives multiplateformes</p>
+	<div class="content p-0">
+		<video
+			autoplay=""
+			onclick="this.paused ? this.play() : this.pause()"
+			loop=""
+			playsinline=""
+			src="https://framerusercontent.com/modules/assets/vf5yzeIR81h15njzZ8Rs9JlHs~fFFsGu9UlIe3UelLp-S2koOxZWa_H1jb0uFbJlOgKig.mp4"
+		></video>
+		<p class="fragment">
+			Taille <em>(min + gzip)</em> : <strong>?kB</strong>
+		</p>
+	</div>
+</Slide>
+
+<style lang="scss">
+	h2 {
+		margin: 0;
+		display: flex;
+		align-items: center;
+		gap: 0.3em;
+		margin-top: -1em;
+
+		+ p {
+			margin-bottom: 1em;
+		}
+	}
+
+	.lib {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	img,
+	video {
+		height: 45vh;
+		border-radius: 0.5rem;
+		margin-bottom: 1em;
+	}
+</style>

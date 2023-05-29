@@ -2,7 +2,11 @@
 <script>
 	import { afterUpdate, onMount } from "svelte";
 
-	export let duration;
+	// avoid warning for unknown prop
+	let className;
+	export { className as class };
+
+	export let duration = 0;
 
 	/**
 	 * Basic implementation of the FLIP technique (First, Last, Invert, Play)
