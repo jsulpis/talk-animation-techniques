@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
 import vue from "@astrojs/vue";
 import react from "@astrojs/react";
+import glsl from "vite-plugin-glsl";
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,5 +19,6 @@ export default defineConfig({
 				},
 			},
 		},
+		plugins: [glsl()],
 	},
 });

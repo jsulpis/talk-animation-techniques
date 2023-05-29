@@ -28,6 +28,8 @@
 		"reveal.js-mermaid-plugin": "1.1.0",
 		"sass": "1.55.0",
 		"svelte": "3.54.0",
+		"three": "0.152.2",
+		"vite-plugin-glsl": "1.1.2",
 		"vue": "3.2.30"
 	},
 	"devDependencies": {

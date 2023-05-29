@@ -1,0 +1,110 @@
+---
+import CodeBlock from "../../../components/CodeBlock.astro";
+import Slide from "../../../components/Slide.astro";
+import Citation from "../../part-1/vanilla-js/requestanimationframe/Citation.astro";
+import threeSamples from "./images/three.png";
+
+const { title } = Astro.props;
+const subSectionTitle = "Three.js";
+---
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h2 class="three">Three.js</h2>
+	<div class="content p-0">
+		<img src={threeSamples} alt="" />
+		<p class="fragment">
+			Taille <em>(min + gzip)</em> : <strong>154.28kB</strong>
+		</p>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="code-container">
+		<span data-id="three-lang" class="code-lang">javascript</span>
+		<pre
+			data-id="three-pre"><code data-id="three-code" class="language-javascript" data-line-numbers="|12">{
+			`// Scene
+const scene = new THREE.Scene();
+
+// Cube
+const geometry = new THREE.BoxGeometry(1, 1, 1);
+const material = new THREE.MeshBasicMaterial({ color: "red" });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+
+// Camera
+const camera = new THREE.PerspectiveCamera(75, 1);
+camera.position.z = 1;
+scene.add(camera);
+
+// Renderer
+const renderer = new THREE.WebGLRenderer({ canvas });
+renderer.setSize(400, 400);
+renderer.render(scene, camera);`}</code>
+		</pre>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<Citation author="encore re-moi" />
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<CodeBlock lang="javascript">
+		{
+			`gsap.to(
+  camera.position,
+  {
+    x: 1
+    duration: 2,
+  }
+);`
+		}
+	</CodeBlock>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h3>Animation par keyframes</h3>
+	<iframe data-src="https://threejs.org/examples/webgl_shadowmesh.html"
+	></iframe>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h3>Animation par squelette</h3>
+	<iframe data-src="https://threejs.org/examples/webgl_loader_fbx.html"
+	></iframe>
+</Slide>
+
+<style lang="scss">
+	h2 {
+		margin-top: 0.5em;
+	}
+	h3 {
+		margin-block: 2em 0.5em;
+	}
+	.content {
+		height: 65vh !important;
+	}
+	p {
+		margin-top: 1em;
+	}
+	.code-container {
+		margin-top: 3em;
+		code {
+			max-height: 60vh;
+			overflow: auto !important;
+		}
+	}
+	iframe {
+		width: 80vw;
+		height: 70vh;
+		border: none;
+		border-radius: 0.5em;
+		box-shadow: var(--shadow-lg);
+	}
+
+	img {
+		height: 60vh;
+		border-radius: 0.25em;
+	}
+</style>

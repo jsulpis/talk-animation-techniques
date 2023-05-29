@@ -1,0 +1,174 @@
+---
+import CodeBlock from "../../../../components/CodeBlock.astro";
+import Slide from "../../../../components/Slide.astro";
+import pipeline from "../images/pipeline.png";
+import VertexShaderDemoImage from "./vertex/demo-image/VertexShaderDemoImage.svelte";
+import VertexShaderDemoParticles from "./vertex/demo-particles/VertexShaderDemoParticles.svelte";
+
+const { title } = Astro.props;
+const subSectionTitle = "Shaders GLSL";
+---
+
+<Slide sectionTitle={title}>
+	<h2>Shaders GLSL&nbsp;</h2>
+</Slide>
+
+<Slide sectionTitle={title}>
+	<h2>Shaders GLSL&nbsp;</h2>
+	<p class="emoji">😱</p>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<img
+		src={pipeline}
+		alt="http://daureg.free.fr/ta_webit/fonctionnement.html"
+	/>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h3>Vertex Shader</h3>
+	<p>geométrie</p>
+	<div class="content p-0">
+		<CodeBlock lang="GLSL">
+			{
+				`void main() {
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+}`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+	<h3>Vertex Shader</h3>
+	<p>geométrie</p>
+	<div class="content p-0">
+		<CodeBlock lang="GLSL">
+			{
+				`uniform float time;
+
+void main() {
+  vec3 localSpacePosition = position;
+  localSpacePosition.z += sin(time);
+
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(localSpacePosition, 1.0);
+}`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h3>Vertex Shader</h3>
+	<p>geométrie</p>
+	<div class="content p-0">
+		<VertexShaderDemoImage client:visible />
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h3>Vertex Shader</h3>
+	<p>geométrie</p>
+	<div class="content p-0">
+		<VertexShaderDemoParticles client:visible />
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h3>Fragment Shader</h3>
+	<p>couleur</p>
+	<div class="content p-0">
+		<CodeBlock lang="GLSL">
+			{
+				`void main() {
+  gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+}`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+	<h3>Fragment Shader</h3>
+	<p>couleur</p>
+	<div class="content p-0">
+		<CodeBlock lang="GLSL">
+			{
+				`uniform float time;
+
+void main() {
+  gl_FragColor = vec4(sin(time), 0.0, 0.0, 1.0);
+}`
+			}
+		</CodeBlock>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+	<h3>Fragment Shader</h3>
+	<p>couleur</p>
+	<div class="content p-0">
+		<iframe
+			width="900"
+			height="500"
+			data-src="https://www.shadertoy.com/embed/MsjSW3?gui=true&t=10&paused=true&muted=false"
+			allowfullscreen></iframe>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+	<h3>Fragment Shader</h3>
+	<p>couleur</p>
+	<div class="content p-0">
+		<iframe
+			width="900"
+			height="500"
+			data-src="https://www.shadertoy.com/embed/tslGz7?gui=true&t=10&paused=true&muted=false"
+			allowfullscreen></iframe>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+	<h3>Fragment Shader</h3>
+	<p>couleur</p>
+	<div class="content p-0">
+		<iframe
+			width="900"
+			height="500"
+			data-src="https://www.shadertoy.com/embed/3tsyzl?gui=true&t=10&paused=true&muted=false"
+			allowfullscreen></iframe>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+	<h3>Fragment Shader</h3>
+	<p>couleur</p>
+	<div class="content p-0">
+		<iframe
+			width="900"
+			height="500"
+			data-src="https://paveldogreat.github.io/WebGL-Fluid-Simulation/"
+		></iframe>
+	</div>
+</Slide>
+
+<style>
+	h2 {
+		margin: 0;
+	}
+	p {
+		margin-bottom: 0.5em;
+	}
+	.emoji {
+		font-size: 3em;
+	}
+	h3 {
+		font-size: 1.5em;
+		margin-block: -2em 0;
+	}
+	img {
+		height: 60vh;
+		object-fit: contain;
+		max-width: 90vw;
+	}
+</style>
