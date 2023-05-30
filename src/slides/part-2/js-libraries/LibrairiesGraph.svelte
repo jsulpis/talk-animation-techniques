@@ -42,7 +42,7 @@
         gsap(GSAP)
         lottie(Lottie)
     end
-    subgraph libs2["Librairies JS"]
+    subgraph libs2["Librairies liées à un framework"]
         direction TB
         framer(Framer Motion)
         vuemotion("@vueuse/motion")
@@ -55,9 +55,3 @@
 		`}
 	</pre>
 </div>
-
-<style>
-	.mermaid {
-		/* transform: scale(0.95); */
-	}
-</style>

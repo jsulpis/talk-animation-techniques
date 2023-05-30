@@ -1,5 +1,6 @@
 ---
 import Slide from "../../../../../components/Slide.astro";
+import CardAnimationScroll from "../../../css/animation/CardAnimationScroll.svelte";
 import CardAnimation from "./CardAnimation.svelte";
 
 const { title } = Astro.props;
@@ -116,6 +117,10 @@ animation1.finished.then(() => animation2.play());
 	<div>
 		<CardAnimation client:visible />
 	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<CardAnimationScroll client:visible />
 </Slide>
 
 <style>

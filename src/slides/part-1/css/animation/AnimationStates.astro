@@ -9,14 +9,14 @@ const subSectionTitle = "Contrôler l'exécution";
 ---
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-	<CodeBlock lang="css"
-		>{
+	<CodeBlock lang="css">
+		{
 			`animation-play-state: running | paused;
 animation-direction: normal | reverse | alternate | alternate-reverse;
 animation-delay: ...s;
 `
-		}</CodeBlock
-	>
+		}
+	</CodeBlock>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
@@ -24,8 +24,8 @@ animation-delay: ...s;
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-	<CodeBlock lang="css"
-		>{
+	<CodeBlock lang="css">
+		{
 			`.card {
   animation-name: flipCard;
   animation-duration: var(--duration);
@@ -33,8 +33,8 @@ animation-delay: ...s;
   animation-fill-mode: forwards;
   animation-delay: calc(-1 * var(--progress) * var(--duration));
 }`
-		}</CodeBlock
-	>
+		}
+	</CodeBlock>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>

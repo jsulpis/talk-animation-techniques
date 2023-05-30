@@ -41,7 +41,7 @@
         gsap(GSAP)
         lottie(Lottie)
     end
-    subgraph libs2["Librairies JS"]
+    subgraph libs2["Librairies liées à un framework"]
         direction TB
         framer(Framer Motion)
         vuemotion("@vueuse/motion")
@@ -72,9 +72,10 @@
     native --> libs1
     frameworks --> libs1
     frameworks --> libs2
-    libs1 --> canvas2D
-    libs2 --> canvas2D
-    libs1 --> webgl
-    libs2 --> webgl`}
+
+    libs1 & libs2 --> a{" "}
+    a --> canvas2D & webgl
+
+		`}
 	</pre>
 </div>

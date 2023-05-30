@@ -1,6 +1,7 @@
 ---
 import Slide from "../../../components/Slide.astro";
 import CanvasWebglGraph from "./CanvasWebglGraph.svelte";
+import CanvasWebglGraphLight from "./CanvasWebglGraphLight.svelte";
 import CanvasWebglIntro from "./CanvasWebglIntro.astro";
 import CanvasWebglLibs from "./CanvasWebglLibs.astro";
 import Shaders from "./shaders/Shaders.astro";
@@ -16,5 +17,8 @@ const title = "Canvas WebGL";
 	<Shaders title={title} />
 	<Slide>
 		<CanvasWebglGraph />
+	</Slide>
+	<Slide>
+		<CanvasWebglGraphLight />
 	</Slide>
 </section>
