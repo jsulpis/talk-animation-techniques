@@ -1,14 +1,14 @@
 ---
 import Slide from "../../components/Slide.astro";
-import BlockCPUButton from "./BlockCPUButton.astro";
+import DOMandCanvas from "./DOMandCanvas.astro";
+import RenderingPipeline from "./RenderingPipeline.astro";
 
-const title = "Bases techniques";
+const title = "Avant de commencer...";
 ---
 
-<section>
-	<Slide>
-		<h1>{title + " "}</h1>
-	</Slide>
+<Slide>
+	<h1>{title + " "}</h1>
+</Slide>
 
-	<BlockCPUButton title={title} />
-</section>
+<DOMandCanvas title={title} />
+<RenderingPipeline title={title} />

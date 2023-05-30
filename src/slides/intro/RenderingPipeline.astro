@@ -1,0 +1,207 @@
+---
+import Slide from "../../components/Slide.astro";
+import pipeline from "./images/All.jpg";
+import js from "./images/JS.jpg";
+import style from "./images/Style.jpg";
+import layout from "./images/Layout.jpg";
+import paint from "./images/Paint.jpg";
+import composite from "./images/Composite.jpg";
+import cpu from "./images/cpu.png";
+import gpu from "./images/gpu.png";
+import gpuImage from "./images/gpu-image.png";
+import cpuImage from "./images/cpu-image.png";
+import memeJs from "../../assets/meme-js-developer.jpeg";
+import BlockCPUButton from "./BlockCPUButton.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "Du code au pixel";
+---
+
+<section>
+	<Slide sectionTitle={title}>
+		<h1>{subSectionTitle + " "}</h1>
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+		<img data-src={pipeline} alt="" />
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+		<h3>JavaScript</h3>
+		<p>Modification dynamique de la page</p>
+		<img data-src={js} alt="" />
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+		<h3>Style</h3>
+		<p>Quelles sont les propriétés CSS de chaque élément HTML ?</p>
+		<img data-src={style} alt="" />
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+		<h3>Layout</h3>
+		<p>Quelle est la position et la taille de chaque élément sur la page ?</p>
+		<img data-src={layout} alt="" />
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+		<h3>Paint</h3>
+		<p>{"Dessine un rectancle violet à la position {X,Y} sur un calque A"}</p>
+		<img data-src={paint} alt="" />
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+		<h3>Composite</h3>
+		<p>Assemble et dessine les calques</p>
+		<img data-src={composite} alt="" />
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+		<p>Recalculé à chaque frame 🔄</p>
+		<img data-src={pipeline} alt="" />
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+		<h3>Pour faire tout ça, le navigateur utilise:</h3>
+		<div class="wrapper"></div>
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+		<h3>Pour faire tout ça, le navigateur utilise:</h3>
+		<div class="wrapper">
+			<div>
+				<img data-src={cpu} alt="" />
+				<p><strong>CPU</strong></p>
+			</div>
+		</div>
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+		<h3>Pour faire tout ça, le navigateur utilise:</h3>
+		<div class="wrapper">
+			<div>
+				<img data-src={cpu} alt="" />
+				<p><strong>CPU</strong></p>
+			</div>
+			<div>
+				<img data-src={gpu} alt="" />
+				<p><strong>GPU</strong></p>
+			</div>
+		</div>
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+		<h3>Pour faire tout ça, le navigateur utilise:</h3>
+		<div class="wrapper">
+			<div>
+				<img data-src={cpu} alt="" />
+				<p><strong>CPU</strong></p>
+			</div>
+			<img class="big" data-src={cpuImage} alt="" />
+		</div>
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+		<h3>Pour faire tout ça, le navigateur utilise:</h3>
+		<div class="wrapper">
+			<img class="big" data-src={gpuImage} alt="" />
+			<div>
+				<img data-src={gpu} alt="" />
+				<p><strong>GPU</strong></p>
+			</div>
+		</div>
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+		<img data-src={pipeline} alt="" />
+		<div class="grid">
+			<img data-src={cpu} alt="" />
+			<img data-src={cpu} alt="" />
+			<img data-src={cpu} alt="" />
+			<img data-src={cpu} alt="" />
+			<img data-src={gpu} alt="" />
+		</div>
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+		<img class="meme" data-src={memeJs} alt="" />
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+		<img data-src={composite} alt="" />
+		<div class="grid">
+			<img class="hide" data-src={cpu} alt="" />
+			<span></span>
+			<span></span>
+			<span></span>
+			<img data-src={gpu} alt="" />
+		</div>
+		<div class="emoji">🥳</div>
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+		<BlockCPUButton />
+	</Slide>
+</section>
+
+<style lang="scss">
+	h3 {
+		font-size: 1.5em;
+		margin-block: 0;
+	}
+	img {
+		max-width: 80vw;
+		border-radius: 0.25rem;
+
+		&.meme {
+			height: 70vh;
+		}
+	}
+	p:not(.wrapper p) {
+		margin-block: 0 2em;
+	}
+	.wrapper {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		padding-top: 1rem;
+	}
+	.wrapper img {
+		height: 30vh;
+		width: 40vh;
+		object-fit: contain;
+	}
+	.wrapper {
+		height: 50vh !important;
+		margin-bottom: -10%;
+	}
+	img.big {
+		height: 50vh;
+		object-fit: contain;
+	}
+	strong {
+		display: block;
+		font-size: 2em;
+	}
+	.grid {
+		display: flex;
+		width: 80vw;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		place-items: center;
+		margin-bottom: -10%;
+
+		img {
+			max-height: 60%;
+			max-width: 100%;
+		}
+		.hide {
+			visibility: hidden;
+		}
+	}
+	.emoji {
+		height: 2rem;
+		font-size: 2rem;
+		margin-bottom: -2rem;
+	}
+</style>

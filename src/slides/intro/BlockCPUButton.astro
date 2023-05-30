@@ -6,31 +6,28 @@ const { title } = Astro.props;
 const subSectionTitle = "";
 ---
 
-<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-	<div class="container">
-		<BlockMainThreadButton client:visible client:only />
+<div class="container">
+	<BlockMainThreadButton client:visible client:only />
 
-		<p>Bloque le main thread pendant 3 secondes</p>
-		<p class="fragment">
-			<small
-				>Shift + B : affiche le bouton en bas à droite sur n'importe quelle
-				slide</small
-			><br />
-			<small>Ctrl + B (bouton visible) : bloque le main thread</small>
-		</p>
-	</div>
+	<p>Bloque le main thread pendant 3 secondes</p>
+	<p class="fragment">
+		<small
+			>Shift + B : affiche le bouton en bas à droite sur n'importe quelle slide</small
+		><br />
+		<small>Ctrl + B (bouton visible) : bloque le main thread</small>
+	</p>
+</div>
 
-	<style lang="scss">
-		.container {
-			text-align: center;
-		}
+<style lang="scss">
+	.container {
+		text-align: center;
+	}
 
-		p {
-			margin-top: 1.5em;
-			line-height: 1;
-		}
-		small {
-			font-size: 0.7em;
-		}
-	</style>
-</Slide>
+	p {
+		margin-top: 1.5em;
+		line-height: 1;
+	}
+	small {
+		font-size: 0.7em;
+	}
+</style>
