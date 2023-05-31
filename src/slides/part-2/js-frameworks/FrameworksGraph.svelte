@@ -30,9 +30,6 @@
         subgraph React
             shrug("¯\\_ (ツ)_/¯")
         end
-        subgraph Angular
-            angularanimation("@angular/animations")
-				end
 
     end
 

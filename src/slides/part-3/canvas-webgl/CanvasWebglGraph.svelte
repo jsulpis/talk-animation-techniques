@@ -29,9 +29,6 @@
         subgraph React
             shrug("¯\\_ (ツ)_/¯")
         end
-        subgraph Angular
-            angularanimation("@angular/animations")
-				end
 
     end
     subgraph libs1["Librairies Vanilla JS"]

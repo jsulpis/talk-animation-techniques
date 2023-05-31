@@ -15,7 +15,7 @@ const subSectionTitle = "La translation";
 	</p>
 </SlideDemo>
 
-<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+<!-- <SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<p>
 		<label>
 			<input type="checkbox" />
@@ -27,18 +27,18 @@ const subSectionTitle = "La translation";
 		<CodeBlock lang="css">
 			{
 				`.demo {
-  transition: margin 800ms ease-in-out;
+  transition: transform 800ms ease-in-out;
 
   &:checked {
-    margin-left: 300px;
+    transform: translateX(80%);
   }
 }`
 			}
 		</CodeBlock>
 	</div>
-</SlideDemo>
+</SlideDemo> -->
 
-<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+<!-- <SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<div class="container">
 		<p><span class="card gray inert"></span></p>
 		<p>
@@ -54,19 +54,19 @@ const subSectionTitle = "La translation";
 		<p><span class="card gray inert"></span></p>
 		<p><span class="card gray inert"></span></p>
 	</div>
-</SlideDemo>
+</SlideDemo> -->
 
 <style lang="scss">
 	.card.primary {
 		@include gradient-idle(primary);
-		transition: margin 800ms var(--ease-in-out);
+		transition: transform 800ms var(--ease-in-out);
 	}
 
 	label {
 		position: relative;
 
 		input:checked + .primary {
-			margin-left: 15rem;
+			transform: translateX(80%);
 
 			.container & {
 				margin-left: calc(8rem + 1em);

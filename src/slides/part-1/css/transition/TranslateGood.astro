@@ -7,6 +7,21 @@ const subSectionTitle = "La translation";
 ---
 
 <SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<CodeBlock lang="css">
+		{
+			`.demo {
+  transition: transform 800ms ease-in-out;
+
+  &:checked {
+    transform: translateX(80%);
+  }
+}`
+		}
+	</CodeBlock>
+	<span class="fragment emoji">👍</span>
+</SlideDemo>
+
+<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<div class="container">
 		<p><span class="card gray inert"></span></p>
 		<p>
@@ -25,20 +40,7 @@ const subSectionTitle = "La translation";
 	</div>
 </SlideDemo>
 
-<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
-	<CodeBlock lang="css">
-		{
-			`.demo {
-  transition: transform 800ms ease-in-out;
 
-  &:checked {
-    transform: translateX(80%);
-  }
-}`
-		}
-	</CodeBlock>
-	<span class="fragment emoji">👍</span>
-</SlideDemo>
 
 <style lang="scss">
 	.card.primary {
