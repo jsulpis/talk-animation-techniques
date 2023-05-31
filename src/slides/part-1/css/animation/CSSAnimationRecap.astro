@@ -1,0 +1,37 @@
+---
+import Slide from "../../../../components/Slide.astro";
+import steps from "../../../../assets/steps-transition.png";
+
+const { title } = Astro.props;
+---
+
+<Slide>
+	<h1>{title} - recap</h1>
+	<div class="content p-0">
+		<table>
+			<thead>
+				<tr>
+					<th>Étapes calculées</th>
+					<th>Performance</th>
+					<th>Polyvalence</th>
+					<th>Difficulté</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="fragment"><img data-src={steps} alt="" /></td>
+					<td class="fragment">5/5</td>
+					<td class="fragment">3/5</td>
+					<td class="fragment">facile 😊</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</Slide>
+
+<style>
+	table {
+		font-size: 150%;
+		margin-top: 1.5rem;
+	}
+</style>

@@ -57,6 +57,11 @@ section {
 	width: min(80vmin, 800px);
 }
 
+ul {
+	list-style-type: none;
+	text-align: left;
+}
+
 .card {
 	border: 0;
 	outline: none;
@@ -149,6 +154,12 @@ section > div.content {
 
 		+ p {
 			margin-top: 2rem;
+		}
+
+		img {
+			height: 1.5em;
+			display: block;
+			margin: auto;
 		}
 	}
 }

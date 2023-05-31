@@ -1,0 +1,91 @@
+---
+import stepsCanvas from "../../assets/steps-canvas2d.png";
+import stepsTransition from "../../assets/steps-transition.png";
+import stepsRaf from "../../assets/steps-raf.png";
+import Slide from "../../components/Slide.astro";
+
+const { title } = Astro.props;
+---
+
+<section>
+	<h2>@jsulpis</h2>
+	<div class="content p-0">
+		<table>
+			<thead>
+				<tr>
+					<th>Technique</th>
+					<th>Étapes calculées</th>
+					<th>Performance</th>
+					<th>Polyvalence</th>
+					<th>Difficulté</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td scope="row">Transition CSS</td>
+					<td><img data-src={stepsTransition} alt="" /></td>
+					<td>5/5</td>
+					<td>4/5</td>
+					<td>facile 😊</td>
+				</tr>
+				<tr>
+					<td scope="row">Animation CSS</td>
+					<td><img data-src={stepsTransition} alt="" /></td>
+					<td>5/5</td>
+					<td>3/5</td>
+					<td>facile 😊</td>
+				</tr>
+				<tr>
+					<td scope="row">Web Animation API</td>
+					<td><img data-src={stepsTransition} alt="" /></td>
+					<td>5/5</td>
+					<td>3/5</td>
+					<td>normal 😐</td>
+				</tr>
+				<tr>
+					<td scope="row">requestAnimationFrame()</td>
+					<td><img data-src={stepsRaf} alt="" /></td>
+					<td>4/5</td>
+					<td>5/5</td>
+					<td>normal 😐</td>
+				</tr>
+				<tr>
+					<td scope="row">Frameworks JS</td>
+					<td><img data-src={stepsTransition} alt="" /></td>
+					<td>5/5</td>
+					<td>3/5</td>
+					<td>normal 😐</td>
+				</tr>
+				<tr>
+					<td scope="row">Librairies JS</td>
+					<td><img data-src={stepsRaf} alt="" /></td>
+					<td>4/5</td>
+					<td>5/5</td>
+					<td>difficile 😬</td>
+				</tr>
+				<tr>
+					<td scope="row">Canvas 2D</td>
+					<td><img data-src={stepsCanvas} alt="" /></td>
+					<td>4/5</td>
+					<td>2/5</td>
+					<td>difficile 😱</td>
+				</tr>
+				<tr>
+					<td scope="row">Canvas WebGL</td>
+					<td><img data-src={stepsCanvas} alt="" /></td>
+					<td>5/5</td>
+					<td>2/5</td>
+					<td>hardcore ☠️</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>
+
+<style>
+	table {
+		font-size: 90%;
+		border-spacing: 0 10px !important;
+		margin: 1rem auto;
+	}
+</style>

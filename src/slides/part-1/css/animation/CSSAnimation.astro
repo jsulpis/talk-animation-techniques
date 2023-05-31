@@ -2,6 +2,7 @@
 import Slide from "../../../../components/Slide.astro";
 import AnimationGraph from "./AnimationGraph.svelte";
 import AnimationStates from "./AnimationStates.astro";
+import CSSAnimationRecap from "./CSSAnimationRecap.astro";
 import FadeIn from "./FadeIn.astro";
 import FakeDropdownMenu from "./FakeDropdownMenu.astro";
 import Loaders from "./Loaders.astro";
@@ -31,9 +32,7 @@ const title = "Animation CSS";
 	<SVGAnimation title={title} />
 	<!-- <AnimationStates {title} /> -->
 
-	<Slide>
-		<h1>{title} - recap</h1>
-	</Slide>
+	<CSSAnimationRecap title={title} />
 
 	<Slide>
 		<AnimationGraph />

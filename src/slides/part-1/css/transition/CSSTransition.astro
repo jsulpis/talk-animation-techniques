@@ -1,5 +1,6 @@
 ---
 import Slide from "../../../../components/Slide.astro";
+import CSSTransitionRecap from "./CSSTransitionRecap.astro";
 import Example3DCards from "./Example3DCards.astro";
 import ExampleButton from "./ExampleButton.astro";
 import ExampleMovieCard from "./ExampleMovieCard.astro";
@@ -43,9 +44,7 @@ const title = "Transition CSS";
 	<ExampleMovieCard title={title} />
 	<Example3DCards title={title} />
 
-	<Slide>
-		<h1>{title} - recap</h1>
-	</Slide>
+	<CSSTransitionRecap title={title} />
 
 	<Slide>
 		<TransitionGraph />

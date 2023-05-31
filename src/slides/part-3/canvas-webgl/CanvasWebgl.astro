@@ -4,6 +4,7 @@ import CanvasWebglGraph from "./CanvasWebglGraph.svelte";
 import CanvasWebglGraphLight from "./CanvasWebglGraphLight.svelte";
 import CanvasWebglIntro from "./CanvasWebglIntro.astro";
 import CanvasWebglLibs from "./CanvasWebglLibs.astro";
+import CanvasWebglRecap from "./CanvasWebglRecap.astro";
 import Shaders from "./shaders/Shaders.astro";
 import Threejs from "./Threejs.astro";
 
@@ -14,7 +15,10 @@ const title = "Canvas WebGL";
 	<CanvasWebglIntro title={title} />
 	<Threejs title={title} />
 	<CanvasWebglLibs title={title} />
+
 	<Shaders title={title} />
+
+	<CanvasWebglRecap title={title} />
 	<Slide>
 		<CanvasWebglGraph />
 	</Slide>

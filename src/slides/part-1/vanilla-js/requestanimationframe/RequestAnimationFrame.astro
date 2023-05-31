@@ -4,8 +4,12 @@ import Citation from "./Citation.astro";
 import FpsMeter from "./FpsMeter.astro";
 import RafDemos from "./RafDemos.astro";
 import RafGraph from "./RafGraph.svelte";
+import RafRecap from "./RafRecap.astro";
 import RafUsage from "./RafUsage.astro";
 import SpringAnimations from "./SpringAnimations.astro";
+import pipeline from "../../../intro/images/All.jpg";
+import arrow from "./arrow.svg";
+import FlexContainer from "../../../../components/FlexContainer.astro";
 
 const title = "requestAnimationFrame()";
 ---
@@ -23,6 +27,13 @@ const title = "requestAnimationFrame()";
 		</p>
 	</Slide>
 
+	<Slide sectionTitle={title}>
+		<FlexContainer direction={"column"}>
+			<img data-src={pipeline} alt="" />
+			<img class="arrow fragment" data-src={arrow} alt="" />
+		</FlexContainer>
+	</Slide>
+
 	<RafUsage title={title} />
 	<FpsMeter title={title} />
 	<Slide sectionTitle={title} subSectionTitle={"À retenir"}>
@@ -31,11 +42,20 @@ const title = "requestAnimationFrame()";
 	<RafDemos title={title} />
 	<SpringAnimations title={title} />
 
-	<Slide>
-		<h1>{title} - recap</h1>
-	</Slide>
+	<RafRecap title={title} />
 
 	<Slide>
 		<RafGraph />
 	</Slide>
 </section>
+
+<style>
+	img {
+		max-width: 80vw;
+	}
+	.arrow {
+		width: 3rem;
+		align-self: start;
+		margin: 1rem 3rem -3rem;
+	}
+</style>

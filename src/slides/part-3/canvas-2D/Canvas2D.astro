@@ -11,6 +11,7 @@ import Canvas2DDemo4 from "./Canvas2DDemo4.svelte";
 import Canvas2DExamples from "./Canvas2DExamples.astro";
 import Canvas2DGraph from "./Canvas2DGraph.svelte";
 import Canvas2DLibs from "./Canvas2DLibs.astro";
+import Canvas2DRecap from "./Canvas2DRecap.astro";
 
 const title = "Canvas 2D";
 ---
@@ -100,9 +101,7 @@ ctx.fillRect(100, 100, 200, 200);`
 		<Canvas2DDemo4 client:visible />
 	</SlideDemo>
 
-	<Slide>
-		<h1>{title} - recap</h1>
-	</Slide>
+	<Canvas2DRecap title={title} />
 
 	<Slide>
 		<Canvas2DGraph />

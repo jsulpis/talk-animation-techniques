@@ -1,5 +1,6 @@
 ---
 import Slide from "../../../components/Slide.astro";
+import JSLibrariesRecap from "./JSLibrariesRecap.astro";
 import LibrairiesGraph from "./LibrairiesGraph.svelte";
 import Framer from "./framer/Framer.astro";
 import ReactSpring from "./react-spring/ReactSpring.astro";
@@ -19,9 +20,7 @@ const title = "Librairies JavaScript";
 	<VueUseMotion title={title} />
 	<VanillaJS title={title} />
 
-	<Slide>
-		<h1>{title} - recap</h1>
-	</Slide>
+	<JSLibrariesRecap title={title} />
 
 	<Slide>
 		<LibrairiesGraph />

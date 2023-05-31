@@ -2,6 +2,7 @@
 import Slide from "../../components/Slide.astro";
 import DOMandCanvas from "./DOMandCanvas.astro";
 import RenderingPipeline from "./RenderingPipeline.astro";
+import WhyAnimate from "./WhyAnimate.astro";
 
 const title = "Avant de commencer...";
 ---
@@ -10,5 +11,6 @@ const title = "Avant de commencer...";
 	<h1>{title + " "}</h1>
 </Slide>
 
+<WhyAnimate title={title} />
 <DOMandCanvas title={title} />
 <RenderingPipeline title={title} />
