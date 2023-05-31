@@ -2,13 +2,33 @@
 import stepsCanvas from "../../assets/steps-canvas2d.png";
 import stepsTransition from "../../assets/steps-transition.png";
 import stepsRaf from "../../assets/steps-raf.png";
-import Slide from "../../components/Slide.astro";
 
-const { title } = Astro.props;
+import github from "./images/github.svg";
+import codepen from "./images/codepen.svg";
+import twitter from "./images/twitter.svg";
+import Slide from "../../components/Slide.astro";
 ---
 
-<section>
-	<h2>@jsulpis</h2>
+<Slide>
+	<div class="author big">
+		<h2>@jsulpis</h2>
+		<div class="icons">
+			<img data-src={github} alt="" />
+			<img data-src={codepen} alt="" />
+			<img data-src={twitter} alt="" />
+		</div>
+	</div>
+</Slide>
+
+<Slide animate={false}>
+	<div class="author">
+		<h2>@jsulpis</h2>
+		<div class="icons">
+			<img data-src={github} alt="" />
+			<img data-src={codepen} alt="" />
+			<img data-src={twitter} alt="" />
+		</div>
+	</div>
 	<div class="content p-0">
 		<table>
 			<thead>
@@ -80,12 +100,33 @@ const { title } = Astro.props;
 			</tbody>
 		</table>
 	</div>
-</section>
+</Slide>
 
 <style>
 	table {
 		font-size: 90%;
 		border-spacing: 0 10px !important;
 		margin: 1rem auto;
+	}
+	.content {
+		height: initial !important;
+	}
+	.author {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.big {
+		height: 100vh;
+		font-size: 200%;
+	}
+	h2 {
+		font-size: 1.5em;
+		margin: 0;
+	}
+	.icons img {
+		height: 0.8em;
+		margin-inline: 0.1em;
 	}
 </style>

@@ -30,6 +30,7 @@ const { title } = Astro.props;
 	<div class="content p-0 demo">
 		<LottieDemoRobot client:visible client:only />
 	</div>
+	<br />
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
@@ -46,7 +47,11 @@ const { title } = Astro.props;
 />`
 			}
 		</CodeBlock>
+		<p class="fragment">
+			Taille <em>(min + gzip)</em> : <strong>108.4kB</strong>
+		</p>
 	</div>
+	<br />
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
@@ -54,6 +59,7 @@ const { title } = Astro.props;
 	<div class="content p-0 demo">
 		<LottieDemoCity client:visible client:only />
 	</div>
+	<br />
 </Slide>
 
 <style>
@@ -62,5 +68,8 @@ const { title } = Astro.props;
 		margin-block: -15vh;
 		display: flex;
 		align-items: center;
+	}
+	p {
+		margin-top: 1em;
 	}
 </style>

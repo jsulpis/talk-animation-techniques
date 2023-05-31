@@ -1,0 +1,51 @@
+---
+import CodeBlock from "../../components/CodeBlock.astro";
+import Slide from "../../components/Slide.astro";
+import dribbble from "./images/dribbble.svg";
+import awwwards from "./images/awwwards.png";
+import codepen from "./images/codepen.png";
+import shadertoy from "./images/shadertoy.png";
+import FlexContainer from "../../components/FlexContainer.astro";
+
+const title = "Pour finir";
+---
+
+<section>
+	<Slide>
+		<h1>{"Inspiration" + " "}</h1>
+	</Slide>
+
+	<Slide sectionTitle={title} subSectionTitle={"Inspiration"}>
+		<div class="fragment">
+			<h3>Design</h3>
+			<FlexContainer gap="1rem">
+				<img data-src={dribbble} alt="" />
+				<img data-src={awwwards} alt="" />
+			</FlexContainer>
+		</div>
+
+		<div class="fragment">
+			<h3>Code + Design</h3>
+			<FlexContainer gap="1rem">
+				<img data-src={codepen} alt="" />
+				<img data-src={shadertoy} alt="" />
+			</FlexContainer>
+		</div>
+	</Slide>
+</section>
+
+<style>
+	.emoji {
+		font-size: 2em;
+		margin-block: 1em -1em;
+	}
+	h3 {
+		/* margin-top: -1em; */
+		font-size: 1.5em;
+	}
+	img {
+		height: 5rem;
+		max-width: 15rem;
+		object-fit: contain;
+	}
+</style>
