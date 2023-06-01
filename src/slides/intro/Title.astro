@@ -1,9 +1,57 @@
 ---
 import Slide from "../../components/Slide.astro";
+import TitleBackground from "./TitleBackground.svelte";
 ---
 
 <Slide>
-	<h1>
-		Du CSS aux shaders WebGL : panorama des techniques d'animation en 2023
-	</h1>
+	<TitleBackground client:visible />
+	<div class="title-wrapper">
+		<h1>
+			Du <strong class="border" aria-hidden="true">CSS</strong>
+			<strong>CSS</strong>
+			aux <strong class="border" aria-hidden="true">Shaders WebGL</strong>
+			<strong>Shaders WebGL</strong> : <br />panorama des <br />
+			<strong aria-hidden="true" class="border techniques">
+				techniques d'animation
+			</strong>
+			<strong class="techniques">techniques d'animation</strong><br /> en 2023
+		</h1>
+	</div>
 </Slide>
+
+<style lang="scss">
+	.title-wrapper {
+		position: fixed;
+		box-shadow: inset 0 0 6rem 3rem var(--background-page);
+		display: grid;
+		inset: 0;
+		place-items: center;
+	}
+	h1 {
+		font-size: 2.2rem;
+		font-weight: 500;
+		max-width: none;
+		color: var(--font-color-default);
+	}
+	strong {
+		color: color(primary, 800);
+		font-size: 1.3em;
+		font-weight: 800;
+		background: linear-gradient(
+			to bottom,
+			var(--color-primary-400) 30%,
+			var(--color-primary-700)
+		);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	.border {
+		position: absolute;
+		z-index: -1;
+		text-shadow: 3px 0 #fff, -3px 0 #fff, 0 3px #fff, 0 -3px #fff, 3px 3px #fff,
+			-3px -3px #fff, 3px -3px #fff, -3px 3px #fff;
+	}
+	.techniques {
+		font-size: 1.5em;
+	}
+</style>
