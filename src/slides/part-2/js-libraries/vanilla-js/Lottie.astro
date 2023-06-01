@@ -11,7 +11,7 @@ const { title } = Astro.props;
 ---
 
 <Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
-	<h3>Retour sur les animations SVG...</h3>
+	<p class="headline">Retour sur les animations SVG...</p>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
@@ -25,13 +25,13 @@ const { title } = Astro.props;
 	<LottieTitle />
 </Slide>
 
-<Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
+<!-- <Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
 	<LottieTitle />
 	<div class="content p-0 demo">
 		<LottieDemoRobot client:visible client:only />
 	</div>
 	<br />
-</Slide>
+</Slide> -->
 
 <Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
 	<LottieTitle />
@@ -71,5 +71,9 @@ const { title } = Astro.props;
 	}
 	p {
 		margin-top: 1em;
+	}
+	.headline {
+		font-size: 1.7em;
+		margin: 0;
 	}
 </style>

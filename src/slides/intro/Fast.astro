@@ -1,0 +1,18 @@
+---
+import Slide from "../../components/Slide.astro";
+import gifFast from "./images/gif-fast.mp4";
+---
+
+<Slide>
+	<video data-autoplay data-src={gifFast} loop></video>
+	<p>Ça va être dense !</p>
+	<p class="fragment">(mais fun)</p>
+</Slide>
+
+<style>
+	video {
+		height: 60vh;
+		margin-bottom: 0.5rem;
+		border-radius: 0.25em;
+	}
+</style>

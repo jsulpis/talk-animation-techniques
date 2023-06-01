@@ -2,6 +2,8 @@
 import CodeBlock from "../../../../components/CodeBlock.astro";
 import Slide from "../../../../components/Slide.astro";
 import pipeline from "../images/pipeline.png";
+import pixel from "../images/pixelShader.png";
+import vertex from "../images/vertexShader.png";
 import VertexShaderDemoImage from "./vertex/demo-image/VertexShaderDemoImage.svelte";
 import VertexShaderDemoParticles from "./vertex/demo-particles/VertexShaderDemoParticles.svelte";
 import gpuImage from "../../../intro/images/gpu-image.png"
@@ -28,6 +30,15 @@ const subSectionTitle = "Shaders GLSL";
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<div class="gpu-wrapper">
+		<div>
+			<img data-src={gpu} alt="" />
+			<p><strong>GPU</strong></p>
+		</div>
+	</div>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="gpu-wrapper">
 		<img  class="big" data-src={gpuImage} alt="" />
 		<div>
 			<img data-src={gpu} alt="" />
@@ -38,12 +49,12 @@ const subSectionTitle = "Shaders GLSL";
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<img
-		src={pipeline}
+		src={vertex}
 		alt="http://daureg.free.fr/ta_webit/fonctionnement.html"
 	/>
 </Slide>
 
-<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+<!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<h3>Vertex Shader</h3>
 	<p>geométrie</p>
 	<div class="content p-0">
@@ -55,7 +66,7 @@ const subSectionTitle = "Shaders GLSL";
 			}
 		</CodeBlock>
 	</div>
-</Slide>
+</Slide> -->
 
 <!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
 	<h3>Vertex Shader</h3>
@@ -92,7 +103,7 @@ void main() {
 	</div>
 </Slide>
 
-<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+<!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<h3>Fragment Shader</h3>
 	<p>couleur</p>
 	<div class="content p-0">
@@ -104,7 +115,7 @@ void main() {
 			}
 		</CodeBlock>
 	</div>
-</Slide>
+</Slide> -->
 
 <!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
 	<h3>Fragment Shader</h3>
@@ -121,6 +132,13 @@ void main() {
 		</CodeBlock>
 	</div>
 </Slide> -->
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<img
+		src={pixel}
+		alt="http://daureg.free.fr/ta_webit/fonctionnement.html"
+	/>
+</Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
 	<h3>Fragment Shader</h3>
@@ -146,7 +164,7 @@ void main() {
 	</div>
 </Slide>
 
-<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+<!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
 	<h3>Fragment Shader</h3>
 	<p>couleur</p>
 	<div class="content p-0">
@@ -156,7 +174,7 @@ void main() {
 			data-src="https://www.shadertoy.com/embed/3tsyzl?gui=true&t=10&paused=true&muted=false"
 			allowfullscreen></iframe>
 	</div>
-</Slide>
+</Slide> -->
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
 	<h3>Fragment Shader</h3>
@@ -199,7 +217,7 @@ void main() {
 		aspect-ratio: 9/5;
 	}
 	img {
-		height: 60vh;
+		height: 50vh;
 		object-fit: contain;
 		max-width: 90vw;
 	}

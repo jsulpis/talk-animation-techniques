@@ -16,6 +16,10 @@ import TitleBackground from "./TitleBackground.svelte";
 			</strong>
 			<strong class="techniques">techniques d'animation</strong><br /> en 2023
 		</h1>
+		<div class="presenter">
+			<p>Julien Sulpis</p>
+			<small>02/06/2023</small>
+		</div>
 	</div>
 </Slide>
 
@@ -29,9 +33,22 @@ import TitleBackground from "./TitleBackground.svelte";
 	}
 	h1 {
 		font-size: 2.2rem;
+		margin-bottom: 1em;
 		font-weight: 500;
 		max-width: none;
 		color: var(--font-color-default);
+	}
+	.presenter {
+		position: fixed;
+		bottom: 2rem;
+		font-size: 1.3rem;
+		line-height: 1.2;
+		left: 50%;
+		transform: translateX(-50%);
+
+		small {
+			font-size: 0.7em;
+		}
 	}
 	strong {
 		color: color(primary, 800);
