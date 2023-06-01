@@ -14,10 +14,7 @@ const { animate = true, sectionTitle, subSectionTitle } = Astro.props;
 ---
 
 <section data-auto-animate={animate}>
-	<div class="titles">
-		{sectionTitle && <h1>{sectionTitle}</h1>}
-		{subSectionTitle && <h2>{subSectionTitle}</h2>}
-	</div>
+	<div class="titles">{sectionTitle && <h1>{sectionTitle}</h1>}{subSectionTitle && <h2>{subSectionTitle}</h2>}</div>
 	<slot />
 </section>
 

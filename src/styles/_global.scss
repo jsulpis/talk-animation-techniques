@@ -42,6 +42,12 @@ strong {
 
 h1 {
 	font-size: 3rem;
+	max-width: 90vw;
+}
+
+h1 + p {
+	font-size: 1.5rem;
+	max-width: 90vw;
 }
 
 h2 {
@@ -51,6 +57,11 @@ h2 {
 
 h3 {
 	margin-block: 1.5em 0.25em;
+}
+
+// "Partie x"
+.titles:empty + p {
+	font-size: 2rem;
 }
 
 section {
