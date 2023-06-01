@@ -29,7 +29,7 @@
     native --> libs1
     frameworks --> libs1
     frameworks --> libs2
-    libs1 & libs2 --> a{" "}
+    libs1 & libs2 --> a(" ")
     a --> canvas2D & webgl`}
 	</pre>
 </div>
