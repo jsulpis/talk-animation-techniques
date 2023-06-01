@@ -5,17 +5,17 @@ import Slide from "../../../../components/Slide.astro";
 import SlideDemo from "../../../../components/SlideDemo.astro";
 
 const { title } = Astro.props;
-const subSectionTitle = "";
+const subSectionTitle = "Utilisation";
 ---
 
 <SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<p>
-		<span class="icon-wrapper"><span class="icon fear">😱</span></span>
+		<span class="icon-wrapper"><span class="icon fear">👍</span></span>
 	</p>
 </SlideDemo>
 
 <SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
-	<p><span class="icon-wrapper"><span class="icon fear">😱</span></span></p>
+	<p><span class="icon-wrapper"><span class="icon fear">👍</span></span></p>
 	<CodeBlock lang="css"
 		>{
 			`.icon:hover {

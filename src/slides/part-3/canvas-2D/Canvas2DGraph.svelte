@@ -29,6 +29,9 @@
         subgraph React
             shrug("¯\\_ (ツ)_/¯")
         end
+        subgraph Angular
+            angularanimation("@angular/animations")
+				end
 
     end
     subgraph libs1["Librairies Vanilla JS"]
@@ -53,7 +56,7 @@
     native --> libs1
     frameworks --> libs1
     frameworks --> libs2
-    libs1 --> canvas2D
-    libs2 --> canvas2D`}
+    libs1 & libs2 --> a{" "}
+    a --> canvas2D`}
 	</pre>
 </div>

@@ -4,6 +4,8 @@ import Slide from "../../../../components/Slide.astro";
 import pipeline from "../images/pipeline.png";
 import VertexShaderDemoImage from "./vertex/demo-image/VertexShaderDemoImage.svelte";
 import VertexShaderDemoParticles from "./vertex/demo-particles/VertexShaderDemoParticles.svelte";
+import gpuImage from "../../../intro/images/gpu-image.png"
+import gpu from "../../../../assets/gpu.png"
 
 const { title } = Astro.props;
 const subSectionTitle = "Shaders GLSL";
@@ -22,6 +24,16 @@ const subSectionTitle = "Shaders GLSL";
 
 <Slide sectionTitle={title}>
 	<h2>Shaders GLSL&nbsp;</h2>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="gpu-wrapper">
+		<img  class="big" data-src={gpuImage} alt="" />
+		<div>
+			<img data-src={gpu} alt="" />
+			<p><strong>GPU</strong></p>
+		</div>
+	</div>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
@@ -190,5 +202,26 @@ void main() {
 		height: 60vh;
 		object-fit: contain;
 		max-width: 90vw;
+	}
+
+	.gpu-wrapper {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		margin-top: -2rem;
+		font-size: 1.2em;
+	}
+	.gpu-wrapper img {
+		height: 30vh;
+		width: 40vh;
+		object-fit: contain;
+	}
+	.gpu-wrapper {
+		height: 50vh !important;
+		margin-bottom: -10%;
+	}
+	.gpu-wrapper img.big {
+		height: 50vh;
+		object-fit: contain;
 	}
 </style>

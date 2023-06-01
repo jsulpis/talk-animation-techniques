@@ -3,7 +3,7 @@ import CodeBlock from "../../../../components/CodeBlock.astro";
 import SlideDemo from "../../../../components/SlideDemo.astro";
 
 const { title } = Astro.props;
-const subSectionTitle = "La translation";
+const subSectionTitle = "Utilisation";
 ---
 
 <SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
@@ -60,6 +60,7 @@ const subSectionTitle = "La translation";
 	.card.primary {
 		@include gradient-idle(primary);
 		transition: transform 800ms var(--ease-in-out);
+		transform: translateX(-80%);
 	}
 
 	label {

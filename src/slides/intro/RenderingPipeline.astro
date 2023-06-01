@@ -62,12 +62,6 @@ const subSectionTitle = "Du code au pixel";
 	</Slide> -->
 
 	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-		<h3>Pour faire tout ça, le navigateur utilise:</h3>
-		<div class="wrapper"></div>
-	</Slide>
-
-	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-		<h3>Pour faire tout ça, le navigateur utilise:</h3>
 		<div class="wrapper">
 			<div>
 				<img data-src={cpu} alt="" />
@@ -77,7 +71,6 @@ const subSectionTitle = "Du code au pixel";
 	</Slide>
 
 	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-		<h3>Pour faire tout ça, le navigateur utilise:</h3>
 		<div class="wrapper">
 			<div>
 				<img data-src={cpu} alt="" />
@@ -91,7 +84,6 @@ const subSectionTitle = "Du code au pixel";
 	</Slide>
 
 	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-		<h3>Pour faire tout ça, le navigateur utilise:</h3>
 		<div class="wrapper">
 			<div>
 				<img data-src={cpu} alt="" />
@@ -102,7 +94,6 @@ const subSectionTitle = "Du code au pixel";
 	</Slide>
 
 	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-		<h3>Pour faire tout ça, le navigateur utilise:</h3>
 		<div class="wrapper">
 			<img class="big" data-src={gpuImage} alt="" />
 			<div>
@@ -128,6 +119,7 @@ const subSectionTitle = "Du code au pixel";
 	</Slide>
 
 	<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+		<div class="emoji">🥳</div>
 		<img data-src={composite} alt="" />
 		<div class="grid">
 			<img class="hide" data-src={cpu} alt="" />
@@ -136,7 +128,6 @@ const subSectionTitle = "Du code au pixel";
 			<span></span>
 			<img data-src={gpu} alt="" />
 		</div>
-		<div class="emoji">🥳</div>
 	</Slide>
 
 	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
@@ -164,7 +155,7 @@ const subSectionTitle = "Du code au pixel";
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
-		padding-top: 1rem;
+		margin-top: -2rem;
 	}
 	.wrapper img {
 		height: 30vh;
@@ -202,6 +193,6 @@ const subSectionTitle = "Du code au pixel";
 	.emoji {
 		height: 2rem;
 		font-size: 2rem;
-		margin-bottom: -2rem;
+		margin-block: -2rem 2rem;
 	}
 </style>
