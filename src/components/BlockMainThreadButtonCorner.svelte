@@ -1,12 +1,17 @@
 <script>
+	import { onMount } from "svelte";
 	import BlockMainThreadButton from "./BlockMainThreadButton.svelte";
 
 	let visible = false;
 
-	window.addEventListener("keypress", (e) => {
-		if (e.shiftKey && e.key === "B") {
-			visible = !visible;
-		}
+	onMount(() => {
+		if (typeof window == undefined) return;
+
+		window.addEventListener("keypress", (e) => {
+			if (e.shiftKey && e.key === "B") {
+				visible = !visible;
+			}
+		});
 	});
 </script>
 

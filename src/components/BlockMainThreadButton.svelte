@@ -1,5 +1,5 @@
 <script>
-	import { loop } from "svelte/internal";
+	import { loop, onMount } from "svelte/internal";
 
 	// avoid warning for unknown prop
 	let className;
@@ -11,7 +11,12 @@
 		requestAnimationFrame(() => {
 			requestAnimationFrame(() => {
 				const start = Date.now();
-				while (Date.now() - start < 3000);
+				let currentTime = Date.now();
+				while (currentTime - start < 3000) {
+					currentTime = Date.now();
+				}
+				// pretext to not use an empty loop because it would be tree shaked in production build
+				console.log(`blocked main thread for ${currentTime - start}ms`);
 
 				document.body.style.boxShadow = "none";
 			});
@@ -37,10 +42,14 @@
 		return true;
 	});
 
-	window.addEventListener("keypress", (e) => {
-		if (isSpinnerVisible() && e.ctrlKey && e.key === "b") {
-			blockMainThread();
-		}
+	onMount(() => {
+		if (typeof window == undefined) return;
+
+		window.addEventListener("keypress", (e) => {
+			if (isSpinnerVisible() && e.ctrlKey && e.key === "b") {
+				blockMainThread();
+			}
+		});
 	});
 </script>
 

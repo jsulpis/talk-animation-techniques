@@ -1,10 +1,5 @@
 @use "./abstract" as *;
 
-html,
-body {
-	height: 100%;
-}
-
 * {
 	padding: 0;
 	margin: 0;
@@ -62,10 +57,6 @@ h3 {
 // "Partie x"
 .titles:empty + p {
 	font-size: 2rem;
-}
-
-section {
-	width: min(80vmin, 800px);
 }
 
 ul {
