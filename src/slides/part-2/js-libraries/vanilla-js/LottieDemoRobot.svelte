@@ -10,6 +10,6 @@
 <dotlottie-player
 	controls
 	loop="true"
-	src="/slides-template/robot.lottie"
+	src="/talk-animation-techniques/robot.lottie"
 	style="height: 70%; width: auto"
 />

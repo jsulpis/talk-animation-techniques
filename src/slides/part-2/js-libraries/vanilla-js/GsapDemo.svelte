@@ -7,10 +7,12 @@
 	https://www.greensock.com/gsap-js/
 	*/
 
-	const threeDTimeline = gsap.timeline({}); //onUpdate allows the slider to stay in sync as animation plays
+	let threeDTimeline;
 	// threeDTimeline.timeScale(1.5);
 
 	onMount(() => {
+		threeDTimeline = gsap.timeline({}); //onUpdate allows the slider to stay in sync as animation plays
+
 		var trans3DDemo = document.querySelector("#trans3DDemo"),
 			trans3DBoxes = document.querySelector("#trans3DBoxes"), // div containing all the orange boxes
 			boxes = Array.from(document.querySelectorAll("#trans3DBoxes div")); // all orange boxes

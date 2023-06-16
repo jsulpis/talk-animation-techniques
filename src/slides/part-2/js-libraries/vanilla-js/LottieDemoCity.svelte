@@ -22,6 +22,6 @@
 <dotlottie-player
 	bind:this={player}
 	loop="true"
-	src="/slides-template/city.lottie"
+	src="/talk-animation-techniques/city.lottie"
 	style="height: 100%; width: 100%"
 />
