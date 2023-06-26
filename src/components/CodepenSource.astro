@@ -1,0 +1,29 @@
+---
+import codepenIcon from "../assets/codepen-icon.svg";
+const { pseudo, name, url } = Astro.props;
+---
+
+<a class="reference" href={url} target="_blank">
+	<img src={codepenIcon} alt="codepen logo" /><strong>@{pseudo}</strong> - {
+		name
+	}</a
+>
+
+<style>
+	a.reference {
+		position: fixed;
+		bottom: 1rem;
+		left: 1rem;
+		color: inherit !important;
+		text-decoration: none;
+		border-bottom: 1px solid currentColor;
+
+		font-size: 0.7rem;
+		display: flex;
+		align-items: center;
+		gap: 0.25em;
+	}
+	img {
+		height: 1.3em;
+	}
+</style>

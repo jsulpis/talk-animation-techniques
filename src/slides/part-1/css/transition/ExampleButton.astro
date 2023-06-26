@@ -1,5 +1,6 @@
 ---
 import CodeBlock from "../../../../components/CodeBlock.astro";
+import CodepenSource from "../../../../components/CodepenSource.astro";
 import FlexContainer from "../../../../components/FlexContainer.astro";
 import Slide from "../../../../components/Slide.astro";
 
@@ -9,8 +10,15 @@ const subSectionTitle = "Démos";
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<p>
-		<button type="button" onclick="this.toggleAttribute('open')">
-			<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<button
+			type="button"
+			onclick="this.ariaExpanded = this.ariaExpanded !== 'true'"
+		>
+			<svg
+				viewBox="0 0 48 48"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
 				<path
 					d="M3 3H45"
 					stroke="currentColor"
@@ -29,13 +37,26 @@ const subSectionTitle = "Démos";
 			</svg>
 		</button>
 	</p>
+
+	<CodepenSource
+		pseudo="jsulpis"
+		name="Hamburger menu animation"
+		url="https://codepen.io/jsulpis/pen/XWZNdqd"
+	/>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<FlexContainer gap={"3rem"}>
 		<p>
-			<button type="button" onclick="this.toggleAttribute('open')">
-				<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<button
+				type="button"
+				onclick="this.ariaExpanded = this.ariaExpanded !== 'true'"
+			>
+				<svg
+					viewBox="0 0 48 48"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
 					<path
 						d="M3 3H45"
 						stroke="currentColor"
@@ -134,7 +155,7 @@ const subSectionTitle = "Démos";
 		}
 	}
 
-	button[open] {
+	button[aria-expanded="true"] {
 		svg {
 			transform: rotate(-180deg);
 		}
