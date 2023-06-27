@@ -2,6 +2,7 @@
 import Slide from "../../../../components/Slide.astro";
 import AvatarWallpaper from "../../../../assets/avatar-wallpaper.jpeg";
 import CodeBlock from "../../../../components/CodeBlock.astro";
+import CodepenSource from "../../../../components/CodepenSource.astro";
 
 const { title } = Astro.props;
 const subSectionTitle = "Démos";
@@ -91,6 +92,12 @@ const subSectionTitle = "Démos";
 			</div>
 		</article>
 	</div>
+
+	<CodepenSource
+		pseudo="jsulpis"
+		name="Movie card with hover effect"
+		url="https://codepen.io/jsulpis/pen/XWypVxM"
+	/>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>

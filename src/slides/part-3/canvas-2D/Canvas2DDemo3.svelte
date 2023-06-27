@@ -63,7 +63,7 @@
 				ctx.translate(Math.cos(Date.now() / 300) * 35, 0);
 			}
 
-			ctx.fillStyle = getColor("danger", 700);
+			ctx.fillStyle = getColor("danger", 600);
 			ctx.beginPath();
 			ctx.moveTo(83, 116);
 			ctx.lineTo(83, 102);

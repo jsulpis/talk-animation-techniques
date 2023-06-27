@@ -1,5 +1,7 @@
 ---
 import CodeBlock from "../../../../components/CodeBlock.astro";
+import CodeSource from "../../../../components/CodeSource.astro";
+import CodepenSource from "../../../../components/CodepenSource.astro";
 import Slide from "../../../../components/Slide.astro";
 import GsapSvgDemo from "./GsapSvgDemo.svelte";
 import GsapTitle from "./GsapTitle.astro";
@@ -19,6 +21,11 @@ const { title } = Astro.props;
 	<div class="content p-0">
 		<GsapSvgDemo client:visible />
 	</div>
+	<CodepenSource
+		pseudo="Josh"
+		name="GreenSock SVG Bounce Animation"
+		url="https://codepen.io/joshsalazar/pen/oNGBxgv"
+	/>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
@@ -60,6 +67,7 @@ const { title } = Astro.props;
 		<LottieDemoCity client:visible client:only />
 	</div>
 	<br />
+	<CodeSource url="https://lottiefiles.com/39090-beautiful-city" />
 </Slide>
 
 <style>

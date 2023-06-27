@@ -66,9 +66,9 @@
 		constructor() {
 			super();
 
-			this.radius = 1.5;
+			this.radius = 1.7;
 			this.detail = 60;
-			this.particleSizeMin = 0.01;
+			this.particleSizeMin = 0.04;
 			this.particleSizeMax = 0.08;
 
 			this.build();
@@ -141,8 +141,8 @@
 
 <style>
 	canvas {
-		background-image: radial-gradient(circle farthest-corner, #060a33, #000000);
 		background-repeat: no-repeat;
 		border-radius: 0.25em;
+		filter: invert(1) hue-rotate(175deg);
 	}
 </style>

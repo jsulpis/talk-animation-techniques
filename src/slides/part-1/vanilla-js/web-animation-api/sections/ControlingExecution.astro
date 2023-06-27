@@ -1,4 +1,5 @@
 ---
+import CodepenSource from "../../../../../components/CodepenSource.astro";
 import Slide from "../../../../../components/Slide.astro";
 import CardAnimationScroll from "../../../css/animation/CardAnimationScroll.svelte";
 import CardAnimation from "./CardAnimation.svelte";
@@ -117,6 +118,11 @@ animation1.finished.then(() => animation2.play());
 	<div>
 		<CardAnimation client:visible />
 	</div>
+	<CodepenSource
+		pseudo="jsulpis"
+		name="3D Card Flip - WAAPI"
+		url="https://codepen.io/jsulpis/pen/oNQBEGm"
+	/>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>

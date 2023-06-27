@@ -1,4 +1,3 @@
-<!-- https://codepen.io/GreenSock/pen/AWQprN -->
 <script>
 	import { onMount } from "svelte";
 	import anime from "animejs";

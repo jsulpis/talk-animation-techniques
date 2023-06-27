@@ -1,4 +1,5 @@
 ---
+import CodepenSource from "../../../../components/CodepenSource.astro";
 import Slide from "../../../../components/Slide.astro";
 
 const { title } = Astro.props;
@@ -37,6 +38,12 @@ const subSectionTitle = "Démos";
 			</div>
 		</div>
 	</article>
+
+	<CodepenSource
+		pseudo="jsulpis"
+		name="3D Cards Flip"
+		url="https://codepen.io/jsulpis/pen/VwBNoEb"
+	/>
 </Slide>
 
 <style lang="scss">
@@ -48,7 +55,7 @@ const subSectionTitle = "Démos";
 	}
 
 	.board {
-		--card-width: min(200px, 12vw);
+		--card-width: min(200px, 20vmin);
 		display: flex;
 		align-items: center;
 		width: calc(4 * var(--card-width));

@@ -1,5 +1,6 @@
 ---
 import CodeBlock from "../../../../components/CodeBlock.astro";
+import CodepenSource from "../../../../components/CodepenSource.astro";
 import Slide from "../../../../components/Slide.astro";
 import FpsMeter from "./FpsMeter.svelte";
 
@@ -23,4 +24,9 @@ const subSectionTitle = "Exemples";
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<FpsMeter client:visible />
+	<CodepenSource
+		pseudo="jsulpis"
+		name="FPS meter"
+		url="https://codepen.io/jsulpis/pen/gOBzWXz"
+	/>
 </Slide>

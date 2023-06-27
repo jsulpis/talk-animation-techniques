@@ -1,5 +1,6 @@
 ---
 import CodeBlock from "../../../components/CodeBlock.astro";
+import CodepenSource from "../../../components/CodepenSource.astro";
 import FlexContainer from "../../../components/FlexContainer.astro";
 import Slide from "../../../components/Slide.astro";
 import SlideDemo from "../../../components/SlideDemo.astro";
@@ -24,8 +25,8 @@ const title = "Canvas 2D";
 	<Slide>
 		<h1>{title + " "}</h1>
 		<p>
-			<strong>Usage:</strong> animation complexe et/ou interactive d'un grand nombre de formes
-			géométriques lorsque les SVGs ne suffisent plus
+			<strong>Usage:</strong> animation complexe et/ou interactive d'un grand nombre
+			de formes géométriques lorsque les SVGs ne suffisent plus
 		</p>
 	</Slide>
 
@@ -89,6 +90,11 @@ ctx.fillRect(100, 100, 200, 200);`
 
 	<SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
 		<Canvas2DDemo3 client:visible animate={true} />
+		<CodepenSource
+			pseudo="jsulpis"
+			name="Canvas 2D Animation"
+			url="https://codepen.io/jsulpis/pen/yLQgKKG"
+		/>
 	</SlideDemo>
 
 	<Slide>
@@ -99,6 +105,11 @@ ctx.fillRect(100, 100, 200, 200);`
 
 	<SlideDemo sectionTitle={title} subSectionTitle={"Performance"}>
 		<Canvas2DDemo4 client:visible />
+		<CodepenSource
+			pseudo="Julian Garnier"
+			name="Anime.js Fireworks canvas demo"
+			url="https://codepen.io/juliangarnier/pen/gmOwJX"
+		/>
 	</SlideDemo>
 
 	<!-- <Canvas2DRecap title={title} /> -->

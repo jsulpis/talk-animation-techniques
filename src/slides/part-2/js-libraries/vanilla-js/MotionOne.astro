@@ -1,5 +1,6 @@
 ---
 import CodeBlock from "../../../../components/CodeBlock.astro";
+import CodeSource from "../../../../components/CodeSource.astro";
 import Slide from "../../../../components/Slide.astro";
 import MotionOneDemo from "./MotionOneDemo.svelte";
 import MotionOneSVG from "./MotionOneSVG.svelte";
@@ -29,6 +30,7 @@ const subSectionTitle = "Vanilla JS";
 	<div class="content p-0">
 		<MotionOneDemo client:visible />
 	</div>
+	<CodeSource url="https://motion.dev/dom/scroll#element-position" />
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
@@ -37,4 +39,5 @@ const subSectionTitle = "Vanilla JS";
 	<div class="content p-0">
 		<MotionOneSVG client:visible />
 	</div>
+	<CodeSource url="https://codesandbox.io/s/6i8hve" />
 </Slide>

@@ -1,5 +1,6 @@
 ---
 import CodeBlock from "../../../../components/CodeBlock.astro";
+import CodepenSource from "../../../../components/CodepenSource.astro";
 import Slide from "../../../../components/Slide.astro";
 import GsapDemo from "./GsapDemo.svelte";
 import GsapTitle from "./GsapTitle.astro";
@@ -30,4 +31,9 @@ const subSectionTitle = "Vanilla JS";
 	<div class="content p-0">
 		<GsapDemo client:visible />
 	</div>
+	<CodepenSource
+		pseudo="GreenSock"
+		name="3D Animation with GSAP"
+		url="https://codepen.io/GreenSock/pen/AWQprN"
+	/>
 </Slide>

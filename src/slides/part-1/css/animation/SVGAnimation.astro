@@ -1,4 +1,5 @@
 ---
+import CodepenSource from "../../../../components/CodepenSource.astro";
 import Slide from "../../../../components/Slide.astro";
 
 const { title } = Astro.props;
@@ -7,6 +8,11 @@ const subSectionTitle = "Animation SVG";
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<!-- Copyright (c) 2023 by Mandy (https://codepen.io/iNeedAdult/pen/ZEQqyMg) -->
+	<CodepenSource
+		pseudo="Mandy"
+		name="CSS-only SVG animation"
+		url="https://codepen.io/iNeedAdult/pen/ZEQqyMg"
+	/>
 
 	<span class="gradient"></span>
 	<svg

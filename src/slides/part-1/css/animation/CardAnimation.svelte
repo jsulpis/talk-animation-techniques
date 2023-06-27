@@ -20,7 +20,7 @@
 	}
 
 	.board {
-		--card-width: min(200px, 12vw);
+		--card-width: min(200px, 20vmin);
 		display: flex;
 		align-items: center;
 		width: calc(4 * var(--card-width));
