@@ -1,27 +1,16 @@
-# Reveal.js + Astro
+# Du CSS aux shaders WebGL : panorama des techniques d'animation en 2023
 
-Minimalist template for presentations on the web.
+Slides pour mon talk sur les animations sur le web en 2023.
 
-## Usage
+- Appuyez sur Espace pour avancer à la slide suivante, flèche haut ou gauche pour la slide précédente
+- Appuyez sur Echap pour avoir une vue d'ensemble et naviguer dans la présentation
 
-You have several options to start a new presentation using this template:
+## Versions
 
-- Click on the button 'Use this template' above, or
-- Clone the repo : `git clone git@github.com:jsulpis/slides-template.git`, or
-- Use [degit](https://www.npmjs.com/package/degit) (get a copy without cloning): `pnpm dlx degit jsulpis/slides-template my-talk`
+- [live](https://jsulpis.github.io/talk-animation-techniques/): les slides du talk que je donne en conférence
+- [étendue](https://talk-animation-techniques-extended.vercel.app/#/): avec des slides en plus que j'avais créées mais que je n'ai finalement pas le temps de montrer en live
 
-## UI Framework
+## Codepen
 
-For the specific cases where you need one, you can add one of the [frameworks](https://docs.astro.build/en/guides/integrations-guide/) supported by Astro.
-
-For instance:
-
-```
-pnpm astro add svelte
-```
-
-or
-
-```bash
-pnpm astro add react tailwind
-```
+Beaucoup de démos visibles sur les slides ont leur propre codepen visible dans cette collection:
+https://codepen.io/collection/ExRmPY
