@@ -4,10 +4,6 @@
 	import { loop } from "svelte/internal";
 	import city from "./LottieDemoCity.lottie";
 
-	// avoid warning for unknown prop
-	let className;
-	export { className as class };
-
 	let player;
 
 	loop(() => {

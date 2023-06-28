@@ -1,10 +1,6 @@
 <script>
 	import { onMount } from "svelte";
 
-	// avoid warning for unknown prop
-	let className;
-	export { className as class };
-
 	let canvas;
 
 	function getColor(name, variant = 500) {

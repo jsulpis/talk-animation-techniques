@@ -3,10 +3,6 @@
 	import { onMount } from "svelte";
 	import { loop } from "svelte/internal";
 
-	// avoid warning for unknown prop
-	let className;
-	export { className as class };
-
 	export let animate = false;
 
 	let canvas;

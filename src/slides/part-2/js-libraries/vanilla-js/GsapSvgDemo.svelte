@@ -4,10 +4,6 @@
 	import { gsap } from "gsap";
 	import { loop } from "svelte/internal";
 
-	// avoid warning for unknown prop
-	let className;
-	export { className as class };
-
 	let container;
 
 	const timeline = gsap.timeline({}); //onUpdate allows the slider to stay in sync as animation plays
@@ -322,11 +318,6 @@
 </div>
 
 <style lang="scss">
-	#BodyLighter {
-		position: absolute;
-		top: -50px;
-	}
-
 	.svg-container {
 		margin-top: 20%;
 		position: relative;
@@ -351,25 +342,5 @@
 
 	#Hat .st2 {
 		stroke: #1f3454;
-	}
-
-	h1 {
-		font-family: "Kanit";
-		font-size: 4rem;
-		position: absolute;
-		margin-top: 150px;
-		text-align: center;
-		width: 100%;
-		color: #fff;
-		font-weight: 700;
-		text-shadow: 0 1px 0 #b53737, 0 2px 0 #ae3434, 0 3px 0 #a63232,
-			0 4px 0 #9e3030, 0 5px 0 #962d2d, 0 6px 0 #8e2b2b, 0 7px 0 #862929,
-			0 8px 0 #7f2626, 0 0 5px rgb(196 30 30 / 5%),
-			0 -1px 3px rgb(196 30 30 / 20%), 0 9px 9px rgb(196 30 30 / 30%),
-			0 12px 12px rgb(196 30 30 / 30%), 0 15px 15px rgb(196 30 30 / 30%);
-	}
-
-	#days {
-		color: #b1cbbb;
 	}
 </style>

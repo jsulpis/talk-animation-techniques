@@ -3,7 +3,7 @@
 :root {
 	@each $color, $shades in $palette {
 		@each $shade, $value in $shades {
-			--color-#{$color}-#{$shade}: #{$value};
+			--color-#{"" + $color}-#{$shade}: #{$value};
 		}
 	}
 

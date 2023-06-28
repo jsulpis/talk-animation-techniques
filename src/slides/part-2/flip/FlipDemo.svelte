@@ -2,10 +2,6 @@
 <script>
 	import { afterUpdate, onMount } from "svelte";
 
-	// avoid warning for unknown prop
-	let className;
-	export { className as class };
-
 	export let duration = 0;
 
 	/**

@@ -3,10 +3,6 @@
 	import { onMount } from "svelte";
 	import anime from "animejs";
 
-	// avoid warning for unknown prop
-	let className;
-	export { className as class };
-
 	let canvasEl;
 
 	onMount(() => {
