@@ -7,10 +7,11 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+const baseUrl = process.env.BASE_URL;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -22,6 +23,20 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 
 		<title>{title}</title>
+		<meta property="og:title" content={title} />
+		<meta name="description" content="Slides pour mon talk sur les animations sur le web" />
+		<meta property="og:description" content="Slides pour mon talk sur les animations sur le web" />
+		<meta property="og:image" content={`${baseUrl}/og-image.png`} />
+		<meta property="og:url" content={baseUrl} />
+		<meta property="og:image:width" content="1920" />
+		<meta property="og:image:height" content="1080" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:creator" content="@jsulpis" />
+		<meta name="twitter:site" content="@jsulpis" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	</head>
 
 	<body>
