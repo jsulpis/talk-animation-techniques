@@ -5,6 +5,7 @@ import FlipDemo from "./FlipDemo.svelte";
 import flip1 from "./images/flip-1.png";
 import flip2 from "./images/flip-2.png";
 import flip3 from "./images/flip-3.png";
+import flip4 from "./images/flip-4.mov";
 
 const { title } = Astro.props;
 const subSectionTitle = "Explication";
@@ -77,11 +78,9 @@ element.style.transform = \`translate(\${deltaX}px, \${deltaY}px)\`;`
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
 	<div class="container">
 		<h2><strong>P</strong>lay</h2>
-		<video
-			src="/talk-animation-techniques/flip-4.mov"
-			onclick="
-			this.currentTime = 0; this.play()
-"></video>
+		<video src={flip4} onclick="
+		this.currentTime = 0; this.play()
+		"></video>
 	</div>
 
 	<CodeBlock lang="javascript">

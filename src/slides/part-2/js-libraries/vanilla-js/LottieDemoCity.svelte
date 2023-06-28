@@ -2,6 +2,7 @@
 <script>
 	import "@dotlottie/player-component";
 	import { loop } from "svelte/internal";
+	import city from "./LottieDemoCity.lottie";
 
 	// avoid warning for unknown prop
 	let className;
@@ -22,6 +23,6 @@
 <dotlottie-player
 	bind:this={player}
 	loop="true"
-	src="/talk-animation-techniques/city.lottie"
+	src={city}
 	style="height: 100%; width: 100%"
 />

@@ -1,11 +1,5 @@
 <script>
 	import CardAnimation from "./CardAnimation.svelte";
-
-	/**
-	 * Yeah this is not the WAAPI, I made this animation first in CSS using
-	 * the negative animation-delay trick.
-	 * It could be done with the WAAPI.
-	 */
 </script>
 
 <!-- the article is used to break the perspective context from reveal -->

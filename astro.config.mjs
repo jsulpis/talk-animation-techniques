@@ -10,6 +10,7 @@ export default defineConfig({
 	base: "/talk-animation-techniques",
 	integrations: [svelte(), vue(), react()],
 	vite: {
+		assetsInclude: ["**/*.mov", "**/*.lottie"],
 		css: {
 			preprocessorOptions: {
 				scss: {

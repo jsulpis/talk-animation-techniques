@@ -6,15 +6,15 @@ const { title } = Astro.props;
 const subSectionTitle = "";
 ---
 
-<!-- <SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<p class="linear">
 		<label>
 			<input type="checkbox" />
 			<span class="card primary">Clique !</span>
 		</label>
 	</p>
-	<CodeBlock lang="css"
-		>{
+	<CodeBlock lang="css">
+		{
 			`.demo {
   transition: transform 1.4s cubic-bezier(0.75, -0.8, 0.2, 1.8);
 
@@ -22,9 +22,9 @@ const subSectionTitle = "";
     transform: translateX(150%);
   }
 }`
-		}</CodeBlock
-	>
-</SlideDemo> -->
+		}
+	</CodeBlock>
+</SlideDemo>
 
 <SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<div class="container">

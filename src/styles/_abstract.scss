@@ -71,27 +71,12 @@ $palette: (
 	),
 );
 
-$spacings: (
-	1: "4px",
-	2: "8px",
-	3: "12px",
-	4: "16px",
-	5: "20px",
-	6: "24px",
-	7: "28px",
-	8: "32px",
-	9: "40px",
-);
-
 /*====================*/
 /*      Functions     */
 /*====================*/
 
 @function color($color, $variant: 500) {
 	@return var(--color-#{$color}-#{$variant});
-}
-@function spacing($number) {
-	@return var(--spacing-0#{$number});
 }
 @function gradient($color, $from: 600, $to: 400) {
 	@return linear-gradient(
@@ -128,14 +113,4 @@ $spacings: (
 	);
 	background-size: 200% 200%;
 	background-position: 0% 40%;
-}
-@mixin gradient-active($color) {
-	background: linear-gradient(
-		to top,
-		var(--color-#{$color}-700),
-		var(--color-#{$color}-600),
-		var(--color-#{$color}-400) 110%
-	);
-	background-size: 200% 200%;
-	background-position: 0% 100%;
 }

@@ -1,0 +1,51 @@
+---
+import CodeBlock from "../../../../components/CodeBlock.astro";
+import SlideDemo from "../../../../components/SlideDemo.astro";
+
+const { title } = Astro.props;
+const subSectionTitle = "Utilisation";
+---
+
+<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<p>
+		<label>
+			<input type="checkbox" />
+			<span class="card primary">Clique !</span>
+		</label>
+	</p>
+</SlideDemo>
+
+<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<CodeBlock lang="css">
+		{
+			`.demo {
+  transition: transform 800ms ease-in-out;
+
+  &:checked {
+    transform: translateX(80%);
+  }
+}`
+		}
+	</CodeBlock>
+	<span class="fragment emoji">👍</span>
+</SlideDemo>
+
+<style lang="scss">
+	.card.primary {
+		@include gradient-idle(primary);
+		transition: transform 800ms var(--ease-in-out);
+		transform: translateX(-80%);
+	}
+
+	label {
+		position: relative;
+
+		input:checked + .primary {
+			transform: translateX(80%);
+		}
+	}
+	.emoji {
+		font-size: 2em;
+		margin-block: 0.5em -2em;
+	}
+</style>

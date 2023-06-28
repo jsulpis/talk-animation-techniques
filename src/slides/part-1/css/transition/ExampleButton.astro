@@ -8,17 +8,14 @@ const { title } = Astro.props;
 const subSectionTitle = "Démos";
 ---
 
+<!-- https://codepen.io/jsulpis/pen/XWZNdqd -->
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<p>
 		<button
 			type="button"
 			onclick="this.ariaExpanded = this.ariaExpanded !== 'true'"
 		>
-			<svg
-				viewBox="0 0 48 48"
-				fill="none"
-				xmlns="http://www.w3.org/2000/svg"
-			>
+			<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path
 					d="M3 3H45"
 					stroke="currentColor"
@@ -52,11 +49,7 @@ const subSectionTitle = "Démos";
 				type="button"
 				onclick="this.ariaExpanded = this.ariaExpanded !== 'true'"
 			>
-				<svg
-					viewBox="0 0 48 48"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-				>
+				<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M3 3H45"
 						stroke="currentColor"
@@ -101,7 +94,6 @@ const subSectionTitle = "Démos";
 </Slide>
 
 <style lang="scss">
-	//https://codepen.io/jsulpis/pen/XWZNdqd
 	$transition-duration: 500ms;
 	$transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
 

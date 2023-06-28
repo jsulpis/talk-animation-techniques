@@ -126,6 +126,11 @@ animation1.finished.then(() => animation2.play());
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<!--
+	 Well this demo does not use the WAAPI, I made this animation first in CSS using
+	 the negative animation-delay trick.
+	 It could be done with the WAAPI.
+	-->
 	<CardAnimationScroll client:visible />
 </Slide>
 

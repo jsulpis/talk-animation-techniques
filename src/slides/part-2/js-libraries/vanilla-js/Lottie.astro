@@ -6,7 +6,6 @@ import Slide from "../../../../components/Slide.astro";
 import GsapSvgDemo from "./GsapSvgDemo.svelte";
 import GsapTitle from "./GsapTitle.astro";
 import LottieDemoCity from "./LottieDemoCity.svelte";
-import LottieDemoRobot from "./LottieDemoRobot.svelte";
 import LottieTitle from "./LottieTitle.astro";
 
 const { title } = Astro.props;
@@ -32,14 +31,6 @@ const { title } = Astro.props;
 	<LottieTitle />
 </Slide>
 
-<!-- <Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
-	<LottieTitle />
-	<div class="content p-0 demo">
-		<LottieDemoRobot client:visible client:only />
-	</div>
-	<br />
-</Slide> -->
-
 <Slide sectionTitle={title} subSectionTitle={"Vanilla JS"}>
 	<LottieTitle />
 	<div class="content p-0">
@@ -49,7 +40,7 @@ const { title } = Astro.props;
   autoplay
   controls
   loop
-  src="/robot.lottie"
+  src="/animation.lottie"
   style="width: 300px"
 />`
 			}

@@ -6,19 +6,11 @@
 			--color-#{$color}-#{$shade}: #{$value};
 		}
 	}
-	@each $spacing, $value in $spacings {
-		--spacing-0#{$spacing}: #{$value};
-	}
 
 	--font-color-default: #{color(gray, 700)};
 	--font-color-strong: #{color(gray, 800)};
 	--font-color-light: #{color(gray, 400)};
 	--background-page: #{color(gray, 50)};
-	--border-light: 1px solid var(--font-color-light);
-	--border-strong: 2px solid var(--font-color-strong);
-	--border-radius-sm: #{spacing(1)};
-	--border-radius-md: #{spacing(2)};
-	--border-radius-lg: #{spacing(3)};
 	--shadow-color-hsl: 222 47% 11%;
 	--shadow-opacity: 0.2;
 	--shadow-color: hsl(var(--shadow-color-hsl) / var(--shadow-opacity));

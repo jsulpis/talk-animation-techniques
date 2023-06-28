@@ -7,8 +7,8 @@ import ExampleMovieCard from "./ExampleMovieCard.astro";
 import RotationBezierCurves from "./RotationBezierCurves.astro";
 import SimpleHover from "./SimpleHover.astro";
 import TransitionGraph from "./TransitionGraph.svelte";
-import TranslateBad from "./TranslateBad.astro";
-import TranslateGood from "./TranslateGood.astro";
+import TranslateDemo from "./TranslateDemo.astro";
+import TranslateLayout from "./TranslateLayout.astro";
 import TranslationCurves from "./TranslationCurves.astro";
 
 const title = "Transition CSS";
@@ -22,8 +22,8 @@ const title = "Transition CSS";
 	<Slide>
 		<h1>{title + " "}</h1>
 		<p>
-			<strong>Usage:</strong> passage d’un état A à un état B <span class="fragment custom bar"
-				>différents</span
+			<strong>Usage:</strong> passage d’un état A à un état B <span
+				class="fragment custom bar">différents</span
 			>
 			<span class="fragment custom bar">selon le plus court chemin</span>
 		</p>
@@ -43,8 +43,8 @@ const title = "Transition CSS";
 	</style>
 
 	<!-- <SimpleHover title={title} /> -->
-	<TranslateBad title={title} />
-	<TranslateGood title={title} />
+	<TranslateDemo title={title} />
+	<TranslateLayout title={title} />
 	<RotationBezierCurves title={title} />
 	<!-- <TranslationCurves title={title} /> -->
 	<ExampleButton title={title} />
