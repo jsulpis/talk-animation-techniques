@@ -1,7 +1,16 @@
 ---
 import Slide from "../../components/Slide.astro";
 import TitleBackground from "./TitleBackground.svelte";
+import ZenikaLogo from "../../assets/logo-Zenika.png";
 ---
+
+<Slide>
+	<p>Salut 👋 moi c'est</p>
+	<h1 class="ju">Julien Sulpis</h1>
+	<p>@jsulpis</p>
+	<p>Développeur front-end chez <img class="zenika-logo" src={ZenikaLogo} /></p>
+	<p>J'essaie de faire des interfaces qui claquent</p>
+</Slide>
 
 <Slide>
 	<TitleBackground client:visible />
@@ -18,15 +27,9 @@ import TitleBackground from "./TitleBackground.svelte";
 		</h1>
 		<div class="presenter">
 			<p>Julien Sulpis</p>
-			<!-- <small>02/06/2023</small> -->
+			<small>Riviera Dev - 11/07/2023</small>
 		</div>
 	</div>
-</Slide>
-
-<Slide>
-	<p>Salut 👋 moi c'est</p>
-	<h1>Julien Sulpis</h1>
-	<p>J'aime faire des trucs cools sur le web</p>
 </Slide>
 
 <style lang="scss">
@@ -76,5 +79,28 @@ import TitleBackground from "./TitleBackground.svelte";
 	}
 	.techniques {
 		font-size: 1.5em;
+	}
+	p {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.5rem;
+		gap: 0.5ch;
+	}
+	.ju {
+		margin-bottom: 0;
+
+		+ p {
+			font-size: 1em;
+			margin-bottom: 1em;
+
+			+ p + p {
+				font-size: 1em;
+			}
+		}
+	}
+	.zenika-logo {
+		height: 5.5em;
+		margin: -2%;
 	}
 </style>

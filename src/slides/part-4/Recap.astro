@@ -2,7 +2,7 @@
 import stepsCanvas from "../../assets/steps-canvas2d.png";
 import stepsTransition from "../../assets/steps-transition.png";
 import stepsRaf from "../../assets/steps-raf.png";
-
+import logoZenika from "../../assets/logo-Zenika.png";
 import github from "./images/github.svg";
 import codepen from "./images/codepen.svg";
 import twitter from "./images/twitter.svg";
@@ -27,6 +27,7 @@ import Slide from "../../components/Slide.astro";
 </Slide>
 
 <Slide animate={false}>
+	<img class="logo" src={logoZenika} />
 	<div class="author">
 		<h2>@jsulpis</h2>
 		<div class="icons">
@@ -140,5 +141,12 @@ import Slide from "../../components/Slide.astro";
 	.icons img {
 		height: 0.8em;
 		margin-inline: 0.1em;
+	}
+	.logo {
+		position: fixed;
+		height: 5rem;
+		width: auto;
+		right: 0.5rem;
+		top: 0rem;
 	}
 </style>
