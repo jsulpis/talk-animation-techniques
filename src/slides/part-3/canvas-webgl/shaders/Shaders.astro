@@ -10,6 +10,7 @@ import VertexShaderDemoParticles from "./vertex/demo-particles/VertexShaderDemoP
 import gpuImage from "../../../intro/images/gpu-image.png";
 import gpu from "../../../../assets/gpu.png";
 import CodepenSource from "../../../../components/CodepenSource.astro";
+import FragmentGradient from "./FragmentGradient.svelte"
 
 const { title } = Astro.props;
 const subSectionTitle = "Shaders GLSL";
@@ -81,7 +82,7 @@ const subSectionTitle = "Shaders GLSL";
 	</div>
 </Slide> -->
 
-<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<h3>Vertex Shader</h3>
 	<p>geométrie</p>
 	<div class="content p-0">
@@ -148,7 +149,7 @@ void main() {
 	</div>
 </Slide> -->
 
-<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<h3>Fragment Shader</h3>
 	<p>couleur</p>
 	<div class="content p-0">
@@ -164,20 +165,14 @@ void main() {
 	</div>
 </Slide>
 
-<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<h3>Fragment Shader</h3>
 	<p>couleur</p>
-	<div class="content p-0">
-		<iframe
-			class="invert"
-			width="900"
-			height="500"
-			data-src="https://www.shadertoy.com/embed/MsjSW3?gui=true&t=10&paused=true&muted=false"
-			allowfullscreen></iframe>
-	</div>
+	<div class="content"></div>
+	<FragmentGradient	 client:visible/>
 </Slide>
 
-<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<h3>Fragment Shader</h3>
 	<p>couleur</p>
 	<div class="content p-0">
@@ -201,7 +196,7 @@ void main() {
 	</div>
 </Slide> -->
 
-<Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<h3>Fragment Shader</h3>
 	<p>couleur</p>
 	<div class="content p-0">
