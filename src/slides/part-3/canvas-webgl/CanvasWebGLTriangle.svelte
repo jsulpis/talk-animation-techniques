@@ -11,12 +11,12 @@
 		gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
 		gl.bufferData(
 			gl.ARRAY_BUFFER,
-			new Float32Array([-3 / 4, -3 / 4, 3 / 4, -3 / 4, 0, 3 / 4]),
+			new Float32Array([-.5, -.5, .5, -.5, -.5, .5,  .5, .5]),
 			gl.STATIC_DRAW
 		);
 
 		vertexBuffer.itemSize = 2;
-		vertexBuffer.numItems = 3;
+		vertexBuffer.numItems = 4;
 
 		// Shaders
 		const vertexShaderSource =
@@ -60,7 +60,7 @@
 			0,
 			0
 		);
-		gl.drawArrays(gl.TRIANGLES, 0, vertexBuffer.numItems);
+		gl.drawArrays(gl.TRIANGLE_STRIP, 0, vertexBuffer.numItems);
 	});
 </script>
 

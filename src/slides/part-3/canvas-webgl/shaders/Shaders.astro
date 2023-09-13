@@ -3,6 +3,7 @@ import CodeBlock from "../../../../components/CodeBlock.astro";
 import Slide from "../../../../components/Slide.astro";
 import pipeline from "../images/pipeline.png";
 import pixel from "../images/pixelShader.png";
+import pixels from "../images/pixels.webp";
 import vertex from "../images/vertexShader.png";
 import VertexShaderDemoImage from "./vertex/demo-image/VertexShaderDemoImage.svelte";
 import VertexShaderDemoParticles from "./vertex/demo-particles/VertexShaderDemoParticles.svelte";
@@ -38,6 +39,16 @@ const subSectionTitle = "Shaders GLSL";
 	</div>
 </Slide>
 
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<div class="gpu-wrapper">
+		<div>
+			<img data-src={gpu} alt="" />
+			<p><strong>GPU</strong></p>
+		</div>
+		<img data-src={pixels} alt="pixels" class="pixels"/>
+	</div>
+</Slide>
+
 <!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<div class="gpu-wrapper">
 		<img  class="big" data-src={gpuImage} alt="" />
@@ -49,9 +60,10 @@ const subSectionTitle = "Shaders GLSL";
 </Slide> -->
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<!-- http://daureg.free.fr/ta_webit/fonctionnement.html -->
 	<img
 		data-src={vertex}
-		alt="http://daureg.free.fr/ta_webit/fonctionnement.html"
+		alt="vertex shader"
 	/>
 </Slide>
 
@@ -73,7 +85,7 @@ const subSectionTitle = "Shaders GLSL";
 	<h3>Vertex Shader</h3>
 	<p>geométrie</p>
 	<div class="content p-0">
-		<CodeBlock lang="GLSL">
+		<CodeBlock lang="GLSL" lines="|1">
 			{
 				`uniform float time;
 
@@ -115,9 +127,10 @@ void main() {
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<!-- http://daureg.free.fr/ta_webit/fonctionnement.html -->
 	<img
 		data-src={pixel}
-		alt="http://daureg.free.fr/ta_webit/fonctionnement.html"
+		alt="pixel shader"
 	/>
 </Slide>
 
@@ -243,11 +256,17 @@ void main() {
 		align-items: center;
 		margin-top: -2rem;
 		font-size: 1.2em;
+		gap: 4rem;
 	}
 	.gpu-wrapper img {
 		height: 30vh;
 		width: 40vh;
 		object-fit: contain;
+
+		&.pixels {
+			height: 45vh;
+			width: auto;
+		}
 	}
 	.gpu-wrapper {
 		height: 50vh !important;
