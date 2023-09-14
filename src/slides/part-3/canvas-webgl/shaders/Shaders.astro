@@ -197,14 +197,8 @@ void main() {
 </Slide> -->
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-	<h3>Fragment Shader</h3>
-	<p>couleur</p>
-	<div class="content p-0">
-		<iframe
-			width="900"
-			height="500"
-			data-src="https://paveldogreat.github.io/WebGL-Fluid-Simulation/"
-		></iframe>
+	<h3>david.li/fluid</h3>
+		<iframe class="simulation" data-src="http://david.li/fluid/"></iframe>
 	</div>
 </Slide>
 
@@ -234,10 +228,14 @@ void main() {
 	iframe {
 		height: 60vh;
 		width: auto;
+		border: 0;
+		border-radius: .5rem;
 		aspect-ratio: 9/5;
-	}
-	iframe.invert {
-		filter: invert(1) hue-rotate(175deg);
+
+		&.simulation {
+			height: 70vh;
+			margin-bottom: -15vh;
+		}
 	}
 	img {
 		height: 50vh;
