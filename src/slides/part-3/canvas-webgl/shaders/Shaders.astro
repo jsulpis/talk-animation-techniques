@@ -10,7 +10,9 @@ import VertexShaderDemoParticles from "./vertex/demo-particles/VertexShaderDemoP
 import gpuImage from "../../../intro/images/gpu-image.png";
 import gpu from "../../../../assets/gpu.png";
 import CodepenSource from "../../../../components/CodepenSource.astro";
-import FragmentGradient from "./FragmentGradient.svelte"
+import CodeSource from "../../../../components/CodeSource.astro";
+import FragmentGradient from "./fragment/FragmentGradient.svelte"
+import FragmentShaderReactLogo from "./fragment/demo-react-logo/FragmentShaderReactLogo.svelte"
 
 const { title } = Astro.props;
 const subSectionTitle = "Shaders GLSL";
@@ -170,6 +172,20 @@ void main() {
 	<p>couleur</p>
 	<div class="content"></div>
 	<FragmentGradient	 client:visible/>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h3>Fragment Shader</h3>
+	<p>couleur</p>
+	<div class="content p-0">
+		<FragmentShaderReactLogo client:visible/>
+	</div>
+	<CodepenSource
+		pseudo="jsulpis"
+		name="React logo"
+		url="https://www.shadertoy.com/view/ms3yzH"
+		platform="shadertoy">
+	</CodepenSource>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>

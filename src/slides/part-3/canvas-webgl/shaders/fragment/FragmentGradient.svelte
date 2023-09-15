@@ -1,7 +1,7 @@
 <!-- Made thanks to https://whatamesh.vercel.app/ -->
 <script>
 	import { onMount } from "svelte";
-	import { Gradient } from "../../../../assets/Gradient.js";
+	import { Gradient } from "../../../../../assets/Gradient.js";
 
 	onMount(() => {
 		// Create your instance
