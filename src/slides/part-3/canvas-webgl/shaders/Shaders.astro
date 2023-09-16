@@ -13,6 +13,7 @@ import CodepenSource from "../../../../components/CodepenSource.astro";
 import CodeSource from "../../../../components/CodeSource.astro";
 import FragmentGradient from "./fragment/FragmentGradient.svelte"
 import FragmentShaderReactLogo from "./fragment/demo-react-logo/FragmentShaderReactLogo.svelte"
+import FragmentShaderBox from "./fragment/demo-box/FragmentShaderBox.svelte"
 
 const { title } = Astro.props;
 const subSectionTitle = "Shaders GLSL";
@@ -190,12 +191,14 @@ void main() {
 	<h3>Fragment Shader</h3>
 	<p>couleur</p>
 	<div class="content p-0">
-		<iframe
-			width="900"
-			height="500"
-			data-src="https://www.shadertoy.com/embed/ltjBzK?gui=true&t=10&paused=true&muted=false"
-			allowfullscreen></iframe>
+		<FragmentShaderBox client:visible/>
 	</div>
+	<CodepenSource
+		pseudo="iq"
+		name="Box - occlusion "
+		url=https://www.shadertoy.com/view/4djXDy"
+		platform="shadertoy">
+	</CodepenSource>
 </Slide>
 
 <!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
