@@ -78,9 +78,15 @@ element.style.transform = \`translate(\${deltaX}px, \${deltaY}px)\`;`
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
 	<div class="container">
 		<h2><strong>P</strong>lay</h2>
-		<video src={flip4} onclick="
-		this.currentTime = 0; this.play()
-		"></video>
+		<video
+			data-src={flip4}
+			data-autoplay
+			loop
+			onclick="
+			this.currentTime = 0; this.play()
+			"
+		>
+		</video>
 	</div>
 
 	<CodeBlock lang="javascript">

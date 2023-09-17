@@ -5,16 +5,16 @@ import Slide from "../../../../components/Slide.astro";
 import SlideDemo from "../../../../components/SlideDemo.astro";
 
 const { title } = Astro.props;
-const subSectionTitle = "Utilisation";
+const subSectionTitle = "Sinusoïdes";
 ---
 
-<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+<SlideDemo sectionTitle={title} subSectionTitle="Utilisation">
 	<p>
 		<span class="icon-wrapper"><span class="icon fear">👍</span></span>
 	</p>
 </SlideDemo>
 
-<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+<SlideDemo sectionTitle={title} subSectionTitle="Utilisation">
 	<p><span class="icon-wrapper"><span class="icon fear">👍</span></span></p>
 	<CodeBlock lang="css">
 		{
@@ -26,7 +26,7 @@ const subSectionTitle = "Utilisation";
 	</CodeBlock>
 </SlideDemo>
 
-<!-- <SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
+<SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<p>
 		<span class="icon-wrapper"><span class="icon hand first">👋</span></span>
 	</p>
@@ -81,8 +81,8 @@ const subSectionTitle = "Utilisation";
 	<p>
 		<span class="icon-wrapper"><span class="icon hand first">👋</span></span>
 	</p>
-	<CodeBlock lang="css" lines="|4|6|"
-		>{
+	<CodeBlock lang="css" lines="|4|6|">
+		{
 			`.icon:hover {
   transition-property: transform;
   transition-duration: 800ms;
@@ -90,8 +90,8 @@ const subSectionTitle = "Utilisation";
 
   transform: rotate(0.0004turn);
 }`
-		}</CodeBlock
-	>
+		}
+	</CodeBlock>
 </SlideDemo>
 
 <SlideDemo sectionTitle={title} subSectionTitle={subSectionTitle}>
@@ -106,7 +106,7 @@ const subSectionTitle = "Utilisation";
 			<span class="icon-wrapper"><span class="icon hand third">🤌</span></span>
 		</p>
 	</FlexContainer>
-</SlideDemo> -->
+</SlideDemo>
 
 <style lang="scss">
 	.icon {
