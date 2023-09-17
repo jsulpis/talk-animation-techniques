@@ -17,63 +17,62 @@ import Canvas2DRecap from "./Canvas2DRecap.astro";
 const title = "Canvas 2D";
 ---
 
-<section>
-	<Slide>
-		<h1>{title + " "}</h1>
-	</Slide>
+<Slide>
+	<h1>{title + " "}</h1>
+</Slide>
 
-	<Slide>
-		<h1>{title + " "}</h1>
-		<p>
-			<strong>Usage:</strong> animation complexe et/ou interactive d'un grand nombre
-			de formes géométriques lorsque les SVGs ne suffisent plus
-		</p>
-	</Slide>
+<Slide>
+	<h1>{title + " "}</h1>
+	<p>
+		<strong>Usage:</strong> animation complexe et/ou interactive d'un grand nombre
+		de formes géométriques lorsque les SVGs ne suffisent plus
+	</p>
+</Slide>
 
-	<Slide sectionTitle={title} subSectionTitle={"Utilisation"}>
-		<br />
-		<FlexContainer gap="3rem">
-			<FlexContainer direction={"column"} gap="0.5rem">
-				<CodeBlock lang="HTML">
-					{`<canvas width="400" height="400" />`}
-				</CodeBlock>
-				<CodeBlock lang="javascript" lines="|1,2|4,5">
-					{
-						`const canvas = document.querySelector("canvas");
+<Slide sectionTitle={title} subSectionTitle={"Utilisation"}>
+	<br />
+	<FlexContainer gap="3rem">
+		<FlexContainer direction={"column"} gap="0.5rem">
+			<CodeBlock lang="HTML">
+				{`<canvas width="400" height="400" />`}
+			</CodeBlock>
+			<CodeBlock lang="javascript" lines="|1,2|4,5">
+				{
+					`const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
 ctx.fillStyle = "hsl(200deg, 100%, 50%)";
 ctx.fillRect(100, 100, 200, 200);`
-					}
-				</CodeBlock>
-			</FlexContainer>
-			<Canvas2DDemo1 client:visible />
+				}
+			</CodeBlock>
 		</FlexContainer>
-	</Slide>
+		<Canvas2DDemo1 client:visible />
+	</FlexContainer>
+</Slide>
 
-	<!-- <SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
+<!-- <SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
 		<img
 			src="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes/canvas_default_grid.png"
 			alt=""
 		/>
 	</SlideDemo> -->
 
-	<SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
-		<Canvas2DDemo2 client:visible />
-	</SlideDemo>
+<SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
+	<Canvas2DDemo2 client:visible />
+</SlideDemo>
 
-	<SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
-		<Canvas2DDemo3 client:visible />
-	</SlideDemo>
+<SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
+	<Canvas2DDemo3 client:visible />
+</SlideDemo>
 
-	<SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
-		<Citation author="encore moi" />
-	</SlideDemo>
+<SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
+	<Citation author="encore moi" />
+</SlideDemo>
 
-	<Slide sectionTitle={title} subSectionTitle={"Utilisation"}>
-		<CodeBlock lang="javascript" lines="1,11|2|4,5|7-9">
-			{
-				`loop(() => {
+<Slide sectionTitle={title} subSectionTitle={"Utilisation"}>
+	<CodeBlock lang="javascript" lines="1,11|2|4,5|7-9">
+		{
+			`loop(() => {
   const time = Date.now();
   ...
   // monstre
@@ -84,40 +83,39 @@ ctx.fillRect(100, 100, 200, 200);`
   ctx.arc(37, 37, 13, angle, -1 * angle, false);
   ...
 })`
-			}
-		</CodeBlock>
-	</Slide>
+		}
+	</CodeBlock>
+</Slide>
 
-	<SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
-		<Canvas2DDemo3 client:visible animate={true} />
-		<CodepenSource
-			pseudo="jsulpis"
-			name="Canvas 2D Animation"
-			url="https://codepen.io/jsulpis/pen/yLQgKKG"
-		/>
-	</SlideDemo>
+<SlideDemo sectionTitle={title} subSectionTitle={"Utilisation"}>
+	<Canvas2DDemo3 client:visible animate={true} />
+	<CodepenSource
+		pseudo="jsulpis"
+		name="Canvas 2D Animation"
+		url="https://codepen.io/jsulpis/pen/yLQgKKG"
+	/>
+</SlideDemo>
 
-	<Slide>
-		<Canvas2DExamples />
-	</Slide>
+<Slide>
+	<Canvas2DExamples />
+</Slide>
 
-	<Canvas2DLibs title={title} />
+<Canvas2DLibs title={title} />
 
-	<SlideDemo sectionTitle={title} subSectionTitle={"Performance"}>
-		<Canvas2DDemo4 client:visible />
-		<CodepenSource
-			pseudo="Julian Garnier"
-			name="Anime.js Fireworks canvas demo"
-			url="https://codepen.io/juliangarnier/pen/gmOwJX"
-		/>
-	</SlideDemo>
+<SlideDemo sectionTitle={title} subSectionTitle={"Performance"}>
+	<Canvas2DDemo4 client:visible />
+	<CodepenSource
+		pseudo="Julian Garnier"
+		name="Anime.js Fireworks canvas demo"
+		url="https://codepen.io/juliangarnier/pen/gmOwJX"
+	/>
+</SlideDemo>
 
-	<!-- <Canvas2DRecap title={title} /> -->
+<!-- <Canvas2DRecap title={title} /> -->
 
-	<!-- <Slide>
+<!-- <Slide>
 		<Canvas2DGraph />
 	</Slide> -->
-</section>
 
 <style>
 	img {

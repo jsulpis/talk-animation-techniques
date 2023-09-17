@@ -14,40 +14,38 @@ import FlexContainer from "../../../../components/FlexContainer.astro";
 const title = "requestAnimationFrame()";
 ---
 
-<section>
-	<Slide>
-		<h1>{title + " "}</h1>
-	</Slide>
+<Slide>
+	<h1>{title + " "}</h1>
+</Slide>
 
-	<Slide>
-		<h1>{title + " "}</h1>
-		<p>
-			<strong>Usage:</strong> toute action à effectuer avant chaque frame rendue
-			par le navigateur
-		</p>
-	</Slide>
+<Slide>
+	<h1>{title + " "}</h1>
+	<p>
+		<strong>Usage:</strong> toute action à effectuer avant chaque frame rendue
+		par le navigateur
+	</p>
+</Slide>
 
-	<Slide sectionTitle={title}>
-		<FlexContainer direction={"column"}>
-			<img data-src={pipeline} alt="" />
-			<img class="arrow fragment" data-src={arrow} alt="" />
-		</FlexContainer>
-	</Slide>
+<Slide sectionTitle={title}>
+	<FlexContainer direction={"column"}>
+		<img data-src={pipeline} alt="" />
+		<img class="arrow fragment" data-src={arrow} alt="" />
+	</FlexContainer>
+</Slide>
 
-	<RafUsage title={title} />
-	<FpsMeter title={title} />
-	<Slide sectionTitle={title} subSectionTitle={"À retenir"}>
-		<Citation />
-	</Slide>
-	<RafDemos title={title} />
-	<SpringAnimations title={title} />
+<RafUsage title={title} />
+<FpsMeter title={title} />
+<Slide sectionTitle={title} subSectionTitle={"À retenir"}>
+	<Citation />
+</Slide>
+<RafDemos title={title} />
+<SpringAnimations title={title} />
 
-	<!-- <RafRecap title={title} /> -->
+<!-- <RafRecap title={title} /> -->
 
-	<!-- <Slide>
+<!-- <Slide>
 		<RafGraph />
 	</Slide> -->
-</section>
 
 <style>
 	img {
