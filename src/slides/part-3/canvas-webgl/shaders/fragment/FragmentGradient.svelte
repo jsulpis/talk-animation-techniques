@@ -26,6 +26,13 @@
 		--gradient-color-2: #ff333d;
 		--gradient-color-3: #68b2fb;
 		--gradient-color-4: #ffab57;
+		animation: fadeIn .4s ease-out both;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
 	}
 
 	.container {
@@ -38,8 +45,8 @@
 		&::after {
 			content: "";
 			position: absolute;
-			height: 50%;
-			width: 105%;
+			height: 45%;
+			width: 110%;
 			left: 0%;
 			background: var(--background-page);
 			border-bottom-right-radius: 100%;

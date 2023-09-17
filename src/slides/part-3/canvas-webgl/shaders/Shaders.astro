@@ -89,12 +89,13 @@ const subSectionTitle = "Shaders GLSL";
 	<h3>Vertex Shader</h3>
 	<p>geométrie</p>
 	<div class="content p-0">
-		<CodeBlock lang="GLSL" lines="|1">
+		<CodeBlock lang="GLSL" lines="|1|5|2">
 			{
-				`uniform float time;
+				`attribute vec3 position;
+uniform float time;
 
 void main() {
-  gl_Position = vec4(0.0, 0.0, sin(time), 1.0);
+  gl_Position = vec4(position.x, position.y, sin(time), 1.0);
 }`
 			}
 		</CodeBlock>
@@ -156,10 +157,11 @@ void main() {
 	<div class="content p-0">
 		<CodeBlock lang="GLSL">
 			{
-				`uniform float time;
+				`varying vec2 uv;
+uniform float time;
 
 void main() {
-  gl_FragColor = vec4(sin(time), 0.0, 0.0, 1.0);
+  gl_FragColor = vec4(uv.x, uv.y, sin(time), 1.0);
 }`
 			}
 		</CodeBlock>
@@ -171,6 +173,12 @@ void main() {
 	<p>couleur</p>
 	<div class="content"></div>
 	<FragmentGradient	 client:visible/>
+	<CodepenSource
+		pseudo="Stripe.com"
+		name="Gradient animation"
+		url="https://whatamesh.vercel.app/"
+		platform="other"
+	/>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>

@@ -1,0 +1,22 @@
+---
+import Slide from "../../../components/Slide.astro";
+import OffscreenCanvasDemo from "./offscreencanvas/OffscreenCanvas.svelte";
+---
+
+<Slide>
+	<p>Un petit bonus...</p>
+</Slide>
+
+<Slide>
+	<h2>Offscreencanvas&nbsp;</h2>
+</Slide>
+
+<Slide sectionTitle="Un petit bonus" subSectionTitle="Offscreencanvas">
+	<OffscreenCanvasDemo client:visible />
+</Slide>
+
+<style>
+	p, h2 {
+		margin: 0;
+	}
+</style>
