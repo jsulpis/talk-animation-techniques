@@ -247,7 +247,7 @@ void main() {
 	if(t2 > 0.0 && t2 < tmin) {
 		tmin = t2;
 		vec3 nor = res.yzw;
-		col = vec3(0.8, .4, .4);
+		col = vec3(1., .2, .2);
 
 		col *= 1.7;
 		col *= 0.6 + 0.4 * nor.y;

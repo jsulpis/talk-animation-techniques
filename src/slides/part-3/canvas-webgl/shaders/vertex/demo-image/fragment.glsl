@@ -28,7 +28,7 @@ void main() {
 	specular *= fresnel;
 
   // combine lighting
-	vec3 colour = vec3(1., 0., 0.) * (diffuse + ambient) + specular;
+	vec3 colour = vec3(1., 0.02, 0.02) * (diffuse + ambient) + specular;
 
 	// linear to sRGB
 	colour = pow(colour, vec3(1.0 / 2.2));

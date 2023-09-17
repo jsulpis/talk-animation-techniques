@@ -3,6 +3,7 @@ import CodeBlock from "../../../components/CodeBlock.astro";
 import Slide from "../../../components/Slide.astro";
 import Citation from "../../part-1/vanilla-js/requestanimationframe/Citation.astro";
 import ThreeZenikanard from "./ThreeZenikanard.svelte";
+import ThreeCubes from "./ThreeCubes.svelte";
 import threeSamples from "./images/three.png";
 
 const { title } = Astro.props;
@@ -55,7 +56,7 @@ renderer.render(scene, camera);`}</code>
 	<CodeBlock lang="javascript">
 		{
 			`gsap.to(
-  camera.position,
+  mesh.position,
   {
     x: 1
     duration: 2,
@@ -67,8 +68,7 @@ renderer.render(scene, camera);`}</code>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<h3>Animation par keyframes</h3>
-	<iframe data-src="https://threejs.org/examples/webgl_shadowmesh.html"
-	></iframe>
+	<ThreeCubes client:visible/>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
