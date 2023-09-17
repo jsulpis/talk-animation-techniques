@@ -14,3 +14,6 @@ Slides pour mon talk sur les animations sur le web en 2023.
 
 Beaucoup de démos visibles sur les slides ont leur propre codepen visible dans cette collection:
 https://codepen.io/collection/ExRmPY
+
+## Disclaimer
+Le code présent dans ce repo est loin d'être un exemple en termes d'organisation et de lisibilité : il a été écrit en grande partie dans des moments de rush avant de donner le talk. Ne faites pas trop attention aux copier-coller et autres raccourcis !
