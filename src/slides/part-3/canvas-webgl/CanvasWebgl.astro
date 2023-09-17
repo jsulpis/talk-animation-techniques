@@ -12,12 +12,11 @@ import OffscreenCanvas from "./OffscreenCanvas.astro";
 const title = "Canvas WebGL";
 ---
 
-<section>
-	<CanvasWebglIntro title={title} />
-	<Threejs title={title} />
-	<!-- <CanvasWebglLibs title={title} /> -->
+<CanvasWebglIntro title={title} />
+<Threejs title={title} />
+<!-- <CanvasWebglLibs title={title} /> -->
 
-	<Shaders title={title} />
+<Shaders title={title} />
 
 	<!-- <OffscreenCanvas /> -->
 
@@ -25,7 +24,6 @@ const title = "Canvas WebGL";
 	<!-- <Slide>
 		<CanvasWebglGraph />
 	</Slide> -->
-</section>
 
 <Slide>
 	<CanvasWebglGraphLight />

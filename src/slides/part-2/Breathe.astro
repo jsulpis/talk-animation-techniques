@@ -3,16 +3,14 @@ import Slide from "../../components/Slide.astro";
 import gifBreathe from "./gif-breathe.gif";
 ---
 
-<section>
-	<Slide>
-		<h1>Ça va ?</h1>
-	</Slide>
+<Slide>
+	<h1>Ça va ?</h1>
+</Slide>
 
-	<Slide>
-		<img data-src={gifBreathe} alt="gif respire" />
-		<p>On respire, c'est pas fini...</p>
-	</Slide>
-</section>
+<Slide>
+	<img data-src={gifBreathe} alt="gif respire" />
+	<p>On respire, c'est pas fini...</p>
+</Slide>
 
 <style>
 	img {

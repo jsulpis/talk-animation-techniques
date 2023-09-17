@@ -5,30 +5,28 @@ import FlipDemo from "./FlipDemo.svelte";
 const title = "FLIP";
 ---
 
-<section>
-	<Slide>
-		<p class="last-technique">Une dernière technique...</p>
-	</Slide>
+<Slide>
+	<p class="last-technique">Une dernière technique...</p>
+</Slide>
 
-	<Slide>
-		<p class="last-technique">Une dernière technique...</p>
-		<h1>{title + " "}</h1>
-	</Slide>
+<Slide>
+	<p class="last-technique">Une dernière technique...</p>
+	<h1>{title + " "}</h1>
+</Slide>
 
-	<Slide>
-		<h1>{title + " "}</h1>
-		<p>
-			<strong>Usage:</strong> déplacement d'éléments dans le DOM, ou autres animations qui ne
-			peuvent être faites nativement.
-		</p>
-	</Slide>
+<Slide>
+	<h1>{title + " "}</h1>
+	<p>
+		<strong>Usage:</strong> déplacement d'éléments dans le DOM, ou autres animations
+		qui ne peuvent être faites nativement.
+	</p>
+</Slide>
 
-	<Slide sectionTitle={title} subSectionTitle="Explication">
-		<FlipDemo duration={0} client:visible />
-	</Slide>
+<Slide sectionTitle={title} subSectionTitle="Explication">
+	<FlipDemo duration={0} client:visible />
+</Slide>
 
-	<FlipDefinition title={title} />
-</section>
+<FlipDefinition title={title} />
 
 <style>
 	h1 span {

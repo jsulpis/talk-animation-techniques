@@ -5,21 +5,19 @@ const { title } = Astro.props;
 const subSectionTitle = "Pourquoi faire des animations ?";
 ---
 
-<section>
-	<Slide sectionTitle={title}>
-		<h1>{subSectionTitle + " "}</h1>
-	</Slide>
+<Slide sectionTitle={title}>
+	<h1>{subSectionTitle + " "}</h1>
+</Slide>
 
-	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-		<ul>
-			<li>✔ Faciliter la <strong>compréhension</strong></li>
-			<li class="fragment">✔ Apporter de la <strong>fluidité</strong></li>
-			<li class="fragment">✔ Donner du <strong>feedback</strong></li>
-			<li class="fragment">✔ Montrer son <strong>image de marque</strong></li>
-			<li class="fragment">...</li>
-		</ul>
-	</Slide>
-</section>
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<ul>
+		<li>✔ Faciliter la <strong>compréhension</strong></li>
+		<li class="fragment">✔ Apporter de la <strong>fluidité</strong></li>
+		<li class="fragment">✔ Donner du <strong>feedback</strong></li>
+		<li class="fragment">✔ Montrer son <strong>image de marque</strong></li>
+		<li class="fragment">...</li>
+	</ul>
+</Slide>
 
 <style>
 	ul {

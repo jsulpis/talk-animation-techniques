@@ -14,46 +14,44 @@ import TranslationCurves from "./TranslationCurves.astro";
 const title = "Transition CSS";
 ---
 
-<section>
-	<Slide>
-		<h1>{title + " "}</h1>
-	</Slide>
+<Slide>
+	<h1>{title + " "}</h1>
+</Slide>
 
-	<Slide>
-		<h1>{title + " "}</h1>
-		<p>
-			<strong>Usage:</strong> passage d’un état A à un état B <span
-				class="fragment custom bar">différents</span
-			>
-			<span class="fragment custom bar">selon le plus court chemin</span>
-		</p>
-	</Slide>
+<Slide>
+	<h1>{title + " "}</h1>
+	<p>
+		<strong>Usage:</strong> passage d’un état A à un état B <span
+			class="fragment custom bar">différents</span
+		>
+		<span class="fragment custom bar">selon le plus court chemin</span>
+	</p>
+</Slide>
 
-	<Slide>
-		<h1>{title + " "}</h1>
-		<p>
-			<strong>Usage:</strong> passage d’un état A à un état B
-		</p>
-	</Slide>
+<Slide>
+	<h1>{title + " "}</h1>
+	<p>
+		<strong>Usage:</strong> passage d’un état A à un état B
+	</p>
+</Slide>
 
-	<style>
-		.fragment.bar.visible {
-			text-decoration: line-through;
-		}
-	</style>
+<style>
+	.fragment.bar.visible {
+		text-decoration: line-through;
+	}
+</style>
 
-	<!-- <SimpleHover title={title} /> -->
-	<TranslateDemo title={title} />
-	<TranslateLayout title={title} />
-	<RotationBezierCurves title={title} />
-	<!-- <TranslationCurves title={title} /> -->
-	<ExampleButton title={title} />
-	<ExampleMovieCard title={title} />
-	<Example3DCards title={title} />
+<!-- <SimpleHover title={title} /> -->
+<TranslateDemo title={title} />
+<TranslateLayout title={title} />
+<RotationBezierCurves title={title} />
+<!-- <TranslationCurves title={title} /> -->
+<ExampleButton title={title} />
+<ExampleMovieCard title={title} />
+<Example3DCards title={title} />
 
-	<!-- <CSSTransitionRecap title={title} /> -->
+<!-- <CSSTransitionRecap title={title} /> -->
 
-	<!-- <Slide>
+<!-- <Slide>
 		<TransitionGraph />
 	</Slide> -->
-</section>

@@ -10,19 +10,17 @@ import Vue from "./vue/Vue.astro";
 const title = "Frameworks JavaScript";
 ---
 
-<section>
-	<Slide>
-		<h1>{title + " "}</h1>
-	</Slide>
+<Slide>
+	<h1>{title + " "}</h1>
+</Slide>
 
-	<Vue title={title} />
-	<React title={title} />
-	<Svelte title={title} />
-	<Angular title={title} />
+<Vue title={title} />
+<React title={title} />
+<Svelte title={title} />
+<Angular title={title} />
 
-	<!-- <FrameworksRecap title={title} /> -->
-	<!--
+<!-- <FrameworksRecap title={title} /> -->
+<!--
 	<Slide>
 		<FrameworksGraph />
 	</Slide> -->
-</section>
