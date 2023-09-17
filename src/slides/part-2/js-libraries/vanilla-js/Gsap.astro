@@ -9,9 +9,9 @@ const { title } = Astro.props;
 const subSectionTitle = "Vanilla JS";
 ---
 
-<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+<!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<GsapTitle />
-	<p>Animation "simple"</p>
+	<p>Animation par keyframes</p>
 	<div class="content">
 		<CodeBlock lang="javascript">
 			{
@@ -23,11 +23,11 @@ const subSectionTitle = "Vanilla JS";
 			}
 		</CodeBlock>
 	</div>
-</Slide>
+</Slide> -->
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<GsapTitle />
-	<p>Animation "simple"</p>
+	<p>Animation par keyframes</p>
 	<div class="content p-0">
 		<GsapDemo client:visible />
 	</div>
