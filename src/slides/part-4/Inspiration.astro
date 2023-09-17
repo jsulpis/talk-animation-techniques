@@ -9,29 +9,27 @@ import FlexContainer from "../../components/FlexContainer.astro";
 const title = "Pour finir";
 ---
 
-<section>
-	<Slide>
-		<h1>{"Inspiration" + " "}</h1>
-	</Slide>
+<Slide>
+	<h1>{"Inspiration" + " "}</h1>
+</Slide>
 
-	<Slide sectionTitle={title} subSectionTitle={"Inspiration"}>
-		<div>
-			<h3>Design</h3>
-			<FlexContainer gap="1rem">
-				<img data-src={dribbble} alt="" />
-				<img data-src={awwwards} alt="" />
-			</FlexContainer>
-		</div>
+<Slide sectionTitle={title} subSectionTitle={"Inspiration"}>
+	<div>
+		<h3>Design</h3>
+		<FlexContainer gap="1rem">
+			<img data-src={dribbble} alt="" />
+			<img data-src={awwwards} alt="" />
+		</FlexContainer>
+	</div>
 
-		<div class="fragment">
-			<h3>Code + Design</h3>
-			<FlexContainer gap="1rem">
-				<img data-src={codepen} alt="" />
-				<img data-src={shadertoy} alt="" />
-			</FlexContainer>
-		</div>
-	</Slide>
-</section>
+	<div class="fragment">
+		<h3>Code + Design</h3>
+		<FlexContainer gap="1rem">
+			<img data-src={codepen} alt="" />
+			<img data-src={shadertoy} alt="" />
+		</FlexContainer>
+	</div>
+</Slide>
 
 <style>
 	.emoji {

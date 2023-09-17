@@ -6,32 +6,30 @@ const { title } = Astro.props;
 const subSectionTitle = "Qu'est-ce qu'on peut animer ?";
 ---
 
-<section>
-	<Slide sectionTitle={title}>
-		<h1>{subSectionTitle + " "}</h1>
-	</Slide>
+<Slide sectionTitle={title}>
+	<h1>{subSectionTitle + " "}</h1>
+</Slide>
 
-	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-		<h3>Éléments du DOM <small>(Document Object Model)</small></h3>
-		<div class="wrapper">
-			<ul>
-				<li class="fragment">{`<div />`}</li>
-				<li class="fragment">{`<button />`}</li>
-				<li class="fragment">{`<input />`}</li>
-				<li class="fragment">{`<img />`}</li>
-				<li class="fragment">{`   ...`}</li>
-			</ul>
-		</div>
-	</Slide>
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h3>Éléments du DOM <small>(Document Object Model)</small></h3>
+	<div class="wrapper">
+		<ul>
+			<li class="fragment">{`<div />`}</li>
+			<li class="fragment">{`<button />`}</li>
+			<li class="fragment">{`<input />`}</li>
+			<li class="fragment">{`<img />`}</li>
+			<li class="fragment">{`   ...`}</li>
+		</ul>
+	</div>
+</Slide>
 
-	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-		<h3>Canvas</h3>
-		<div class="wrapper">
-			<p>{`<canvas />`}</p>
-			<img class="fragment" data-src={imgPeinture} alt="" />
-		</div>
-	</Slide>
-</section>
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h3>Canvas</h3>
+	<div class="wrapper">
+		<p>{`<canvas />`}</p>
+		<img class="fragment" data-src={imgPeinture} alt="" />
+	</div>
+</Slide>
 
 <style>
 	h3 {
@@ -46,6 +44,6 @@ const subSectionTitle = "Qu'est-ce qu'on peut animer ?";
 	img {
 		height: 30vh;
 		margin-top: 0.5rem;
-		border-radius: .25em;
+		border-radius: 0.25em;
 	}
 </style>

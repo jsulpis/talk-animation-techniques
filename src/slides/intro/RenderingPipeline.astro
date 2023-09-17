@@ -17,16 +17,15 @@ const { title } = Astro.props;
 const subSectionTitle = "Du code au pixel";
 ---
 
-<section>
-	<Slide sectionTitle={title}>
-		<h1>{subSectionTitle + " "}</h1>
-	</Slide>
+<Slide sectionTitle={title}>
+	<h1>{subSectionTitle + " "}</h1>
+</Slide>
 
-	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-		<img data-id="pipeline" data-src={pipeline} alt="" />
-	</Slide>
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<img data-id="pipeline" data-src={pipeline} alt="" />
+</Slide>
 
-	<!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
+<!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
 		<h3>JavaScript</h3>
 		<p>Modification dynamique de la page</p>
 		<img data-src={js} alt="" />
@@ -61,7 +60,7 @@ const subSectionTitle = "Du code au pixel";
 		<img data-src={pipeline} alt="" />
 	</Slide> -->
 
-	<!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+<!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 		<div class="wrapper">
 			<div>
 				<img data-src={cpu} alt="" />
@@ -103,20 +102,20 @@ const subSectionTitle = "Du code au pixel";
 		</div>
 	</Slide> -->
 
-	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-		<img data-id="pipeline" data-src={pipeline} alt="" />
-		<div class="grid">
-			<img data-src={cpu} alt="" />
-			<img data-src={cpu} alt="" />
-			<img data-src={cpu} alt="" />
-			<img data-src={cpu} alt="" />
-			<img data-src={gpu} alt="" />
-		</div>
-	</Slide>
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<img data-id="pipeline" data-src={pipeline} alt="" />
+	<div class="grid">
+		<img data-src={cpu} alt="" />
+		<img data-src={cpu} alt="" />
+		<img data-src={cpu} alt="" />
+		<img data-src={cpu} alt="" />
+		<img data-src={gpu} alt="" />
+	</div>
+</Slide>
 
-	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-		<img class="meme" data-src={memeJs} alt="" />
-	</Slide>
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<img class="meme" data-src={memeJs} alt="" />
+</Slide>
 
 	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 		<div class="emoji"></div>
@@ -142,10 +141,9 @@ const subSectionTitle = "Du code au pixel";
 		</div>
 	</Slide>
 
-	<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-		<BlockCPUButton />
-	</Slide>
-</section>
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<BlockCPUButton />
+</Slide>
 
 <style lang="scss">
 	h3 {
