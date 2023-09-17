@@ -1,137 +1,148 @@
-<!-- https://threejs.org/examples/#webgl_points_billboards -->
+<!-- https://codepen.io/ma77os/pen/JjMRmLP -->
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { loop } from "svelte/internal";
 	import * as THREE from "three";
+	import vertexShader from "./particlesVertex.glsl";
 
 	let canvas;
-	let camera, scene, renderer, material;
-	let mouseX = 0,
-		mouseY = 0;
 
-	let windowHalfX, windowHalfY;
+	class World {
+		constructor() {
+			this.build();
 
-	onMount(() => {
-		if (typeof window == undefined) return;
+			window.addEventListener("resize", this.resize.bind(this));
 
-		windowHalfX = window.innerWidth / 2;
-		windowHalfY = window.innerHeight / 2;
-		init();
-		animate();
-	});
-
-	function init() {
-		camera = new THREE.PerspectiveCamera(
-			55,
-			window.innerWidth / window.innerHeight,
-			2,
-			2000
-		);
-		camera.position.z = 1000;
-
-		scene = new THREE.Scene();
-		scene.fog = new THREE.FogExp2("white", 0.001);
-
-		const geometry = new THREE.BufferGeometry();
-		const vertices = [];
-
-		const sprite = new THREE.TextureLoader().load(
-			"https://threejs.org/examples/textures/sprites/disc.png"
-		);
-		sprite.colorSpace = THREE.SRGBColorSpace;
-
-		for (let i = 0; i < 10000; i++) {
-			const x = 2000 * Math.random() - 1000;
-			const y = 2000 * Math.random() - 1000;
-			const z = 2000 * Math.random() - 1000;
-
-			vertices.push(x, y, z);
+			this.animate = this.animate.bind(this);
+			this.animate();
 		}
 
-		geometry.setAttribute(
-			"position",
-			new THREE.Float32BufferAttribute(vertices, 3)
-		);
+		build() {
+			this.scene = new THREE.Scene();
+			this.camera = new THREE.PerspectiveCamera(
+				75,
+				window.innerWidth / window.innerHeight,
+				0.1,
+				1000
+			);
+			this.camera.position.z = 3;
 
-		material = new THREE.PointsMaterial({
-			size: 35,
-			sizeAttenuation: true,
-			map: sprite,
-			alphaTest: 0.5,
-			transparent: true,
-		});
-		material.color.setHSL(0.6, 0.7, 0.3, THREE.SRGBColorSpace);
+			this.renderer = new THREE.WebGLRenderer({
+				canvas,
+				alpha: true,
+				antialias: true,
+			});
+			this.renderer.setPixelRatio(window.devicePixelRatio);
+			this.renderer.setSize(window.innerWidth / 1.7, window.innerHeight / 1.7);
 
-		const particles = new THREE.Points(geometry, material);
-		scene.add(particles);
+			this.molecule = new Molecule();
+			this.scene.add(this.molecule);
+		}
 
-		//
+		resize() {
+			const w = window.innerWidth / 1.7;
+			const h = window.innerHeight / 1.7;
+			this.camera.aspect = w / h;
+			this.camera.updateProjectionMatrix();
+			this.renderer.setSize(w, h);
+		}
 
-		renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
-		renderer.setPixelRatio(window.devicePixelRatio);
-		renderer.setSize(window.innerWidth, window.innerHeight);
+		animate() {
+			requestAnimationFrame(this.animate);
 
-		//
-
-		document.body.style.touchAction = "none";
-		document.body.addEventListener("pointermove", onPointerMove);
-
-		//
-
-		window.addEventListener("resize", onWindowResize);
-	}
-
-	function onWindowResize() {
-		windowHalfX = window.innerWidth / 2;
-		windowHalfY = window.innerHeight / 2;
-
-		camera.aspect = window.innerWidth / window.innerHeight;
-		camera.updateProjectionMatrix();
-
-		renderer.setSize(window.innerWidth, window.innerHeight);
-	}
-
-	function onPointerMove(event) {
-		if (event.isPrimary === false) return;
-
-		mouseX = event.clientX - windowHalfX;
-		mouseY = event.clientY - windowHalfY;
-	}
-
-	//
-	loop(() => {
-			if (!canvas?.closest("section:not(.stack).present")) {
+			if (!canvas.closest("section:not(.stack).present")) {
 				// skip animation
-				return true;
+				return;
 			}
 
-			render();
+			const time = performance.now() * 0.001;
 
-			return true;
-		});
+			this.molecule.animate(time);
 
-	function render() {
-		camera.position.x += (mouseX - camera.position.x) * 0.05;
-		camera.position.y += (-mouseY - camera.position.y) * 0.05;
-
-		camera.lookAt(scene.position);
-
-		renderer.render(scene, camera);
+			this.renderer.render(this.scene, this.camera);
+		}
 	}
+
+	class Molecule extends THREE.Object3D {
+		constructor() {
+			super();
+
+			this.radius = 1.7;
+			this.detail = 25;
+			this.particleSizeMin = 0.07;
+			this.particleSizeMax = 0.09;
+
+			this.build();
+		}
+
+		build() {
+			this.geometry = new THREE.IcosahedronBufferGeometry(1, this.detail);
+
+			this.material = new THREE.PointsMaterial({
+				blending: THREE.AdditiveBlending,
+				color: 0x101a88,
+				depthTest: false,
+			});
+
+			this.setupShader(this.material);
+
+			this.mesh = new THREE.Points(this.geometry, this.material);
+			this.add(this.mesh);
+		}
+
+		setupShader(material) {
+			material.onBeforeCompile = (shader) => {
+				shader.uniforms.time = { value: 0 };
+				shader.uniforms.radius = { value: this.radius };
+				shader.uniforms.particleSizeMin = { value: this.particleSizeMin };
+				shader.uniforms.particleSizeMax = { value: this.particleSizeMax };
+				shader.vertexShader =
+					"uniform float particleSizeMax;\n" + shader.vertexShader;
+				shader.vertexShader =
+					"uniform float particleSizeMin;\n" + shader.vertexShader;
+				shader.vertexShader = "uniform float radius;\n" + shader.vertexShader;
+				shader.vertexShader = "uniform float time;\n" + shader.vertexShader;
+				shader.vertexShader = vertexShader + "\n" + shader.vertexShader;
+				shader.vertexShader = shader.vertexShader.replace(
+					"#include <begin_vertex>",
+					`
+				vec3 p = position;
+				float n = snoise( vec3( p.x*.6 + time*0.2, p.y*0.4 + time*0.3, p.z*.2 + time*0.2) );
+				p += n *0.4;
+
+				// constrain to sphere radius
+				float l = radius / length(p);
+				p *= l;
+				float s = mix(particleSizeMin, particleSizeMax, n);
+				vec3 transformed = vec3( p.x, p.y, p.z );
+			`
+				);
+				shader.vertexShader = shader.vertexShader.replace(
+					"gl_PointSize = size;",
+					"gl_PointSize = s;"
+				);
+
+				material.userData.shader = shader;
+			};
+		}
+
+		animate(time) {
+			this.mesh.rotation.set(0, time * 0.2, 0);
+			if (this.material.userData.shader)
+				this.material.userData.shader.uniforms.time.value = time;
+		}
+	}
+
+	onMount(() => {
+		new World();
+	});
 </script>
 
 <canvas bind:this={canvas} />
-<div class="vignette" />
 
 <style>
 	canvas {
-		position: fixed;
-		inset: 0;
-	}
-
-	.vignette {
-		position: fixed;
-		inset: 0;
-		box-shadow: inset 0 5vh 20vmin 20vmin var(--background-page);
+		background-repeat: no-repeat;
+		border-radius: 0.25em;
+		filter: invert(1) hue-rotate(175deg);
 	}
 </style>
