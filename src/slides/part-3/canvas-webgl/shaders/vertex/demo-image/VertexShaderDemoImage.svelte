@@ -3,7 +3,6 @@
 	import vertexShader from "./vertex.glsl";
 	import fragmentShader from "./fragment.glsl";
 	import { onMount } from "svelte";
-	import texture from "./spongebob.webp";
 	import { loop } from "svelte/internal";
 
 	let canvas;
@@ -11,63 +10,32 @@
 	onMount(() => {
 		const scene = new THREE.Scene();
 
-		const textureLoader = new THREE.TextureLoader();
-		const flagTexture = textureLoader.load(texture);
-
-		// Geometry
-		const geometry = new THREE.PlaneGeometry(1.3, 1.3, 32, 32);
-
-		// Material
-		const material = new THREE.ShaderMaterial({
-			vertexShader,
-			fragmentShader,
-			uniforms: {
-				uTime: { value: 0 },
-				uTexture: { value: flagTexture },
-			},
-		});
-
-		// Mesh
-		const mesh = new THREE.Mesh(geometry, material);
-		mesh.scale.y = 2 / 3;
-		mesh.position.x = 0.2;
-		mesh.position.y = -0.2;
-		scene.add(mesh);
-
-		/**
-		 * Sizes
-		 */
-		const sizes = {
-			width: ((window.innerHeight / 1.5) * 5) / 4,
-			height: window.innerHeight / 1.5,
-		};
-
-		/**
-		 * Camera
-		 */
-		// Base camera
 		const camera = new THREE.PerspectiveCamera(
 			75,
-			sizes.width / sizes.height,
+			window.innerWidth / window.innerHeight,
 			0.1,
-			100
+			1000
 		);
-		camera.position.set(0.25, -0.25, 1);
-		scene.add(camera);
+		camera.position.z = 5;
 
-		/**
-		 * Renderer
-		 */
 		const renderer = new THREE.WebGLRenderer({
 			canvas,
 			alpha: true,
+			antialias: true,
 		});
-		renderer.setSize(sizes.width, sizes.height);
-		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+		renderer.setSize(window.innerWidth / 1.7, window.innerHeight / 1.7);
 
-		/**
-		 * Animate
-		 */
+		const geometry = new THREE.IcosahedronGeometry(2, 128);
+		const material = new THREE.ShaderMaterial({
+			fragmentShader,
+			vertexShader,
+			uniforms: {
+				uTime: { value: 0 },
+			},
+		});
+		const sphere = new THREE.Mesh(geometry, material);
+		scene.add(sphere);
+
 		const clock = new THREE.Clock();
 
 		loop(() => {
@@ -76,8 +44,7 @@
 				return true;
 			}
 
-			const elapsedTime = clock.getElapsedTime();
-			material.uniforms.uTime.value = elapsedTime;
+			sphere.material.uniforms.uTime.value = 0.4 * clock.getElapsedTime();
 			renderer.render(scene, camera);
 
 			return true;
