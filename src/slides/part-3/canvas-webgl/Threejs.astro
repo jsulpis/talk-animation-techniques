@@ -2,6 +2,7 @@
 import CodeBlock from "../../../components/CodeBlock.astro";
 import Slide from "../../../components/Slide.astro";
 import Citation from "../../part-1/vanilla-js/requestanimationframe/Citation.astro";
+import ThreeZenikanard from "./ThreeZenikanard.svelte";
 import threeSamples from "./images/three.png";
 
 const { title } = Astro.props;
@@ -72,8 +73,7 @@ renderer.render(scene, camera);`}</code>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<h3>Animation par squelette</h3>
-	<iframe data-src="https://threejs.org/examples/webgl_loader_fbx.html"
-	></iframe>
+	<ThreeZenikanard client:visible/>
 </Slide>
 
 <style lang="scss">
