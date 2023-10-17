@@ -3,6 +3,7 @@
 	import { onMount } from "svelte";
 	import { loop } from "svelte/internal";
 	import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
+	import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 	let canvas;
 
@@ -33,13 +34,18 @@
 		renderer.outputEncoding = THREE.sRGBEncoding;
 
 		// General adjustments
-		camera.setFocalLength(30);
-		camera.position.set(0, 60, 250);
+		camera.setFocalLength(40);
+		camera.position.set(0, 60, 350);
 		renderer.setClearAlpha(0);
 
+		// Mouse controls
+		const controls = new OrbitControls(camera, renderer.domElement);
+		controls.enableDamping = true;
+		controls.maxPolarAngle = Math.PI / 2;
+
 		// Lights
-		const ambientLight = new THREE.AmbientLight("#fff", .2);
-    scene.add(ambientLight);
+		const ambientLight = new THREE.AmbientLight("#fff", 0.2);
+		scene.add(ambientLight);
 
 		const hemisphereLight = new THREE.HemisphereLight("white", "#0c1a2a", 4);
 		hemisphereLight.position.set(0, 30, 0);
@@ -61,6 +67,7 @@
 			new THREE.ShadowMaterial({ opacity: 0.4 })
 		);
 		ground.rotation.x = -Math.PI / 2;
+		ground.position.y = -60;
 		ground.receiveShadow = true;
 		scene.add(ground);
 
@@ -73,6 +80,7 @@
 			(model) => {
 				model.scale.set(7.5, 7.5, 7.5);
 				model.rotation.y = -(4 * Math.PI) / 5;
+				model.position.y = -60;
 				model.children[0].castShadow = true;
 
 				mixer = new THREE.AnimationMixer(model);
