@@ -1,19 +1,17 @@
 ---
 import CodeBlock from "../../../../components/CodeBlock.astro";
 import Slide from "../../../../components/Slide.astro";
-import pipeline from "../images/pipeline.png";
 import pixel from "../images/pixelShader.png";
 import pixels from "../images/pixels.webp";
 import vertex from "../images/vertexShader.png";
 import VertexShaderDemoImage from "./vertex/demo-image/VertexShaderDemoImage.svelte";
 import VertexShaderDemoParticles from "./vertex/demo-particles/VertexShaderDemoParticles.svelte";
-import gpuImage from "../../../intro/images/gpu-image.png";
 import gpu from "../../../../assets/gpu.png";
 import CodepenSource from "../../../../components/CodepenSource.astro";
-import CodeSource from "../../../../components/CodeSource.astro";
 import FragmentGradient from "./fragment/FragmentGradient.svelte"
 import FragmentShaderReactLogo from "./fragment/demo-react-logo/FragmentShaderReactLogo.svelte"
 import FragmentShaderBox from "./fragment/demo-box/FragmentShaderBox.svelte"
+import FragmentShaderImages from "./fragment/demo-images/FragmentShaderImages.svelte"
 
 const { title } = Astro.props;
 const subSectionTitle = "Shaders GLSL";
@@ -53,16 +51,6 @@ const subSectionTitle = "Shaders GLSL";
 	</div>
 </Slide>
 
-<!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-	<div class="gpu-wrapper">
-		<img  class="big" data-src={gpuImage} alt="" />
-		<div>
-			<img data-src={gpu} alt="" />
-			<p><strong>GPU</strong></p>
-		</div>
-	</div>
-</Slide> -->
-
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<!-- http://daureg.free.fr/ta_webit/fonctionnement.html -->
 	<img
@@ -70,20 +58,6 @@ const subSectionTitle = "Shaders GLSL";
 		alt="vertex shader"
 	/>
 </Slide>
-
-<!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-	<h3>Vertex Shader</h3>
-	<p>geométrie</p>
-	<div class="content p-0">
-		<CodeBlock lang="GLSL">
-			{
-				`void main() {
-  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-}`
-			}
-		</CodeBlock>
-	</div>
-</Slide> -->
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<h3>Vertex Shader</h3>
@@ -136,20 +110,6 @@ void main() {
 	/>
 </Slide>
 
-<!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
-	<h3>Fragment Shader</h3>
-	<p>couleur</p>
-	<div class="content p-0">
-		<CodeBlock lang="GLSL">
-			{
-				`void main() {
-  gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-}`
-			}
-		</CodeBlock>
-	</div>
-</Slide> -->
-
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<h3>Fragment Shader</h3>
 	<p>couleur</p>
@@ -176,6 +136,20 @@ void main() {
 		pseudo="Stripe.com"
 		name="Gradient animation"
 		url="https://whatamesh.vercel.app/"
+		platform="other"
+	/>
+</Slide>
+
+<Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
+	<h3>Fragment Shader</h3>
+	<p>couleur</p>
+	<div class="content p-0">
+		<FragmentShaderImages client:visible/>
+	</div>
+	<CodepenSource
+		pseudo="Michal Zalobny"
+		name="Image transitions"
+		url="https://portfolio2022.michalzalobny.com/projects/image-transitions"
 		platform="other"
 	/>
 </Slide>

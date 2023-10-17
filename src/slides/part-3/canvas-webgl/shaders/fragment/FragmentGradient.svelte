@@ -4,10 +4,8 @@
 	import { Gradient } from "../../../../../assets/Gradient.js";
 
 	onMount(() => {
-		// Create your instance
 		const gradient = new Gradient();
 
-		// Call `initGradient` with the selector to your canvas
 		gradient.initGradient("#shaders-gradient");
 	});
 </script>
@@ -26,7 +24,7 @@
 		--gradient-color-2: #ff333d;
 		--gradient-color-3: #68b2fb;
 		--gradient-color-4: #ffab57;
-		animation: fadeIn .4s ease-out both;
+		animation: fadeIn 0.4s ease-out both;
 	}
 
 	@keyframes fadeIn {
