@@ -21,7 +21,7 @@
 		const progress = document.querySelector(".progress-text");
 		scroll(
 			({ y }) => (progress.innerHTML = y.progress.toFixed(2)),
-			scrollOptions
+			scrollOptions,
 		);
 	});
 </script>
@@ -70,7 +70,7 @@
 		left: 0;
 		right: 0;
 		height: 10px;
-		background: color(gold, 400);
+		background: color(primary, 600);
 		box-shadow: 0px -3px 5px -4px black;
 		transform: scaleX(0);
 		transform-origin: 0%;
@@ -81,8 +81,8 @@
 		top: 10px;
 		left: 10px;
 		padding: 0.5em;
-		background: color(gold);
-		color: var(--font-color-strong);
+		background: color(primary, 600);
+		color: white;
 		font-size: 0.8rem;
 		font-weight: bold;
 		width: 6ch;

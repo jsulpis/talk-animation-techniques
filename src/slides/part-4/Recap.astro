@@ -9,27 +9,11 @@ import twitter from "./images/twitter.svg";
 import Slide from "../../components/Slide.astro";
 ---
 
-<Slide>
-	<div class="author big">
-		<h2>@jsulpis</h2>
-		<div class="icons">
-			<a href="https://github.com/jsulpis" target="_blank"
-				><img data-src={github} alt="github" /></a
-			>
-			<a href="https://codepen.io/jsulpis" target="_blank"
-				><img data-src={codepen} alt="codepen" /></a
-			>
-			<a href="https://twitter.com/jsulpis" target="_blank"
-				><img data-src={twitter} alt="twitter" /></a
-			>
-		</div>
-	</div>
-</Slide>
-
 <Slide animate={false}>
 	<img class="logo" src={logoZenika} />
 	<div class="author">
-		<h2>@jsulpis</h2>
+		<h1>Julien Sulpis</h1>
+		<p class="pseudo">@jsulpis</p>
 		<div class="icons">
 			<a href="https://github.com/jsulpis" target="_blank"
 				><img data-src={github} alt="github" /></a
@@ -134,8 +118,13 @@ import Slide from "../../components/Slide.astro";
 		height: 100vh;
 		font-size: 200%;
 	}
-	h2 {
+	h1 {
 		font-size: 1.5em;
+		line-height: 1em;
+	}
+	.pseudo {
+		font-size: 0.8em;
+		font-weight: bold;
 		margin: 0;
 	}
 	.icons img {
