@@ -1,262 +1,187 @@
-varying vec2 vUv;
+//=======================================================================================//
+//
+// Ray tracing starter
+// by Julien Sulpis (https://twitter.com/jsulpis)
+// https://www.shadertoy.com/view/cddyDS
+//
+// inspired by:
+// Polytonic - Annotated Ray Tracing (https://www.shadertoy.com/view/4ljGRd)
+// Zavie - Ray tracing a cone (https://www.shadertoy.com/view/MtcXWr)
+//
+//=======================================================================================//
+
+#define CAMERA_POSITION vec3(0., 1.5, 4.)
+
+#define SUN_DIR normalize(vec3(0.5, 1., 0.))
+#define SUN_COLOR vec3(1.)
+#define AMBIENT_COLOR vec3(0.9686274509803922, 0.9803921568627451, 0.9882352941176471)
+#define AMBIENT_LIGHT .03 * AMBIENT_COLOR
+
+#define MAX_BOUNCES 3
+#define EPSILON 1e-3
+#define INFINITY 1e10
+
 uniform float uTime;
+varying vec2 vUv;
 
-// (slightly) modified version of the following shader:
-//
-// The MIT License
-// Copyright © 2014 Inigo Quilez
-// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//=========//
+//  Types  //
+//=========//
 
-// Analytical ambient occlusion of a box. Left side of screen, stochastically
-// sampled occlusion. Right side of the screen, analytical solution (no rays casted).
-//
-// If the box was intersecting the ground plane, we'd need to perform clipping
-// and use the resulting triangles for the analytic formula instead.
-//
-// More info here: https://iquilezles.org/articles/boxocclusion
-//
-// Other shaders with analytical occlusion or approximations:
-//
-// Box:                        https://www.shadertoy.com/view/4djXDy
-// Box with horizon clipping:  https://www.shadertoy.com/view/4sSXDV
-// Triangle:                   https://www.shadertoy.com/view/XdjSDy
-// Sphere:                     https://www.shadertoy.com/view/4djSDy
-// Ellipsoid (approximation):  https://www.shadertoy.com/view/MlsSzn
-// Capsule (approximation):    https://www.shadertoy.com/view/llGyzG
+struct Material {
+	vec3 color;
+	float specular;
+};
 
-// Other Box functions (https://iquilezles.org/articles/boxfunctions)
-//
-// Intersection:     https://www.shadertoy.com/view/ld23DV
-// Occlusion:        https://www.shadertoy.com/view/4sSXDV
-// Occlusion:        https://www.shadertoy.com/view/4djXDy
-// Density:          https://www.shadertoy.com/view/Ml3GR8
-// Fake soft shadow: https://www.shadertoy.com/view/WslGz4
-// Gradient:         https://www.shadertoy.com/view/wlcXD2
+struct Hit {
+	float len;
+	vec3 normal;
+	Material material;
+};
 
-// 0  my original method, by iterating all 6 faces/12 edges/8 verts
-// 1  optimized method by clem494949 (https://www.shadertoy.com/view/ttlBWf)
-//    which iterates the solid angle hexagon (1 face/6 edges/6 verts)
-#define METHOD 1
+struct Sphere {
+	vec3 position;
+	float radius;
+	Material material;
+};
 
-//=====================================================
+struct Plane {
+	float offset;
+	vec3 normal;
+	Material material;
+};
 
-// returns t and normal
-vec4 boxIntersect(in vec3 ro, in vec3 rd, in mat4 txx, in mat4 txi, in vec3 rad) {
-    // convert from ray to box space
-	vec3 rdd = (txx * vec4(rd, 0.0)).xyz;
-	vec3 roo = (txx * vec4(ro, 1.0)).xyz;
+// Note: I had created a struct for Ray but then deleted it because it caused artifacts on some mobile devices
+// because of a precision issue with struct (https://github.com/KhronosGroup/WebGL/issues/3351)
+// I use ro and rd instead in this shader.
 
-	// ray-box intersection in box space
-	vec3 m = 1.0 / rdd;
-	vec3 n = m * roo;
-	vec3 k = abs(m) * rad;
+Hit miss = Hit(INFINITY, vec3(0.), Material(vec3(0.), -1.));
 
-	vec3 t1 = -n - k;
-	vec3 t2 = -n + k;
-
-	float tN = max(max(t1.x, t1.y), t1.z);
-	float tF = min(min(t2.x, t2.y), t2.z);
-
-	if(tN > tF || tF < 0.0)
-		return vec4(-1.0);
-
-	vec3 nor = -sign(rdd) * step(t1.yzx, t1.xyz) * step(t1.zxy, t1.xyz);
-
-    // convert to ray space
-
-	nor = (txi * vec4(nor, 0.0)).xyz;
-
-	return vec4(tN, nor);
-}
-
-#if METHOD==0
-// Box occlusion (if fully visible)
-float boxOcclusion(in vec3 pos, in vec3 nor, in mat4 txx, in mat4 txi, in vec3 rad) {
-	vec3 p = (txx * vec4(pos, 1.0)).xyz;
-	vec3 n = (txx * vec4(nor, 0.0)).xyz;
-
-    // 8 verts
-	vec3 v0 = normalize(vec3(-1.0, -1.0, -1.0) * rad - p);
-	vec3 v1 = normalize(vec3(1.0, -1.0, -1.0) * rad - p);
-	vec3 v2 = normalize(vec3(-1.0, 1.0, -1.0) * rad - p);
-	vec3 v3 = normalize(vec3(1.0, 1.0, -1.0) * rad - p);
-	vec3 v4 = normalize(vec3(-1.0, -1.0, 1.0) * rad - p);
-	vec3 v5 = normalize(vec3(1.0, -1.0, 1.0) * rad - p);
-	vec3 v6 = normalize(vec3(-1.0, 1.0, 1.0) * rad - p);
-	vec3 v7 = normalize(vec3(1.0, 1.0, 1.0) * rad - p);
-
-    // 12 edges
-	float k02 = dot(n, normalize(cross(v2, v0))) * acos(dot(v0, v2));
-	float k23 = dot(n, normalize(cross(v3, v2))) * acos(dot(v2, v3));
-	float k31 = dot(n, normalize(cross(v1, v3))) * acos(dot(v3, v1));
-	float k10 = dot(n, normalize(cross(v0, v1))) * acos(dot(v1, v0));
-	float k45 = dot(n, normalize(cross(v5, v4))) * acos(dot(v4, v5));
-	float k57 = dot(n, normalize(cross(v7, v5))) * acos(dot(v5, v7));
-	float k76 = dot(n, normalize(cross(v6, v7))) * acos(dot(v7, v6));
-	float k37 = dot(n, normalize(cross(v7, v3))) * acos(dot(v3, v7));
-	float k64 = dot(n, normalize(cross(v4, v6))) * acos(dot(v6, v4));
-	float k51 = dot(n, normalize(cross(v1, v5))) * acos(dot(v5, v1));
-	float k04 = dot(n, normalize(cross(v4, v0))) * acos(dot(v0, v4));
-	float k62 = dot(n, normalize(cross(v2, v6))) * acos(dot(v6, v2));
-
-    // 6 faces
-	float occ = 0.0;
-	occ += (k02 + k23 + k31 + k10) * step(0.0, v0.z);
-	occ += (k45 + k57 + k76 + k64) * step(0.0, -v4.z);
-	occ += (k51 - k31 + k37 - k57) * step(0.0, -v5.x);
-	occ += (k04 - k64 + k62 - k02) * step(0.0, v0.x);
-	occ += (-k76 - k37 - k23 - k62) * step(0.0, -v6.y);
-	occ += (-k10 - k51 - k45 - k04) * step(0.0, v0.y);
-
-	return occ / 6.283185;
-}
-#endif
-#if METHOD==1
-// Box occlusion (if fully visible)
-float boxOcclusion(in vec3 pos, in vec3 nor, in mat4 txx, in mat4 txi, in vec3 rad) {
-	vec3 p = (txx * vec4(pos, 1.0)).xyz;
-	vec3 n = (txx * vec4(nor, 0.0)).xyz;
-
-    // Orient the hexagon based on p
-	vec3 f = rad * sign(p);
-
-    // Make sure the hexagon is always convex
-	vec3 s = sign(rad - abs(p));
-
-    // 6 verts
-	vec3 v0 = normalize(vec3(1.0, 1.0, -1.0) * f - p);
-	vec3 v1 = normalize(vec3(1.0, s.x, s.x) * f - p);
-	vec3 v2 = normalize(vec3(1.0, -1.0, 1.0) * f - p);
-	vec3 v3 = normalize(vec3(s.z, s.z, 1.0) * f - p);
-	vec3 v4 = normalize(vec3(-1.0, 1.0, 1.0) * f - p);
-	vec3 v5 = normalize(vec3(s.y, 1.0, s.y) * f - p);
-
-    // 6 edges
-	return abs(dot(n, normalize(cross(v0, v1))) * acos(dot(v0, v1)) +
-		dot(n, normalize(cross(v1, v2))) * acos(dot(v1, v2)) +
-		dot(n, normalize(cross(v2, v3))) * acos(dot(v2, v3)) +
-		dot(n, normalize(cross(v3, v4))) * acos(dot(v3, v4)) +
-		dot(n, normalize(cross(v4, v5))) * acos(dot(v4, v5)) +
-		dot(n, normalize(cross(v5, v0))) * acos(dot(v5, v0))) / 6.283185;
-}
-#endif
-//-----------------------------------------------------------------------------------------
-
-mat4 rotationAxisAngle(vec3 v, float angle) {
-	float s = sin(angle);
+mat3 rotateY(float angle) {
 	float c = cos(angle);
-	float ic = 1.0 - c;
-
-	return mat4(v.x * v.x * ic + c, v.y * v.x * ic - s * v.z, v.z * v.x * ic + s * v.y, 0.0, v.x * v.y * ic + s * v.z, v.y * v.y * ic + c, v.z * v.y * ic - s * v.x, 0.0, v.x * v.z * ic - s * v.y, v.y * v.z * ic + s * v.x, v.z * v.z * ic + c, 0.0, 0.0, 0.0, 0.0, 1.0);
+	float s = sin(angle);
+	return mat3(vec3(c, 0, s), vec3(0, 1, 0), vec3(-s, 0, c));
 }
 
-mat4 translate(float x, float y, float z) {
-	return mat4(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, x, y, z, 1.0);
+//===============//
+//  Ray Tracing  //
+//===============//
+
+Hit intersectPlane(vec3 ro, vec3 rd, Plane p) {
+	float dotnd = dot(p.normal, rd);
+	if(dotnd > 0.)
+		return miss;
+	float t = -(dot(ro, p.normal) + p.offset) / dotnd;
+	return Hit(t, p.normal, p.material);
 }
 
-vec2 hash2(float n) {
-	return fract(sin(vec2(n, n + 1.0)) * vec2(43758.5453123, 22578.1459123));
+Hit intersectSphere(vec3 ro, vec3 rd, Sphere s) {
+	vec3 op = s.position - ro;
+	float b = dot(op, rd);
+	float det = b * b - dot(op, op) + s.radius * s.radius;
+	if(det < 0.)
+		return miss;
+
+	det = sqrt(det);
+	float t = b - det;
+	if(t < 0.)
+		t = b + det;
+	if(t < 0.)
+		return miss;
+
+	return Hit(t, (ro + t * rd - s.position) / s.radius, s.material);
 }
 
-//-----------------------------------------------------------------------------------------
-
-float iPlane(in vec3 ro, in vec3 rd) {
-	return (-1.0 - ro.y) / rd.y;
-}
-
-
-#ifdef GL_ES_VERSION_3_0
-	mat4 inverseMatrix(mat4 m) {
-		return inverse(m);
+void takeClosest(inout Hit a, Hit b) {
+	if(b.len < a.len) {
+		a = b;
 	}
-#else
-	// built-in in GLSL 3 but for practical reasons the syntax is GLSL 2, so we need to define it
-	// https://github.com/glslify/glsl-inverse/blob/master/index.glsl
-	mat4 inverseMatrix(mat4 m) {
-		float
-				a00 = m[0][0], a01 = m[0][1], a02 = m[0][2], a03 = m[0][3],
-				a10 = m[1][0], a11 = m[1][1], a12 = m[1][2], a13 = m[1][3],
-				a20 = m[2][0], a21 = m[2][1], a22 = m[2][2], a23 = m[2][3],
-				a30 = m[3][0], a31 = m[3][1], a32 = m[3][2], a33 = m[3][3],
+}
 
-				b00 = a00 * a11 - a01 * a10,
-				b01 = a00 * a12 - a02 * a10,
-				b02 = a00 * a13 - a03 * a10,
-				b03 = a01 * a12 - a02 * a11,
-				b04 = a01 * a13 - a03 * a11,
-				b05 = a02 * a13 - a03 * a12,
-				b06 = a20 * a31 - a21 * a30,
-				b07 = a20 * a32 - a22 * a30,
-				b08 = a20 * a33 - a23 * a30,
-				b09 = a21 * a32 - a22 * a31,
-				b10 = a21 * a33 - a23 * a31,
-				b11 = a22 * a33 - a23 * a32,
+Hit intersectScene(vec3 ro, vec3 rd) {
+	Sphere sphere = Sphere(rotateY(uTime) * vec3(1., 1., 0.), 1., Material(vec3(0.05, 0.3, .9), .02));
+	Sphere sphere2 = Sphere(rotateY(uTime) * vec3(-1., 2., 0.), 1., Material(vec3(1., .1, .1), .85));
+	Plane plane = Plane(0., vec3(0., 1., 0.), Material(vec3(1), .9));
 
-				det = b00 * b11 - b01 * b10 + b02 * b09 + b03 * b08 - b04 * b07 + b05 * b06;
+	Hit hit = miss;
+	takeClosest(hit, intersectPlane(ro, rd, plane));
+	takeClosest(hit, intersectSphere(ro, rd, sphere));
+	takeClosest(hit, intersectSphere(ro, rd, sphere2));
 
-		return mat4(
-				a11 * b11 - a12 * b10 + a13 * b09,
-				a02 * b10 - a01 * b11 - a03 * b09,
-				a31 * b05 - a32 * b04 + a33 * b03,
-				a22 * b04 - a21 * b05 - a23 * b03,
-				a12 * b08 - a10 * b11 - a13 * b07,
-				a00 * b11 - a02 * b08 + a03 * b07,
-				a32 * b02 - a30 * b05 - a33 * b01,
-				a20 * b05 - a22 * b02 + a23 * b01,
-				a10 * b10 - a11 * b08 + a13 * b06,
-				a01 * b08 - a00 * b10 - a03 * b06,
-				a30 * b04 - a31 * b02 + a33 * b00,
-				a21 * b02 - a20 * b04 - a23 * b00,
-				a11 * b07 - a10 * b09 - a12 * b06,
-				a00 * b09 - a01 * b07 + a02 * b06,
-				a31 * b01 - a30 * b03 - a32 * b00,
-				a20 * b03 - a21 * b01 + a22 * b00) / det;
+	return hit;
+}
+
+// Schlick approximation (http://en.wikipedia.org/wiki/Schlick's_approximation)
+vec3 fresnelFactor(vec3 normal, vec3 viewDir, Material material) {
+	vec3 r0 = material.color * (1. - material.specular);
+	float hv = clamp(dot(normal, -viewDir), 0.0, 1.0);
+	return r0 + (1.0 - r0) * pow(1.0 - hv, 5.0);
+}
+
+vec3 radiance(vec3 ro, vec3 rd) {
+	vec3 color = vec3(0.);
+	vec3 attenuation = vec3(1.);
+	vec3 fresnel = vec3(0.);
+
+	for(int i = 1; i <= MAX_BOUNCES; i++) {
+		Hit hit = intersectScene(ro, rd);
+
+		if(hit != miss) {
+
+			vec3 hitPosition = ro + hit.len * rd;
+			fresnel = fresnelFactor(hit.normal, rd, hit.material);
+
+			Hit shadowHit = intersectScene(hitPosition + EPSILON * SUN_DIR, SUN_DIR);
+
+			if(shadowHit == miss) {
+                // Diffuse
+				vec3 directLight = clamp(dot(hit.normal, SUN_DIR), 0.0, 1.0) * SUN_COLOR;
+				vec3 diffuseColor = hit.material.color * directLight;
+
+                // Specular
+				vec3 r = normalize(reflect(SUN_DIR, hit.normal));
+				float phongValue = max(0.0, dot(rd, r));
+				float coef = pow(1. - hit.material.specular, 10.) * 1e3; // complete guesswork, I don't know how to compute this phong coefficient
+				phongValue = pow(phongValue, coef);
+
+				vec3 specular = vec3(phongValue * coef);
+
+				color += attenuation * (diffuseColor + specular);
+			}
+			color += attenuation * hit.material.color * AMBIENT_LIGHT;
+
+            // Next bounce
+			attenuation *= fresnel * (1. - hit.material.specular);
+			vec3 d = reflect(rd, hit.normal);
+			ro = ro + hit.len * rd + EPSILON * d;
+			rd = d;
+		} else {
+			color += attenuation * AMBIENT_COLOR;
+			break;
+		}
 	}
-#endif
+	return color;
+}
+
+// Zavie - https://www.shadertoy.com/view/lslGzl
+vec3 simpleReinhardToneMapping(vec3 color) {
+	float exposure = 1.6;
+	color *= exposure / (1. + color / exposure);
+	color = pow(color, vec3(1. / 2.2));
+	return color;
+}
+
+//========//
+//  Main  //
+//========//
 
 void main() {
-	vec3 ro = vec3(0.0, 0.0, 5.0);
-	vec3 rd = normalize(vec3(vUv.x, vUv.y - 0.3, -3.5));
+	// vec2 uv = (2. * fragCoord.xy / iResolution.xy - 1.) * iResolution.xy / iResolution.y;
 
-    // box animation
-	mat4 rot = rotationAxisAngle(normalize(vec3(1.0, 1.0, 0.0)), uTime);
-	mat4 tra = translate(0.0, -.1, 0.0);
-	mat4 txi = tra * rot;
-	mat4 txx = inverseMatrix(txi);
-	vec3 box = vec3(0.5, 0.5, 0.5);
+	vec3 ro = CAMERA_POSITION;
+	vec3 rd = normalize(vec3(vUv, -1.0));
 
-	vec3 col = vec3(1.);
+	vec3 color = radiance(ro, rd);
 
-	float tmin = 1e10;
-
-	float t1 = iPlane(ro, rd);
-	if(t1 > 0.0 && t1 < 50.) {
-		tmin = t1;
-		vec3 pos = ro + tmin * rd;
-		vec3 nor = vec3(0.0, 1.0, 0.0);
-		float occ = 0.0;
-
-		occ = boxOcclusion(pos, nor, txx, txi, box);
-
-		col = vec3(1.1);
-		col *= 1.0 - 1. * pow(occ, 1.2);
-	}
-
-	vec4 res = boxIntersect(ro, rd, txx, txi, box);
-	float t2 = res.x;
-	if(t2 > 0.0 && t2 < tmin) {
-		tmin = t2;
-		vec3 nor = res.yzw;
-		col = vec3(1., .2, .2);
-
-		col *= 1.7;
-		col *= 0.6 + 0.4 * nor.y;
-	}
-
-	// blend into background
-	col.r = min(col.r, .97);
-	col.g = min(col.g, .98);
-	col.b = min(col.b, .99);
-
-	gl_FragColor = vec4(col, 1.0);
+	gl_FragColor = vec4(simpleReinhardToneMapping(color), 1.0);
 }

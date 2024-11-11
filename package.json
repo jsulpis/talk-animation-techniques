@@ -20,6 +20,7 @@
 		"animejs": "3.2.1",
 		"astro": "2.5.4",
 		"framer-motion": "10.12.16",
+		"gl-matrix": "3.4.3",
 		"gsap": "3.11.5",
 		"mermaid": "10.1.0",
 		"motion": "10.16.2",

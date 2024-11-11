@@ -19,7 +19,9 @@
 			fragmentShader,
 			uniforms: {
 				uTime: { value: 0.0 },
-				uResolution: { value: [window.innerHeight / 1.6, window.innerHeight / 1.6] },
+				uResolution: {
+					value: [window.innerHeight / 1.3, window.innerHeight / 1.3],
+				},
 			},
 		});
 
@@ -40,7 +42,7 @@
 			canvas,
 			alpha: true,
 		});
-		renderer.setSize(window.innerHeight / 1.6, window.innerHeight / 1.6);
+		renderer.setSize(window.innerHeight / 1.3, window.innerHeight / 1.3);
 		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 		/**
@@ -64,3 +66,11 @@
 </script>
 
 <canvas bind:this={canvas} class="webgl" />
+
+<style>
+	canvas {
+		position: relative;
+		z-index: -1;
+		margin-top: -20%;
+	}
+</style>

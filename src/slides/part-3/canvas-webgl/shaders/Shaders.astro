@@ -8,10 +8,10 @@ import VertexShaderDemoImage from "./vertex/demo-image/VertexShaderDemoImage.sve
 import VertexShaderDemoParticles from "./vertex/demo-particles/VertexShaderDemoParticles.svelte";
 import gpu from "../../../../assets/gpu.png";
 import CodepenSource from "../../../../components/CodepenSource.astro";
-import FragmentGradient from "./fragment/FragmentGradient.svelte"
-import FragmentShaderReactLogo from "./fragment/demo-react-logo/FragmentShaderReactLogo.svelte"
-import FragmentShaderBox from "./fragment/demo-box/FragmentShaderBox.svelte"
-import FragmentShaderImages from "./fragment/demo-images/FragmentShaderImages.svelte"
+import FragmentGradient from "./fragment/FragmentGradient.svelte";
+import FragmentShaderReactLogo from "./fragment/demo-react-logo/FragmentShaderReactLogo.svelte";
+import FragmentShaderBox from "./fragment/demo-box/FragmentShaderBox.svelte";
+import FragmentShaderImages from "./fragment/demo-images/FragmentShaderImages.svelte";
 
 const { title } = Astro.props;
 const subSectionTitle = "Shaders GLSL";
@@ -47,16 +47,13 @@ const subSectionTitle = "Shaders GLSL";
 			<img data-src={gpu} alt="" />
 			<p><strong>GPU</strong></p>
 		</div>
-		<img data-src={pixels} alt="pixels" class="pixels"/>
+		<img data-src={pixels} alt="pixels" class="pixels" />
 	</div>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<!-- http://daureg.free.fr/ta_webit/fonctionnement.html -->
-	<img
-		data-src={vertex}
-		alt="vertex shader"
-	/>
+	<img data-src={vertex} alt="vertex shader" />
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
@@ -96,18 +93,16 @@ void main() {
 		<VertexShaderDemoParticles client:visible />
 	</div>
 	<CodepenSource
-		pseudo="André Mattos"
-		name="Loading..."
-		url="https://codepen.io/ma77os/pen/JjMRmLP"
+		pseudo="jsulpis"
+		name="WebGL Points (Vanilla)"
+		url="https://codesandbox.io/p/devbox/webgl-points-vanilla-45xnpc"
+		platform="codesandbox"
 	/>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<!-- http://daureg.free.fr/ta_webit/fonctionnement.html -->
-	<img
-		data-src={pixel}
-		alt="pixel shader"
-	/>
+	<img data-src={pixel} alt="pixel shader" />
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
@@ -131,7 +126,7 @@ void main() {
 	<h3>Fragment Shader</h3>
 	<p>couleur</p>
 	<div class="content"></div>
-	<FragmentGradient	 client:visible/>
+	<FragmentGradient client:visible />
 	<CodepenSource
 		pseudo="Stripe.com"
 		name="Gradient animation"
@@ -144,7 +139,7 @@ void main() {
 	<h3>Fragment Shader</h3>
 	<p>couleur</p>
 	<div class="content p-0">
-		<FragmentShaderImages client:visible/>
+		<FragmentShaderImages client:visible />
 	</div>
 	<CodepenSource
 		pseudo="Michal Zalobny"
@@ -158,28 +153,28 @@ void main() {
 	<h3>Fragment Shader</h3>
 	<p>couleur</p>
 	<div class="content p-0">
-		<FragmentShaderReactLogo client:visible/>
+		<FragmentShaderReactLogo client:visible />
 	</div>
 	<CodepenSource
 		pseudo="jsulpis"
 		name="React logo"
 		url="https://www.shadertoy.com/view/ms3yzH"
-		platform="shadertoy">
-	</CodepenSource>
+		platform="shadertoy"
+	/>
 </Slide>
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<h3>Fragment Shader</h3>
 	<p>couleur</p>
-	<div class="content p-0">
-		<FragmentShaderBox client:visible/>
+	<div class="content p-0 ray-tracing">
+		<FragmentShaderBox client:visible />
 	</div>
 	<CodepenSource
-		pseudo="iq"
-		name="Box - occlusion "
-		url=https://www.shadertoy.com/view/4djXDy"
-		platform="shadertoy">
-	</CodepenSource>
+		pseudo="jsulpis"
+		name="Ray tracing starter"
+		url="https://www.shadertoy.com/view/cddyDS"
+		platform="shadertoy"
+	/>
 </Slide>
 
 <!-- <Slide sectionTitle={title} subSectionTitle={subSectionTitle} animate={false}>
@@ -196,8 +191,7 @@ void main() {
 
 <Slide sectionTitle={title} subSectionTitle={subSectionTitle}>
 	<h3>david.li/fluid</h3>
-		<iframe class="simulation" data-src="http://david.li/fluid/"></iframe>
-	</div>
+	<iframe class="simulation" data-src="http://david.li/fluid/"></iframe>
 </Slide>
 
 <style lang="scss">
@@ -227,13 +221,17 @@ void main() {
 		height: 60vh;
 		width: auto;
 		border: 0;
-		border-radius: .5rem;
+		border-radius: 0.5rem;
 		aspect-ratio: 9/5;
 
 		&.simulation {
 			height: 70vh;
 			margin-bottom: -15vh;
 		}
+	}
+	.ray-tracing {
+		position: relative;
+		z-index: -1;
 	}
 	img {
 		height: 50vh;
